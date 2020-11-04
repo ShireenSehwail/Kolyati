@@ -1,25 +1,28 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonGrid,IonRow,IonCol, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
-import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const style={color:"white"};
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
+    <>
+    <IonHeader>
+    <IonToolbar color="warning">
+          <IonTitle color="light">Kolliyati</IonTitle>
+      </IonToolbar>
+  </IonHeader>
+  <IonContent >
+  <IonGrid>
+        <IonRow >
+              <IonCol>
+                    <h1 text-uppercase no-padding no-margin>Welcome</h1>
+                    <h3 no-padding no-margin>Shireen</h3>
+              </IonCol>
+        </IonRow>
+  </IonGrid>
+
+  </IonContent>
+  </>
   );
 };
 
