@@ -15,7 +15,7 @@ const Home: React.FC = () => {
         <IonRow >
               <IonCol>
                     <h1 text-uppercase no-padding no-margin>Welcome</h1>
-                    <h3 no-padding no-margin>Shireen</h3>
+                    <h3 no-padding no-margin>Wasfi</h3>
               </IonCol>
         </IonRow>
   </IonGrid>
