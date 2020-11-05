@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -19,22 +19,22 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
+import CaseCreation from './pages/CaseCreation';
 
 
 const App: React.FC = () => (
   <IonApp>
-    <div>
+ 
  
     <IonReactRouter>
    
       <IonRouterOutlet>
     
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
+        <Route path="/caseCreation" component={CaseCreation} exact={true} />
+        <Route exact path="/" render={() => <Redirect to="/caseCreation" />} />
       </IonRouterOutlet>
     </IonReactRouter>
-    </div>
-    
+  
   </IonApp>
 );
 
