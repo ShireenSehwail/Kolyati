@@ -1,4 +1,4 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonPage, IonRouterOutlet, IonRow, IonSelect, IonSelectOption, IonTab, IonText, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonPage, IonRow, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './CaseCreation.css';
 import{ star, }  from 'ionicons/icons';

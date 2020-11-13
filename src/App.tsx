@@ -20,6 +20,8 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 import CaseCreation from './pages/CaseCreation';
+import LogIn from './pages/logIn';
+import SignUp from './pages/signUp';
 
 
 const App: React.FC = () => (
@@ -31,6 +33,8 @@ const App: React.FC = () => (
       <IonRouterOutlet>
     
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
+        <Route path="/logIn" component={LogIn} exact={true} />
+        <Route path="/signUp" component={SignUp} exact={true}/>
         <Route exact path="/" render={() => <Redirect to="/caseCreation" />} />
       </IonRouterOutlet>
     </IonReactRouter>
