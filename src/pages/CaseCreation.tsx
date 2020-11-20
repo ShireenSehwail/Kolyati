@@ -1,4 +1,4 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonPage, IonRow, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonMenuButton, IonPage, IonRow, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './CaseCreation.css';
 import{ star, }  from 'ionicons/icons';
@@ -13,13 +13,16 @@ const CaseCreation: React.FC = () => {
   const [gpa, setGpa] = useState<string>();
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle> CaseCreation </IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
+    <>
+    <IonHeader>
+    <IonToolbar>
+      <IonTitle>Create a new case</IonTitle>
+      <IonButton slot="start">
+        <IonMenuButton menu="main-menu"></IonMenuButton>
+      </IonButton>
+    </IonToolbar>
+  </IonHeader>
+      <IonContent >
         <IonHeader collapse="condense">
           <IonToolbar>
             <IonTitle size="large">CaseCreation</IonTitle>
@@ -161,7 +164,7 @@ const CaseCreation: React.FC = () => {
         </IonGrid>
 
       </IonContent>
-    </IonPage>
+      </>
   );
 };
 
