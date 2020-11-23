@@ -19,10 +19,11 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import CaseCreation from '../pages/CaseCreation';
-import LogIn from '../pages/logIn';
-import SignUp from '../pages/signUp';
+import CaseCreation from '../pages/CaseCreation/CaseCreation';
+import LogIn from '../pages/LogIn/logIn';
+import SignUp from '../pages/SignUp/signUp';
 import Nav from '../components/Nav/Nav';
+import Home from '../pages/Home/Home';
 
 const App: React.FC = () =>{    
   const [isAuth,setIsAuth]=useState<boolean>(true);
@@ -39,12 +40,13 @@ const App: React.FC = () =>{
     onSignOutClick={handleSignOut}
 
     />
-  <IonReactRouter>
+      <IonReactRouter>
       <IonRouterOutlet  id="main">
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
         <Route path="/logIn" component={LogIn} exact={true} />
         <Route path="/signUp" component={SignUp} exact={true}/>
-        <Route exact path="/" render={() => <Redirect to="/caseCreation" />} />
+        <Route path="/Home" component={Home} exact={true}/>
+        <Route exact path="/" render={() => <Redirect to="/Home" />} />
       </IonRouterOutlet>
     </IonReactRouter>
     </IonApp>
