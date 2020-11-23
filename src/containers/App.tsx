@@ -19,10 +19,13 @@ import '@ionic/react/css/text-alignment.css';
 import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-import CaseCreation from '../pages/CaseCreation';
-import LogIn from '../pages/logIn';
-import SignUp from '../pages/signUp';
+
+
 import Nav from '../components/Nav/Nav';
+import CaseCreation from '../pages/CaseCreation/CaseCreation';
+import LogIn from '../pages/LogIn/logIn';
+import SignUp from '../pages/SignUp/signUp';
+
 
 const App: React.FC = () =>{    
   const [isAuth,setIsAuth]=useState<boolean>(true);
