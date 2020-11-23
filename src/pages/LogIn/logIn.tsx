@@ -23,7 +23,7 @@ const LogIn: React.FC = () => {
                 <IonRow>
                   <IonCol>
                    
-                  <h1> USER LOGIN  </h1> 
+                  <h1> Welcome Back  </h1> 
                   </IonCol>
                 </IonRow>
 
@@ -46,7 +46,7 @@ const LogIn: React.FC = () => {
 
                         <IonRow> 
                             <IonCol>
-                                <IonButton  shape="round" color="danger" expand="block" routerLink="/caseCreation">
+                                <IonButton  shape="round" color="dark" expand="block" routerLink="/caseCreation">
                                     LogIn
                                 </IonButton> 
                                 </IonCol>
@@ -58,9 +58,9 @@ const LogIn: React.FC = () => {
 
                         <IonRow>
                        <div>
-                        <p>Dont have an acoount  ? </p>
+                        <p> If you dont have an acoount ? </p>
                         <ul>
-                      <li><Link to="/signUp">  Register </Link></li>
+                      <li><Link to="/signUp"> Go to Register </Link></li>
                       </ul>
                      </div>
                           </IonRow>  

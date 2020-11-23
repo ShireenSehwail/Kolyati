@@ -25,6 +25,7 @@ import SignUp from '../pages/SignUp/signUp';
 import Nav from '../components/Nav/Nav';
 import Home from '../pages/Home/Home';
 
+
 const App: React.FC = () =>{    
   const [isAuth,setIsAuth]=useState<boolean>(true);
   const handleSignIn=()=>{
