@@ -1,16 +1,18 @@
 
-import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonInput, IonItem,  IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem,  IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { bag, bagHandleOutline, mail, mailOutline, person, personAddOutline, personOutline } from 'ionicons/icons';
 import React, { useState } from 'react';
 import {Link} from "react-router-dom";
-import './signUp.css';
 
 const SignUp : React.FC = props => {
 
   const [password, setPassword] = useState<string>();
   const [username, setUsername] = useState<string>();
   const [Cpassword, setCpassword] = useState<string>();
-
-  // const Registeration =()=> {
+  const [email, setEmail] = useState<string>();
+    //const style={margin:"0 16px"};//use this style={style} i will see it later
+  const style={margin:"0 16px"};
+    // const Registeration =()=> {
   //  if (password != Cpassword){
   //   return Toast('passwords do not match');
   //  }
@@ -33,32 +35,62 @@ const SignUp : React.FC = props => {
 
         <IonGrid>
 
+        <IonRow>
+                <h3>  Hello ! Let's fill in our information </h3>
+               
+            </IonRow>
+
+
             <IonRow>
-                <h3>  Username </h3>
-                <IonItem>
+           
+                <h3> 
+              
+                <IonIcon icon={person} style={style} />
+               
+                  Username </h3>
+
+                <IonItem >
                 <IonInput  type="text"  
               value={username}
-               placeholder="set username" 
+               placeholder=" " 
                 onIonChange={e => setUsername(e.detail.value!)}>  </IonInput>
+                </IonItem>
+            </IonRow>
+          
+
+
+            <IonRow>
+                <h3> 
+                  <IonIcon icon={mail} style={style}  />
+                   Email </h3>
+                <IonItem>
+                <IonInput  type="text"  
+              value={email}
+               placeholder="" 
+                onIonChange={e => setEmail(e.detail.value!)}>  </IonInput>
                 </IonItem>
             </IonRow>
 
             <IonRow>
-                <h3> Password </h3>
+                <h3>
+                  <IonIcon icon= {bag} style={style} />
+                   Password </h3>
                 <IonItem>
                 <IonInput type="password"  
               value={password}
-               placeholder="set password" 
+               placeholder=" " 
                 onIonChange={e => setPassword(e.detail.value!)}>  </IonInput>
                 </IonItem>        
             </IonRow>
 
             <IonRow>
-                <h3>  confirm Password </h3>
+                <h3> 
+                <IonIcon icon= {bag}style={style}  />
+                   confirm Password </h3>
                 <IonItem>
                 <IonInput type="password"  
               value={Cpassword}
-               placeholder="confirm Password" 
+               placeholder=" " 
                 onIonChange={e => setCpassword(e.detail.value!)}>  </IonInput>
                 </IonItem>        
             </IonRow>
@@ -80,7 +112,7 @@ const SignUp : React.FC = props => {
 
             <IonRow> 
               <IonCol>
-           <IonButton  shape="round" color="danger" expand="block"> SignUp </IonButton> 
+           <IonButton  shape="round" color="dark" expand="block"> SignUp </IonButton> 
              </IonCol>
             </IonRow>
 
