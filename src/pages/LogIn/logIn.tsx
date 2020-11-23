@@ -13,7 +13,7 @@ const LogIn: React.FC = () => {
         <IonHeader>
             <IonToolbar>
                 <IonTitle>
-               
+                Sign In
                 </IonTitle>
             </IonToolbar>
         </IonHeader>

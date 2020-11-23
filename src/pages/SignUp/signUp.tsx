@@ -36,23 +36,22 @@ const SignUp : React.FC = props => {
         <IonGrid>
 
         <IonRow>
-                <h3>  Hello ! Let's fill in our information </h3>
+                <h3>  Want to see our premium features? Hurry and Sign Up! </h3>
                
             </IonRow>
 
 
             <IonRow>
            
-                <h3> 
-              
-                <IonIcon icon={person} style={style} />
-               
-                  Username </h3>
+                
 
-                <IonItem >
+                <IonItem style={style}>
+              
+              <IonIcon icon={person} style={style} />
+             
                 <IonInput  type="text"  
               value={username}
-               placeholder=" " 
+               placeholder="User Name" 
                 onIonChange={e => setUsername(e.detail.value!)}>  </IonInput>
                 </IonItem>
             </IonRow>
@@ -60,37 +59,33 @@ const SignUp : React.FC = props => {
 
 
             <IonRow>
-                <h3> 
-                  <IonIcon icon={mail} style={style}  />
-                   Email </h3>
-                <IonItem>
+                <IonItem style={style}>
+                <IonIcon icon={mail} style={style}  />
                 <IonInput  type="text"  
               value={email}
-               placeholder="" 
+               placeholder="Email" 
                 onIonChange={e => setEmail(e.detail.value!)}>  </IonInput>
                 </IonItem>
             </IonRow>
 
             <IonRow>
-                <h3>
-                  <IonIcon icon= {bag} style={style} />
-                   Password </h3>
-                <IonItem>
+                   
+                <IonItem style={style}>
+                <IonIcon icon= {bag} style={style} />
+
                 <IonInput type="password"  
               value={password}
-               placeholder=" " 
+               placeholder="Password" 
                 onIonChange={e => setPassword(e.detail.value!)}>  </IonInput>
                 </IonItem>        
             </IonRow>
 
             <IonRow>
-                <h3> 
+                <IonItem style={style}>
                 <IonIcon icon= {bag}style={style}  />
-                   confirm Password </h3>
-                <IonItem>
                 <IonInput type="password"  
               value={Cpassword}
-               placeholder=" " 
+               placeholder="Confirm Password" 
                 onIonChange={e => setCpassword(e.detail.value!)}>  </IonInput>
                 </IonItem>        
             </IonRow>
@@ -98,7 +93,7 @@ const SignUp : React.FC = props => {
             <div>
                 <p>Already a member ?</p>
                 <ul>
-                    <li><Link to="/logIn"> Log In</Link></li>
+                    <li><Link to="/SignIn"> Log In</Link></li>
                 </ul>
             </div>
 
