@@ -1,6 +1,6 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonBackButton, IonButtons, IonHeader, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonApp,  IonRouterOutlet,  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
 
@@ -24,10 +24,21 @@ import LogIn from '../pages/logIn';
 import SignUp from '../pages/signUp';
 import Nav from '../components/Nav/Nav';
 
+const App: React.FC = () =>{    
+  const [isAuth,setIsAuth]=useState<boolean>(true);
+  const handleSignIn=()=>{
+    setIsAuth(true);
+  }
+  const handleSignOut=()=>{
+    setIsAuth(false);
+  }
+  return(<IonApp>
+    <Nav 
+    isAuth={isAuth}
+    onSignInClick={handleSignIn}
+    onSignOutClick={handleSignOut}
 
-const App: React.FC = () => (
-  <IonApp>
-    <Nav/>
+    />
   <IonReactRouter>
       <IonRouterOutlet  id="main">
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
@@ -37,7 +48,7 @@ const App: React.FC = () => (
       </IonRouterOutlet>
     </IonReactRouter>
     </IonApp>
-  
-);
+    );
 
+  };
 export default App;
