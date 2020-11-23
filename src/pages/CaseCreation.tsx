@@ -17,7 +17,7 @@ const CaseCreation: React.FC = () => {
     <IonHeader>
     <IonToolbar>
       <IonTitle>Create a new case</IonTitle>
-      <IonButton slot="start">
+      <IonButton slot="start" fill="clear">
         <IonMenuButton menu="main-menu"></IonMenuButton>
       </IonButton>
     </IonToolbar>
