@@ -54,12 +54,20 @@ const CaseCreation: React.FC = () => {
               <IonLabel   position="fixed"> prefrence 1 </IonLabel>
               
             </IonCol>
-            <IonCol>
-         
-              <IonInput  type="text" 
-               value={location} 
-               placeholder="location"  
-               onIonChange={e => setLocation(e.detail.value!)}>  </IonInput>
+            <IonCol> 
+            <IonSelect value={location} placeholder="Select your Location" onIonChange={e => setLocation(e.detail.value)}>
+              <IonSelectOption value=" Ramallah">Ramallah</IonSelectOption>
+              <IonSelectOption value="Hebron">Hebron</IonSelectOption>
+              <IonSelectOption value="Nablus"> Nablus</IonSelectOption>
+              <IonSelectOption value="Jerusalem">Jerusalem</IonSelectOption>
+              <IonSelectOption value="Betlahem"> Betlahem</IonSelectOption>
+              <IonSelectOption value="jenin">jenin</IonSelectOption>
+              <IonSelectOption value="Qalqilya">Qalqilya</IonSelectOption>
+              <IonSelectOption value="Jericho">Jericho</IonSelectOption>
+              <IonSelectOption value="Tobas">tobas</IonSelectOption>
+              <IonSelectOption value="Salfit">salfit</IonSelectOption>
+            </IonSelect>
+          
           
             </IonCol>
           </IonRow>
@@ -91,10 +99,15 @@ const CaseCreation: React.FC = () => {
               
             </IonCol>
             <IonCol>
-              
-              <IonToggle color="danger" 
-              checked={checked} 
-              onIonChange={e => setChecked(e.detail.checked)} /> 
+            <IonSelect value={major} placeholder="Select your prefered major" onIonChange={e => setMajor((e.detail.value))}>
+              <IonSelectOption value=" الهندسة والتكنولوجيا">الهندسة والتكنولوجيا</IonSelectOption>
+              <IonSelectOption value=" الأعمال والاقتصاد">الأعمال والاقتصاد</IonSelectOption>
+              <IonSelectOption value=" الأداب">الأداب</IonSelectOption>
+              <IonSelectOption value=" التربية">النربية</IonSelectOption>
+              <IonSelectOption value=" الصيدلة و التمريض">الصيدلة والتمريض</IonSelectOption>
+              <IonSelectOption value=" الحقوق والادارة">الحقوق و الادارة</IonSelectOption>
+              <IonSelectOption value=" العلوم">العلوم</IonSelectOption>
+            </IonSelect>
             
             </IonCol>
           </IonRow>
@@ -127,7 +140,7 @@ const CaseCreation: React.FC = () => {
               <IonSelectOption value="Literary">Literary</IonSelectOption>
               <IonSelectOption value="Commercial"> Commercial</IonSelectOption>
               <IonSelectOption value="Industrial">Industrial</IonSelectOption>
-              <IonSelectOption value="Forensic"> Forensic</IonSelectOption>
+              <IonSelectOption value="Forensic"> Forensic</IonSelectOption>ش
               <IonSelectOption value="Technological">Technological</IonSelectOption>
               <IonSelectOption value="Hotelier">Hotelier</IonSelectOption>
               <IonSelectOption value="Agricultural">Agricultural</IonSelectOption>
