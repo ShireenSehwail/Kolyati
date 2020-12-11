@@ -1,8 +1,6 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
-import {  homeOutline } from "ionicons/icons";
+import {  addOutline, heart, homeOutline } from "ionicons/icons";
 import React from "react";
-import LoggedIn from '../LoggedIn/LoggedIn'
-import LogIn from '../LogIn/LogIn'
 
 const Nav:
 React.FC<{isAuth:boolean;
@@ -24,7 +22,14 @@ React.FC<{isAuth:boolean;
             <IonIcon icon={homeOutline} slot="start"></IonIcon>
             <IonLabel>Home</IonLabel>
           </IonItem>
-          {props.isAuth?<LoggedIn click={props.onSignOutClick}/>:<LogIn click={props.onSignInClick}/>}
+          <IonItem routerLink="/caseCreation">
+            <IonIcon icon={addOutline}slot="start"></IonIcon>
+            <IonLabel>Create Case</IonLabel>
+          </IonItem>
+          <IonItem routerLink="/Favorite">
+            <IonIcon icon={heart} slot="start"></IonIcon>
+            <IonLabel>Favorites</IonLabel>
+          </IonItem>
         </IonList>
       </IonContent>
     </IonMenu>
