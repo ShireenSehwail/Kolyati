@@ -4,26 +4,26 @@ import Case from '../../components/Case/Case';
 
 const Home: React.FC = () => {
 
-  const casses=[{author:"Majd Khasib",createdTime:"2 minutes ago",title:"Help ME!",description:"Hello guys i need to ask about helping me out in finding the correct unversity that goes with my needs"}
-  ,{author:"Wasfi Nasser",createdTime:"10 minutes ago",title:"I want MONEY",description:"Hello guys i need to ask about helping me out in finding the correct unversity that goes with my needs"}
-  ,{author:"Shireen sehiwail",createdTime:"2 hours ago",title:"I want Happnies",description:"Hello guys i need to ask about helping me out in finding the correct unversity that goes with my needs"}
+  const casses=[{author:"مجد خصيب",createdTime:"قبل دقيقتين",title:" ساعدوني  !",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
+  ,{author:"وصفي ناصر",createdTime:"قبل 10 دقائق",title:"أحتاج المال",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
+  ,{author:"شيرين سحويل",createdTime:"قبل ساعتين",title:"أريد السعادة ",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
  ];
   
   return (
     <>
-    <IonHeader>
+    <IonHeader dir="rtl">
     <IonToolbar>
-      <IonTitle>Home</IonTitle>
+      <IonTitle>الصفحة الرئيسية</IonTitle>
       <IonButton slot="start" fill="clear">
         <IonMenuButton menu="main-menu"></IonMenuButton>
       </IonButton>
     </IonToolbar>
   </IonHeader>
       <IonContent fullscreen>
-<IonListHeader>
-Recent Cases
+<IonListHeader dir="rtl">
+ <h2> أحدث الحالات </h2>
 </IonListHeader>
-      <IonList >
+      <IonList dir="rtl" >
     {/* {casses?.map(data=>(<IonItem><Case 
 author={data.author}
 createdTime={data.createdTime}

@@ -7,28 +7,28 @@ React.FC<{isAuth:boolean;
   onSignInClick:()=>void;
   onSignOutClick:()=>void}
   >=(props)=>(
-    <IonMenu menuId="main-menu" contentId="main">
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>
-            Menu
+    <IonMenu menuId="main-menu" contentId="main"  dir="rtl" >
+      <IonHeader dir="rtl">
+        <IonToolbar >
+          <IonTitle >
+             القائمة
           </IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonList>
+      <IonContent >
+        <IonList dir="rtl" >
           
-          <IonItem routerLink="/Home">
+          <IonItem  routerLink="/Home">
             <IonIcon icon={homeOutline} slot="start"></IonIcon>
-            <IonLabel>Home</IonLabel>
+            <IonLabel>الصفحة الرئيسية</IonLabel>
           </IonItem>
-          <IonItem routerLink="/caseCreation">
+          <IonItem   routerLink="/caseCreation">
             <IonIcon icon={addOutline}slot="start"></IonIcon>
-            <IonLabel>Create Case</IonLabel>
+            <IonLabel> أنشئ حالة </IonLabel>
           </IonItem>
-          <IonItem routerLink="/Favorite">
+          <IonItem  routerLink="/Favorite">
             <IonIcon icon={heart} slot="start"></IonIcon>
-            <IonLabel>Favorites</IonLabel>
+            <IonLabel>المفضلة</IonLabel>
           </IonItem>
         </IonList>
       </IonContent>
