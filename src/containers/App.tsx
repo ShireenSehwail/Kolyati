@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp,  IonRouterOutlet,  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -27,6 +27,7 @@ import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import MyCase from '../pages/MyCase/MyCase';
 
 export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
+export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 
 const App: React.FC = () =>{    
  
