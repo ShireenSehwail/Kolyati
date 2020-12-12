@@ -23,22 +23,14 @@ import CaseCreation from '../pages/CaseCreation/CaseCreation';
 
 import Nav from '../components/Nav/Nav';
 import Home from '../pages/Home/Home';
+import PageNotFound from '../pages/PageNotFound/PageNotFound';
 
 
 const App: React.FC = () =>{    
-  const [isAuth,setIsAuth]=useState<boolean>(true);
-  const handleSignIn=()=>{
-    setIsAuth(true);
-  }
-  const handleSignOut=()=>{
-    setIsAuth(false);
-  }
+ 
   return(<IonApp >
     <Nav  
-    isAuth={isAuth}
-    onSignInClick={handleSignIn}
-    onSignOutClick={handleSignOut}
-    
+ 
 
     />
       <IonReactRouter>
@@ -46,6 +38,7 @@ const App: React.FC = () =>{
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
         <Route path="/Home" component={Home} exact={true}/>
         <Route exact path="/" render={() => <Redirect to="/Home" />} />
+        <Route component={PageNotFound} />
       </IonRouterOutlet>
     </IonReactRouter>
     </IonApp>
