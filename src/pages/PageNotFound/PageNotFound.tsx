@@ -1,6 +1,8 @@
-import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent } from "@ionic/react";
+import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, IonImg, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonGrid, IonRow } from "@ionic/react";
 import React from "react";
+
 const PageNotFound: React.FC = () => {
+   
     return(
         <>
         <IonHeader dir="rtl">
@@ -11,8 +13,12 @@ const PageNotFound: React.FC = () => {
           </IonButton>
         </IonToolbar>
       </IonHeader>
-          <IonContent fullscreen>
-  
+          <IonContent fullscreen color="danger">
+         
+      <IonImg src={require("../../res/NotFoundArabic.jpg")}/>
+         
+      
+
           </IonContent>
           </>
         );
