@@ -24,7 +24,9 @@ import CaseCreation from '../pages/CaseCreation/CaseCreation';
 import Nav from '../components/Nav/Nav';
 import Home from '../pages/Home/Home';
 import PageNotFound from '../pages/PageNotFound/PageNotFound';
+import MyCase from '../pages/MyCase/MyCase';
 
+export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 
 const App: React.FC = () =>{    
  
@@ -37,6 +39,7 @@ const App: React.FC = () =>{
       <IonRouterOutlet  id="main">
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
         <Route path="/Home" component={Home} exact={true}/>
+        <Route path="/myCase" component={MyCase} exact={true}/>
         <Route exact path="/" render={() => <Redirect to="/Home" />} />
         <Route component={PageNotFound} />
       </IonRouterOutlet>

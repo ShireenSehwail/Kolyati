@@ -29,9 +29,9 @@ const CaseCreation: React.FC = () => {
             <IonTitle size="large">CaseCreation</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonGrid dir="rtl">
+        <IonGrid dir="rtl" >
 
-        <IonRow>
+        <IonRow >
         <IonCol>
               <IonLabel   position="fixed"> الاسم  </IonLabel>
             </IonCol>
