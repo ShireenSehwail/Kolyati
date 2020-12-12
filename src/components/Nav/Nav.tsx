@@ -1,5 +1,5 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
-import {  addOutline, heart, homeOutline } from "ionicons/icons";
+import {  addOutline, briefcase, heart, homeOutline } from "ionicons/icons";
 import React from "react";
 
 const Nav:
@@ -7,7 +7,7 @@ React.FC<{isAuth:boolean;
   onSignInClick:()=>void;
   onSignOutClick:()=>void}
   >=(props)=>(
-    <IonMenu menuId="main-menu" contentId="main"  dir="rtl" >
+    <IonMenu side="end" menuId="main-menu" contentId="main"  dir="rtl" >
       <IonHeader dir="rtl">
         <IonToolbar >
           <IonTitle >
@@ -25,6 +25,10 @@ React.FC<{isAuth:boolean;
           <IonItem   routerLink="/caseCreation">
             <IonIcon icon={addOutline}slot="start"></IonIcon>
             <IonLabel> أنشئ حالة </IonLabel>
+          </IonItem>
+          <IonItem   routerLink="/showCase">
+            <IonIcon icon={briefcase}slot="start"></IonIcon>
+            <IonLabel> حالتي </IonLabel>
           </IonItem>
           <IonItem  routerLink="/Favorite">
             <IonIcon icon={heart} slot="start"></IonIcon>
