@@ -40,11 +40,13 @@ const CaseCreation: React.FC = () => {
             <IonTitle size="large">CaseCreation</IonTitle>
           </IonToolbar>
         </IonHeader>
+
         <IonList>
         <IonItem dir="rtl">
             <IonLabel position="floating">الاسم</IonLabel>
         
             <IonInput  type="text" 
+
           value={name} 
           placeholder="مجد خصيب"  
           onIonChange={e => setName(e.detail.value!)}>  
@@ -103,20 +105,13 @@ const CaseCreation: React.FC = () => {
          <IonTextarea value={description} placeholder="منذ طفولتي كنت أحلم بأن أكون طبيباً لأساعد الناس وأن أكون متمي...." onIonChange={e => setDescription(e.detail.value!)}></IonTextarea>
 
          </IonItem>
-    
-         
+
          <IonButton onClick={()=>{handleCaseCreation()}}
              color="primary"
              expand="block"
               size="small">  أنشئ حالة 
               </IonButton>
-
-        
-         
         </IonList>
-
-
-
       </IonContent>
       </>
   );

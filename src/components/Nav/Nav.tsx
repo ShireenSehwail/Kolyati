@@ -23,7 +23,7 @@ React.FC=(props)=>(
             <IonIcon icon={addOutline}slot="start"></IonIcon>
             <IonLabel> أنشئ حالة </IonLabel>
           </IonItem>
-          <IonItem   routerLink="/showCase">
+          <IonItem   routerLink="/myCase">
             <IonIcon icon={briefcase}slot="start"></IonIcon>
             <IonLabel> حالتي </IonLabel>
           </IonItem>

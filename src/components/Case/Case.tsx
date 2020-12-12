@@ -6,13 +6,11 @@ import React from "react";
     <IonCardHeader color="light   ">
       <IonCardSubtitle>{props.author}</IonCardSubtitle>
       <IonCardSubtitle>{props.createdTime}</IonCardSubtitle>
-
       <IonCardTitle>{props.title}</IonCardTitle>
     </IonCardHeader>
-
     <IonCardContent>
       {props.description}
-</IonCardContent>
+    </IonCardContent>
   </IonCard>
           )
 export default Case;
