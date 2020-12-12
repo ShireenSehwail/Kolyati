@@ -1,9 +1,12 @@
 import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CaseCreation.css';
-import {LOCAL_STORAGE_KEY_CASE} from '../../containers/App'
-const CaseCreation: React.FC = () => {
+import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED} from '../../containers/App'
+import { useHistory } from "react-router-dom";
+import PageNotFound from '../PageNotFound/PageNotFound';
 
+const CaseCreation: React.FC = () => {
+  const [isCreated,setIsCreated]=useState<boolean>(false);
   const [name, setName] = useState<string>();
   const [location, setLocation] = useState<string>();
   const [major, setMajor] = useState<string>();
@@ -11,6 +14,47 @@ const CaseCreation: React.FC = () => {
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>();
+  const history =useHistory();
+  useEffect(()=>{
+    const caseJSON=localStorage.getItem(LOCAL_STORAGE_KEY_CASE);
+    const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
+ 
+
+    if(isCreated!=="yes")
+    {if(caseJSON!=null)
+    { 
+      const parsedData=JSON.parse(caseJSON);
+      const name=parsedData.name?parsedData.name:"";
+      const location=parsedData.location?parsedData.location:"";
+      const major=parsedData.major?parsedData.major:"";
+      const checked=parsedData.checked?parsedData.checked:true;
+      const tawjihiType=parsedData.tawjihiType?parsedData.tawjihiType:"";
+      const gpa=parsedData.gpa?parsedData.gpa:"";
+      const description=parsedData.description?parsedData.description:"";
+      setName(name);
+      setLocation(location);
+      setMajor(major);
+      setChecked(checked);
+      setTawjihiType(tawjihiType);
+      setGpa(gpa);
+      setDescription(description);
+    }}
+    else
+    {   
+      setIsCreated(true);
+    }
+  },[])
+  useEffect(()=>{
+    localStorage.setItem(LOCAL_STORAGE_KEY_CASE,JSON.stringify({name:name,
+      location:location,
+      major:major,
+      checked:checked,
+      tawjihiType:tawjihiType,
+      gpa:gpa,
+      description:description
+    }));
+   
+  },[name,location,major,checked,tawjihiType,gpa,description,isCreated]);
   function handleCaseCreation(){
     localStorage.setItem(
       LOCAL_STORAGE_KEY_CASE,JSON.stringify(
@@ -22,31 +66,39 @@ const CaseCreation: React.FC = () => {
           gpa:gpa,
           description:description
         }));
+        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,"yes");
+        history.push("/myCase");
 
   }
-  return (
-    <>
-    <IonHeader dir="rtl">
+  let component=null;
+  if(isCreated)
+  {
+    component=(<PageNotFound title="لقد قمت بإنشاء حالة بالفعل!"/>);
+  }
+  else
+  {
+component=(
+    <><IonHeader dir="rtl">
     <IonToolbar>
       <IonTitle>أنشئ حالة جديدة</IonTitle>
       <IonButton slot="start" fill="clear">
         <IonMenuButton menu="main-menu"></IonMenuButton>
       </IonButton>
     </IonToolbar>
-  </IonHeader >
+    </IonHeader >
       <IonContent >
         <IonHeader collapse="condense" dir="rtl">
           <IonToolbar>
             <IonTitle size="large">CaseCreation</IonTitle>
           </IonToolbar>
         </IonHeader>
-
+    
         <IonList>
         <IonItem dir="rtl">
             <IonLabel position="floating">الاسم</IonLabel>
         
             <IonInput  type="text" 
-
+    
           value={name} 
           placeholder="مجد خصيب"  
           onIonChange={e => setName(e.detail.value!)}>  
@@ -81,7 +133,7 @@ const CaseCreation: React.FC = () => {
        </IonItem>
        <IonItem dir="rtl">
        <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
-
+    
             <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiType(e.detail.value)}>
               <IonSelectOption value=" Scientific">عملي</IonSelectOption>
               <IonSelectOption value="Literary">أدبي</IonSelectOption>
@@ -103,9 +155,9 @@ const CaseCreation: React.FC = () => {
          <IonItem dir="rtl">
          <IonLabel  className="desc" position="floating">الوصف</IonLabel> 
          <IonTextarea value={description} placeholder="منذ طفولتي كنت أحلم بأن أكون طبيباً لأساعد الناس وأن أكون متمي...." onIonChange={e => setDescription(e.detail.value!)}></IonTextarea>
-
+    
          </IonItem>
-
+    
          <IonButton onClick={()=>{handleCaseCreation()}}
              color="primary"
              expand="block"
@@ -114,7 +166,10 @@ const CaseCreation: React.FC = () => {
         </IonList>
       </IonContent>
       </>
+    
   );
+  }
+  return component;
 };
 
 export default CaseCreation;

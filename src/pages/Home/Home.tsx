@@ -1,5 +1,5 @@
 import { IonButton, IonContent,  IonHeader,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import React from 'react';
 import Case from '../../components/Case/Case';
 
 const Home: React.FC = () => {
