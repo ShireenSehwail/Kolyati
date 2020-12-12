@@ -33,11 +33,12 @@ const App: React.FC = () =>{
   const handleSignOut=()=>{
     setIsAuth(false);
   }
-  return(<IonApp>
-    <Nav 
+  return(<IonApp >
+    <Nav  
     isAuth={isAuth}
     onSignInClick={handleSignIn}
     onSignOutClick={handleSignOut}
+    
 
     />
       <IonReactRouter>
