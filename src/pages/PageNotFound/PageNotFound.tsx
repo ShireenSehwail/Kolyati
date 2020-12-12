@@ -13,9 +13,9 @@ const PageNotFound: React.FC = () => {
           </IonButton>
         </IonToolbar>
       </IonHeader>
-          <IonContent fullscreen color="danger">
+          <IonContent fullscreen color="light">
          
-      <IonImg src={require("../../res/NotFoundArabic.jpg")}/>
+      <IonImg src={require("../../res/NotFoundArabic.svg")}/>
          
       
 
