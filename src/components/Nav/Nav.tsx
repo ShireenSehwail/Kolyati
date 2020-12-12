@@ -3,10 +3,7 @@ import {  addOutline, briefcase, heart, homeOutline } from "ionicons/icons";
 import React from "react";
 
 const Nav:
-React.FC<{isAuth:boolean;
-  onSignInClick:()=>void;
-  onSignOutClick:()=>void}
-  >=(props)=>(
+React.FC=(props)=>(
     <IonMenu side="end" menuId="main-menu" contentId="main"  dir="rtl" >
       <IonHeader dir="rtl">
         <IonToolbar >
