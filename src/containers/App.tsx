@@ -25,7 +25,7 @@ import Nav from '../components/Nav/Nav';
 import Home from '../pages/Home/Home';
 import PageNotFound from '../pages/PageNotFound/PageNotFound';
 
-
+export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 const App: React.FC = () =>{    
  
   return(<IonApp >
