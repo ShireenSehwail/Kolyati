@@ -1,8 +1,7 @@
-import { IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonLabel, IonMenuButton, IonPage, IonRow, IonSelect, IonSelectOption, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useState } from 'react';
 import './CaseCreation.css';
-import{ star, }  from 'ionicons/icons';
-
+import {LOCAL_STORAGE_KEY_CASE} from '../../containers/App'
 const CaseCreation: React.FC = () => {
 
   const [name, setName] = useState<string>();
@@ -11,8 +10,20 @@ const CaseCreation: React.FC = () => {
   const [checked, setChecked] = useState(true);
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
-  const [desc, setDesc] = useState<string>();
+  const [description, setDescription] = useState<string>();
+  function handleCaseCreation(){
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_CASE,JSON.stringify(
+        {name:name,
+          location:location,
+          major:major,
+          checked:checked,
+          tawjihiType:tawjihiType,
+          gpa:gpa,
+          description:description
+        }));
 
+  }
   return (
     <>
     <IonHeader dir="rtl">
@@ -29,31 +40,21 @@ const CaseCreation: React.FC = () => {
             <IonTitle size="large">CaseCreation</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonGrid dir="rtl" >
 
-        <IonRow >
-        <IonCol>
-              <IonLabel   position="fixed"> الاسم  </IonLabel>
-            </IonCol>
-        <IonCol>
-         
-         <IonInput  type="text" 
+        <IonList>
+        <IonItem dir="rtl">
+            <IonLabel position="floating">الاسم</IonLabel>
+        
+            <IonInput  type="text" 
+
           value={name} 
-          placeholder="اسمك"  
-          onIonChange={e => setName(e.detail.value!)}>  </IonInput>
-
-       </IonCol>
-           
-          </IonRow>
-      
-          <IonRow>
-          <IonCol>
-              
-              <IonLabel   position="fixed"> الأولوية 1 </IonLabel>
-              
-            </IonCol>
-          <IonCol> 
-            <IonSelect value={location} placeholder="اختر-موقعك" onIonChange={e => setLocation(e.detail.value)}>
+          placeholder="مجد خصيب"  
+          onIonChange={e => setName(e.detail.value!)}>  
+          </IonInput>          
+          </IonItem>
+       <IonItem dir="rtl">
+       <IonLabel   position="floating"> مكان الإقامة </IonLabel>
+       <IonSelect value={location} placeholder="رام الله" onIonChange={e => setLocation(e.detail.value)}>
               <IonSelectOption value=" Ramallah">رام الله</IonSelectOption>
               <IonSelectOption value="Hebron">الخليل</IonSelectOption>
               <IonSelectOption value="Nablus"> نابلس</IonSelectOption>
@@ -65,18 +66,10 @@ const CaseCreation: React.FC = () => {
               <IonSelectOption value="Tobas">طوباس</IonSelectOption>
               <IonSelectOption value="Salfit">سلفيت</IonSelectOption>
             </IonSelect>
-            </IonCol>
-           
-            
-          </IonRow>
-
-           <IonRow>
-           <IonCol>
-             <IonLabel  position="fixed"> الأولوية 2 </IonLabel>
-           </IonCol>
-
-            <IonCol>
-              <IonSelect value={major} placeholder="اختر التخصص المفضل لديك" onIonChange={e => setMajor((e.detail.value))}>
+       </IonItem>
+       <IonItem dir="rtl">
+       <IonLabel  position="floating">التخصص المرغوب فيه </IonLabel>
+       <IonSelect value={major} placeholder="طب بشري" onIonChange={e => setMajor((e.detail.value))}>
               <IonSelectOption value=" الهندسة والتكنولوجيا">الهندسة والتكنولوجيا</IonSelectOption>
               <IonSelectOption value=" الأعمال والاقتصاد">الأعمال والاقتصاد</IonSelectOption>
               <IonSelectOption value=" الأداب">الأداب</IonSelectOption>
@@ -85,98 +78,40 @@ const CaseCreation: React.FC = () => {
               <IonSelectOption value=" الحقوق والادارة">الحقوق و الادارة</IonSelectOption>
               <IonSelectOption value=" العلوم">العلوم</IonSelectOption>
             </IonSelect>
-            </IonCol>
+       </IonItem>
+       <IonItem dir="rtl">
+       <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
 
-           
-          </IonRow>
-
-          <IonRow>
-          <IonCol>
-              <IonLabel className="privacy" position="fixed" > الخصوصية 
-              <IonIcon    icon={star}  slot="end"color="danger">
-                </IonIcon>
-               </IonLabel>
-
-            </IonCol>
-          <IonCol>
-              
-              <IonToggle color="danger" 
-              checked={checked} 
-              onIonChange={e => setChecked(e.detail.checked)} /> 
-            
-            </IonCol>
-           
-          </IonRow>
-
-          <IonRow>
-          <IonCol>
-
-          <IonLabel  className="desc" position="fixed"> الوصف
-           <IonIcon    slot={star}  icon={star} color="danger"/>
-           </IonLabel> 
-           </IonCol>
-          <IonCol>
-              <IonInput  type="text" 
-              value={desc}
-              placeholder="أضف وصفاً" 
-               onIonChange={e => setDesc(e.detail.value!)}>   </IonInput>
-            </IonCol>
-
-          </IonRow>
-
-          <IonRow>
-          <IonCol>
-
-            <IonLabel className="type" position="fixed"> فرع  الثانوية  
-            <IonIcon slot="start" icon={star} color="danger"/>
-              </IonLabel>
-             </IonCol>
-            <IonCol>
-          
-              <IonSelect value={tawjihiType} placeholder="ما هو فرعك في الثانوية " onIonChange={e => setTawjihiType(e.detail.value)}>
+            <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiType(e.detail.value)}>
               <IonSelectOption value=" Scientific">عملي</IonSelectOption>
               <IonSelectOption value="Literary">أدبي</IonSelectOption>
               <IonSelectOption value="Commercial"> تجاري</IonSelectOption>
               <IonSelectOption value="Industrial">صناعي</IonSelectOption>
-              <IonSelectOption value="Forensic"> شرعي</IonSelectOption>ش
+              <IonSelectOption value="Forensic"> شرعي</IonSelectOption>
               <IonSelectOption value="Technological">تكنولوجي</IonSelectOption>
               <IonSelectOption value="Hotelier">فنادق</IonSelectOption>
               <IonSelectOption value="Agricultural">زراعي</IonSelectOption>
             </IonSelect>
-              
-            </IonCol>
-           
-          </IonRow>
-
-          <IonRow>
-          <IonCol>
-              
-              <IonLabel  position="fixed"> معدل الثانوية العامة  </IonLabel>
-              
-            </IonCol>
-          <IonCol>
-          
-          <IonInput  type="text" 
+         </IonItem>
+         <IonItem dir="rtl">
+         <IonLabel  position="floating"> معدل الثانوية العامة  </IonLabel>
+         <IonInput  type="number" min="50" max="99.8"
            value={gpa}
-            placeholder="أدخل معدلك في الثانوية " 
+            placeholder="99.3" 
             onIonChange={e => setGpa(e.detail.value!)}>  </IonInput>
-        
-            </IonCol>
-           
-           
-          </IonRow>
-          <IonRow>
-            <IonCol/>
-            <IonCol/>
-            <IonCol/>
-            <IonCol>
-            <IonButton 
-             color="danger"
-              size="small">  أنشئ حالة </IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+         </IonItem >
+         <IonItem dir="rtl">
+         <IonLabel  className="desc" position="floating">الوصف</IonLabel> 
+         <IonTextarea value={description} placeholder="منذ طفولتي كنت أحلم بأن أكون طبيباً لأساعد الناس وأن أكون متمي...." onIonChange={e => setDescription(e.detail.value!)}></IonTextarea>
 
+         </IonItem>
+
+         <IonButton onClick={()=>{handleCaseCreation()}}
+             color="primary"
+             expand="block"
+              size="small">  أنشئ حالة 
+              </IonButton>
+        </IonList>
       </IonContent>
       </>
   );
