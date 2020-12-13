@@ -6,7 +6,9 @@ import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
 
 const CaseCreation: React.FC = () => {
-  const [isCreated,setIsCreated]=useState<boolean>(false);
+  const { v4: uuidv4 } = require('uuid');
+
+  const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>();
   const [location, setLocation] = useState<string>();
   const [major, setMajor] = useState<string>();
@@ -17,10 +19,9 @@ const CaseCreation: React.FC = () => {
   const history =useHistory();
   useEffect(()=>{
     const caseJSON=localStorage.getItem(LOCAL_STORAGE_KEY_CASE);
-    const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
+    const created=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
  
-
-    if(isCreated!=="yes")
+    if(created==="")
     {if(caseJSON!=null)
     { 
       const parsedData=JSON.parse(caseJSON);
@@ -41,7 +42,7 @@ const CaseCreation: React.FC = () => {
     }}
     else
     {   
-      setIsCreated(true);
+      setCreated(created!);
     }
   },[])
   useEffect(()=>{
@@ -54,7 +55,7 @@ const CaseCreation: React.FC = () => {
       description:description
     }));
    
-  },[name,location,major,checked,tawjihiType,gpa,description,isCreated]);
+  },[name,location,major,checked,tawjihiType,gpa,description,created]);
   function handleCaseCreation(){
     localStorage.setItem(
       LOCAL_STORAGE_KEY_CASE,JSON.stringify(
@@ -66,12 +67,12 @@ const CaseCreation: React.FC = () => {
           gpa:gpa,
           description:description
         }));
-        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,"yes");
+        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,uuidv4());
         history.push("/myCase");
 
   }
   let component=null;
-  if(isCreated)
+  if(created)
   {
     component=(<PageNotFound title="لقد قمت بإنشاء حالة بالفعل!"/>);
   }
