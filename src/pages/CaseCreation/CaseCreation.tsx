@@ -44,7 +44,7 @@ const CaseCreation: React.FC = () => {
     {   
       setCreated(created!);
     }
-  },[])
+  },[]);
   useEffect(()=>{
     localStorage.setItem(LOCAL_STORAGE_KEY_CASE,JSON.stringify({name:name,
       location:location,
