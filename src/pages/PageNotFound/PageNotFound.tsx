@@ -3,7 +3,8 @@ import React from "react";
 
 const PageNotFound: React.FC<{title:string}> = (props) => {
   
-   const title=props.title!==""?props.title:"الصفحة غير موجودة";
+   const title=props.title!==undefined?props.title:"الصفحة غير موجودة";
+ 
     return(
         <>
         <IonHeader dir="rtl">
