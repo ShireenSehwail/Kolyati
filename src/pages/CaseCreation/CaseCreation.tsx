@@ -56,6 +56,7 @@ const CaseCreation: React.FC = () => {
     }));
    
   },[name,location,major,checked,tawjihiType,gpa,description,created]);
+  
   function handleCaseCreation(){
     localStorage.setItem(
       LOCAL_STORAGE_KEY_CASE,JSON.stringify(
