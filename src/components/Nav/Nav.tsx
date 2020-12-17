@@ -1,5 +1,5 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
-import {  addOutline, briefcase, heart, homeOutline } from "ionicons/icons";
+import {  addOutline, briefcase, businessSharp, heart, homeOutline, personAddSharp } from "ionicons/icons";
 import React from "react";
 
 const Nav:
@@ -31,6 +31,18 @@ React.FC=(props)=>(
             <IonIcon icon={heart} slot="start"></IonIcon>
             <IonLabel>المفضلة</IonLabel>
           </IonItem>
+
+          <IonItem  routerLink="/Invite">
+            <IonIcon icon={personAddSharp} slot="start"></IonIcon>
+            <IonLabel>دعوة الاصدقاء</IonLabel>
+          </IonItem>
+
+          <IonItem  routerLink="/University">
+            <IonIcon icon={businessSharp} slot="start"></IonIcon>
+            <IonLabel> معلومات عن الجامعات</IonLabel>
+          </IonItem>
+          
+          
         </IonList>
       </IonContent>
     </IonMenu>

@@ -1,4 +1,4 @@
-import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent } from '@ionic/react';
+import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, IonRouterLink } from '@ionic/react';
 import React,{useState,useEffect} from 'react';
 import Case from '../../components/Case/Case';
 import {LOCAL_STORAGE_KEY_CASE ,LOCAL_STORAGE_KEY_CASE_CREATED} from "../../containers/App";
@@ -27,7 +27,9 @@ const [caseState,setCaseState]=useState<{author:string,createdTime:string,title:
   let component=null;
   if(created==="")
   {
-    component=(<PageNotFound title="لا يوجد لديك حالة، قم بإنشاء واحدة الآن"/>);
+    component=( <PageNotFound  title="لا يوجد لديك حالة، قم بإنشاء واحدة الآن  " />  );
+    
+    
   }
   else
   {
