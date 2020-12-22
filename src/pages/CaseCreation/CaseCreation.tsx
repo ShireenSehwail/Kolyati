@@ -1,10 +1,11 @@
-import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
+import { IonButton,  IonCol,  IonContent, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonRow,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import './CaseCreation.css';
 import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
 
+//const styless={border:"2px solid Violet", background:"#ff6348"};
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
 
@@ -80,34 +81,44 @@ const CaseCreation: React.FC = () => {
   else
   {
 component=(
-    <><IonHeader dir="rtl">
+ 
+  
+    <>
+    <IonHeader dir="rtl">
     <IonToolbar>
-      <IonTitle>أنشئ حالة جديدة</IonTitle>
+      <IonTitle >أنشئ حالة جديدة</IonTitle>
       <IonButton slot="start" fill="clear">
         <IonMenuButton menu="main-menu"></IonMenuButton>
       </IonButton>
     </IonToolbar>
     </IonHeader >
       <IonContent >
-        <IonHeader collapse="condense" dir="rtl">
-          <IonToolbar>
-            <IonTitle size="large">CaseCreation</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-    
-        <IonList>
-        <IonItem dir="rtl">
-            <IonLabel position="floating">الاسم</IonLabel>
-        
+      
+        <IonGrid>
+          <IonRow dir="rtl">
+
+           <IonCol>
+
+            <IonLabel  position="floating">الاسم</IonLabel>
+            </IonCol>
+            <IonCol>
+
             <IonInput  type="text" 
     
           value={name} 
           placeholder="مجد خصيب"  
           onIonChange={e => setName(e.detail.value!)}>  
-          </IonInput>          
-          </IonItem>
-       <IonItem dir="rtl">
+          </IonInput> 
+          </IonCol>         
+       
+          </IonRow>
+          <IonRow dir="rtl">
+          <IonCol>
+
        <IonLabel   position="floating"> مكان الإقامة </IonLabel>
+       </IonCol>
+       <IonCol>
+       
        <IonSelect value={location} placeholder="رام الله" onIonChange={e => setLocation(e.detail.value)}>
               <IonSelectOption value=" Ramallah">رام الله</IonSelectOption>
               <IonSelectOption value="Hebron">الخليل</IonSelectOption>
@@ -120,9 +131,13 @@ component=(
               <IonSelectOption value="Tobas">طوباس</IonSelectOption>
               <IonSelectOption value="Salfit">سلفيت</IonSelectOption>
             </IonSelect>
-       </IonItem>
-       <IonItem dir="rtl">
+            </IonCol>
+       </IonRow>
+       <IonRow dir="rtl">
+         <IonCol>
        <IonLabel  position="floating">التخصص المرغوب فيه </IonLabel>
+       </IonCol>
+       <IonCol>
        <IonSelect value={major} placeholder="طب بشري" onIonChange={e => setMajor((e.detail.value))}>
               <IonSelectOption value=" الهندسة والتكنولوجيا">الهندسة والتكنولوجيا</IonSelectOption>
               <IonSelectOption value=" الأعمال والاقتصاد">الأعمال والاقتصاد</IonSelectOption>
@@ -132,9 +147,14 @@ component=(
               <IonSelectOption value=" الحقوق والادارة">الحقوق و الادارة</IonSelectOption>
               <IonSelectOption value=" العلوم">العلوم</IonSelectOption>
             </IonSelect>
-       </IonItem>
-       <IonItem dir="rtl">
+            </IonCol>
+            </IonRow>
+            <IonRow dir="rtl">
+              <IonCol>
+   
        <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
+       </IonCol>
+       <IonCol>
     
             <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiType(e.detail.value)}>
               <IonSelectOption value=" Scientific">عملي</IonSelectOption>
@@ -146,28 +166,53 @@ component=(
               <IonSelectOption value="Hotelier">فنادق</IonSelectOption>
               <IonSelectOption value="Agricultural">زراعي</IonSelectOption>
             </IonSelect>
-         </IonItem>
-         <IonItem dir="rtl">
+            </IonCol>
+         </IonRow>
+         <IonRow dir="rtl">
+           <IonCol>
+
          <IonLabel  position="floating"> معدل الثانوية العامة  </IonLabel>
-         <IonInput  type="number" min="50" max="99.8"
+         </IonCol>
+         <IonCol>
+
+           <IonInput
            value={gpa}
             placeholder="99.3" 
             onIonChange={e => setGpa(e.detail.value!)}>  </IonInput>
-         </IonItem >
-         <IonItem dir="rtl">
+            </IonCol>
+            </IonRow>
+        
+      <IonRow dir="rtl">
+
+       <IonCol>
+
+      
          <IonLabel  className="desc" position="floating">الوصف</IonLabel> 
+         </IonCol>
+         <IonCol>
+
+         
          <IonTextarea value={description} placeholder="منذ طفولتي كنت أحلم بأن أكون طبيباً لأساعد الناس وأن أكون متمي...." onIonChange={e => setDescription(e.detail.value!)}></IonTextarea>
-    
-         </IonItem>
-    
+         </IonCol>
+          </IonRow>
+          <IonRow dir="rtl">
+          <IonCol/>
+            <IonCol/>
+            <IonCol/>
+            <IonCol>
          <IonButton onClick={()=>{handleCaseCreation()}}
              color="primary"
              expand="block"
               size="small">  أنشئ حالة 
               </IonButton>
-        </IonList>
+              </IonCol>
+              </IonRow>
+    
+        </IonGrid>
       </IonContent>
+      
       </>
+ 
     
   );
   }
