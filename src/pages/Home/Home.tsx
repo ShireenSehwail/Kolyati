@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 </IonListHeader>
       <IonList dir="rtl" >
         
-    {casses?.map(data=>(<IonItem><Case 
+{casses?.map(data=>(<IonItem><Case 
 author={data.author}
 createdTime={data.createdTime}
 title={data.title}
