@@ -4,7 +4,10 @@ import './CaseCreation.css';
 import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
-
+import axios from 'axios';
+const api=axios.create({
+  baseURL:`http://localhost:3000/`
+});
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
 
@@ -21,7 +24,7 @@ const CaseCreation: React.FC = () => {
     const caseJSON=localStorage.getItem(LOCAL_STORAGE_KEY_CASE);
     const created=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
  
-    if(created==="")
+    if(created===null)
     {if(caseJSON!=null)
     { 
       const parsedData=JSON.parse(caseJSON);
@@ -57,16 +60,17 @@ const CaseCreation: React.FC = () => {
    
   },[name,location,major,checked,tawjihiType,gpa,description,created]);
   function handleCaseCreation(){
-    localStorage.setItem(
-      LOCAL_STORAGE_KEY_CASE,JSON.stringify(
-        {name:name,
-          location:location,
-          major:major,
-          checked:checked,
-          tawjihiType:tawjihiType,
-          gpa:gpa,
-          description:description
-        }));
+   const creacteCase=async()=>{
+      let res=await api.post("/api/createCase", {name:name,
+        location:location,
+        major:major,
+        checked:checked,
+        tawjihiType:tawjihiType,
+        gpa:gpa,
+        description:description
+      });
+    }
+    creacteCase();
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,uuidv4());
         history.push("/myCase");
 
@@ -88,11 +92,7 @@ component=(
     </IonToolbar>
     </IonHeader >
       <IonContent >
-        <IonHeader collapse="condense" dir="rtl">
-          <IonToolbar>
-            <IonTitle size="large">CaseCreation</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+       
     
         <IonList>
         <IonItem dir="rtl">
