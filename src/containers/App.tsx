@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp,  IonRouterOutlet,  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -25,24 +25,25 @@ import Nav from '../components/Nav/Nav';
 import Home from '../pages/Home/Home';
 import PageNotFound from '../pages/PageNotFound/PageNotFound';
 import MyCase from '../pages/MyCase/MyCase';
+import Main from '../components/Main/Main';
+import Welcome from '../components/Welcome/Welcome';
 
 export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 
 const App: React.FC = () =>{    
- 
-  return(<IonApp >
-    <Nav/>
-      <IonReactRouter>
-      <IonRouterOutlet  id="main">
-        <Route path="/caseCreation" component={CaseCreation} exact={true} />
-        <Route path="/Home" component={Home} exact={true}/>
-        <Route path="/myCase" component={MyCase} exact={true}/>
-        <Route exact path="/" render={() => <Redirect to="/Home" />} />
-        <Route component={PageNotFound} />
-      </IonRouterOutlet>
-    </IonReactRouter>
-    </IonApp>
+  const [firstTime,setFirstTime]=useState<boolean>(true);
+  let page=null;
+  if(firstTime)
+  {
+  page=<Welcome/>
+  }
+  else
+  {
+    page= <Main/>
+  }
+  return(
+ page
     );
 
   };

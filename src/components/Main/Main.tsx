@@ -1,33 +1,25 @@
-import {  IonButton, IonContent, IonHeader, IonList, IonListHeader, IonMenuButton, IonTitle, IonToolbar } from "@ionic/react";
+import {  IonApp, IonButton, IonContent, IonHeader, IonList, IonListHeader, IonMenuButton, IonRouterOutlet, IonTitle, IonToolbar } from "@ionic/react";
+import { IonReactRouter } from "@ionic/react-router";
 import React from "react";
-import Case from "../Case/Case";
+import { Route, Redirect } from "react-router";
+import CaseCreation from "../../pages/CaseCreation/CaseCreation";
+import Home from "../../pages/Home/Home";
+import MyCase from "../../pages/MyCase/MyCase";
+import PageNotFound from "../../pages/PageNotFound/PageNotFound";
+import Nav from "../Nav/Nav";
 
  const Main :React.FC=()=>
-(<>
-    <IonHeader dir="rtl">
-    <IonToolbar>
-      <IonTitle>الصفحة الرئيسية</IonTitle>
-      <IonButton slot="start" fill="clear">
-        <IonMenuButton menu="main-menu"></IonMenuButton>
-      </IonButton>
-    </IonToolbar>
-  </IonHeader>
-      <IonContent fullscreen>
-<IonListHeader dir="rtl">
- <h2> أحدث الحالات </h2>
-</IonListHeader>
-      <IonList dir="rtl" >
-        
-    {/* {casses?.map(data=>(<IonItem><Case 
-author={data.author}
-createdTime={data.createdTime}
-title={data.title}
-description={data.description}/></IonItem>
-    ))} */}
-
-       </IonList>
-     
-      </IonContent>
-      </>
+( <IonApp >
+  <Nav/>
+    <IonReactRouter>
+    <IonRouterOutlet  id="main">
+      <Route path="/caseCreation" component={CaseCreation} exact={true} />
+      <Route path="/Home" component={Home} exact={true}/>
+      <Route path="/myCase" component={MyCase} exact={true}/>
+      <Route exact path="/" render={() => <Redirect to="/Home" />} />
+      <Route component={PageNotFound} />
+    </IonRouterOutlet>
+  </IonReactRouter>
+  </IonApp>
           )
 export default Main;
