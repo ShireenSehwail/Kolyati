@@ -1,0 +1,11 @@
+.rowStyle
+{
+height: 300px;
+}
+@media only screen and (max-width: 600px){
+    .rowStyle
+    {
+    height: 250px;
+    margin-bottom: 50px;
+    }
+}
