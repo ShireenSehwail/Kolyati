@@ -36,7 +36,7 @@ const App: React.FC = () =>{
   let page=null;
   if(firstTime)
   {
-page=<Welcome/>
+  page=<Welcome/>
   }
   else
   {
