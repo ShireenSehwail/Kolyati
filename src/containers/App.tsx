@@ -32,10 +32,7 @@ export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 const App: React.FC = () =>{    
  
   return(<IonApp >
-    <Nav  
- 
-
-    />
+    <Nav/>
       <IonReactRouter>
       <IonRouterOutlet  id="main">
         <Route path="/caseCreation" component={CaseCreation} exact={true} />
