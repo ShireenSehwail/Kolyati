@@ -1,10 +1,11 @@
 import {   IonContent, IonPage, IonSlide, IonSlides } from "@ionic/react";
 import React from "react";
 import FirstSlide from "../Slides/FirstSlide/FirstSlide";
+import SecondSlide from "../Slides/SecondSlide/SecondSlide";
 
 
  const Welcome :React.FC=()=>{const slideOpts = {
-    initialSlide: 0,
+    initialSlide: 1,
     speed: 400
   };
   const style={
@@ -18,7 +19,7 @@ import FirstSlide from "../Slides/FirstSlide/FirstSlide";
         <FirstSlide/>
       </IonSlide>
       <IonSlide>
-        <h1>Slide 2</h1>
+        <SecondSlide/>
       </IonSlide>
       <IonSlide>
         <h1>Slide 3</h1>

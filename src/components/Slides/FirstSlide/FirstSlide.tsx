@@ -1,14 +1,14 @@
 import { IonCol, IonContent, IonGrid, IonImg, IonRow, IonText } from '@ionic/react';
 import React from 'react';
+import classes from './FirsSlide.module.css';
 const FirstSlide:
 React.FC=()=>{ 
-const rowStyle={height:"400px"}
 return(
 <IonContent>
 <IonGrid>
   <IonRow  >
     <IonCol >
-    <IonImg style={rowStyle} src={require("../../../res/FirstSlide.svg")}/>
+    <IonImg className={classes.rowStyle} src={require("../../../res/FirstSlide.svg")}/>
 
     </IonCol>
   </IonRow>

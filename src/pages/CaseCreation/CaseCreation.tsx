@@ -1,6 +1,5 @@
 import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import './CaseCreation.css';
 import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
