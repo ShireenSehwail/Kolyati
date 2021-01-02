@@ -23,15 +23,16 @@ export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
-  useEffect(()=>{
-    const parsedData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FIRST_TIME)!);
+  const [dummy,setDummy]=useState<Number>(0);
+  const fetchState=async()=>{
+    const parsedData=await JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FIRST_TIME)!);
     if(!parsedData)
     return;
-    const data=parsedData.firstTime;
-    console.log(data);
-    console.log(data!==undefined?data:true);
     setFirstTime(false);
-  },[]);
+  }
+  useEffect(()=>{
+    fetchState();
+  },[dummy]);
   
   const changeFirstTimeState=()=>{
     localStorage.setItem(LOCAL_STORAGE_KEY_FIRST_TIME,JSON.stringify({firstTime:false}));
