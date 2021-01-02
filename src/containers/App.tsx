@@ -21,6 +21,7 @@ import Main from '../components/Main/Main';
 
 export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
+export const LOCAL_STORAGE_KEY_CASE_ID="koliyati.case.id"
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
