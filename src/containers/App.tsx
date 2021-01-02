@@ -1,4 +1,5 @@
 import React ,{useState,useEffect}from 'react';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -16,24 +17,22 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 import Welcome from '../components/Welcome/Welcome';
-import Home from '../pages/Home/Home';
+import Main from '../components/Main/Main';
 
 export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
-  const [dummy,setDummy]=useState<Number>(0);
-  const fetchState=async()=>{
-    const parsedData=await JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FIRST_TIME)!);
+
+  useEffect(()=>{
+    const parsedData= JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_FIRST_TIME)!);
     if(!parsedData)
     return;
-    setFirstTime(false);
-  }
-  useEffect(()=>{
-    fetchState();
-  },[dummy]);
-  
+    setFirstTime(false);  
+
+  },[]);
+
   const changeFirstTimeState=()=>{
     localStorage.setItem(LOCAL_STORAGE_KEY_FIRST_TIME,JSON.stringify({firstTime:false}));
     setFirstTime(false);
@@ -46,7 +45,7 @@ const App: React.FC = () =>{
   }
   else
   {
-    page= <Home/>
+    page= <Main/>
   }
   return(
  page
