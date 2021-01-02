@@ -5,8 +5,9 @@ import SecondSlide from "../Slides/SecondSlide/SecondSlide";
 import ThirdSlide from "../Slides/ThirdSlide/ThirdSlide";
 
 
- const Welcome :React.FC=()=>{const slideOpts = {
-    initialSlide: 2,
+ const Welcome :React.FC<{click:()=>void;}>=(props)=>{
+   const slideOpts = {
+    initialSlide: 0,
     speed: 400
   };
   const style={
@@ -23,7 +24,7 @@ import ThirdSlide from "../Slides/ThirdSlide/ThirdSlide";
         <SecondSlide/>
       </IonSlide>
       <IonSlide>
-        <ThirdSlide/>
+        <ThirdSlide click={props.click}/>
       </IonSlide>
     </IonSlides>
   </IonContent>

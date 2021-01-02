@@ -1,12 +1,9 @@
 import { IonButton, IonCol, IonContent, IonGrid, IonImg, IonRow, IonText } from '@ionic/react';
 import React from 'react';
-import { LOCAL_STORAGE_KEY_FIRST_TIME } from '../../../containers/App';
 import classes from './ThirdSlide.module.css';
 const ThirdSlide:
-React.FC=()=>{ 
- function clicked(){
-  localStorage.setItem(LOCAL_STORAGE_KEY_FIRST_TIME,JSON.stringify({firstTime:false}));
-  }
+React.FC<{click:()=>void}>=(props)=>{ 
+ 
 return(
 <IonContent>
 <IonGrid>
@@ -28,7 +25,7 @@ return(
   </IonRow>
   <IonRow>
     <IonCol>
-      <IonButton color="primary" onClick={clicked}>
+      <IonButton color="primary" onClick={props.click}>
         <IonText color="light">
         يلا إسأل  
         </IonText>
