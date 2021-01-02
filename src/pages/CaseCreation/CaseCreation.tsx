@@ -1,6 +1,6 @@
 import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED} from '../../containers/App'
+import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from 'axios';
@@ -11,13 +11,25 @@ const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
 
   const [created,setCreated]=useState<string>("");
-  const [name, setName] = useState<string>();
-  const [location, setLocation] = useState<string>();
-  const [major, setMajor] = useState<string>();
+  // const [name, setName] = useState<string>("");
+  // const [location, setLocation] = useState<string>();
+  // const [major, setMajor] = useState<string>();
+  // const [checked, setChecked] = useState(true);
+  // const [tawjihiType, setTawjihiType] = useState<string>();
+  // const [gpa, setGpa] = useState<string>();
+  // const [description, setDescription] = useState<string>();
+
+
+  const [name, setName] = useState<string>("مجد خصيب");
+  const [location, setLocation] = useState<string>("رام الله");
+  const [major, setMajor] = useState<string>("طب بشري");
   const [checked, setChecked] = useState(true);
-  const [tawjihiType, setTawjihiType] = useState<string>();
-  const [gpa, setGpa] = useState<string>();
-  const [description, setDescription] = useState<string>();
+  const [tawjihiType, setTawjihiType] = useState<string>("علمي");
+  const [gpa, setGpa] = useState<string>("99.3");
+  const [description, setDescription] = useState<string>("أريد دراسة الطب");
+
+
+
   const history =useHistory();
   useEffect(()=>{
     const caseJSON=localStorage.getItem(LOCAL_STORAGE_KEY_CASE);
@@ -34,13 +46,17 @@ const CaseCreation: React.FC = () => {
       const tawjihiType=parsedData.tawjihiType?parsedData.tawjihiType:"";
       const gpa=parsedData.gpa?parsedData.gpa:"";
       const description=parsedData.description?parsedData.description:"";
-      setName(name);
-      setLocation(location);
-      setMajor(major);
-      setChecked(checked);
-      setTawjihiType(tawjihiType);
-      setGpa(gpa);
-      setDescription(description);
+
+
+      // setName(name);
+      // setLocation(location);
+      // setMajor(major);
+      // setChecked(checked);
+      // setTawjihiType(tawjihiType);
+      // setGpa(gpa);
+      // setDescription(description);
+
+
     }}
     else
     {   
@@ -59,8 +75,16 @@ const CaseCreation: React.FC = () => {
    
   },[name,location,major,checked,tawjihiType,gpa,description,created]);
   function handleCaseCreation(){
-   const creacteCase=async()=>{
-      let res=await api.post("/api/createCase", {name:name,
+    if(!name||!location||!major||!checked||!tawjihiType||!gpa||!description)
+    {
+      return;
+    } 
+   const createCase=async()=>{
+     const id=uuidv4();
+     try{
+      const res=await api.post("/api/createCases", {
+        id:id,
+        name:name,
         location:location,
         major:major,
         checked:checked,
@@ -68,10 +92,28 @@ const CaseCreation: React.FC = () => {
         gpa:gpa,
         description:description
       });
+    
+      if(res.status!==200)
+      {
+        alert("Something Went wrong..");
+        console.log(res);
+
+      }
+      else{
+  //  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,id);
+  //  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,);
+
+  //     history.push("/myCase");
+  console.log(res);
+      }}
+      catch(err){
+        console.log(err); 
+      }
+      
+
     }
-    creacteCase();
-        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,uuidv4());
-        history.push("/myCase");
+    createCase();
+
 
   }
   let component=null;
