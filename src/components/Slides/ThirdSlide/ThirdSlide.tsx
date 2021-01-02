@@ -2,7 +2,8 @@ import { IonButton, IonCol, IonContent, IonGrid, IonImg, IonRow, IonText } from 
 import React from 'react';
 import classes from './ThirdSlide.module.css';
 const ThirdSlide:
-React.FC=()=>{ 
+React.FC<{click:()=>void}>=(props)=>{ 
+ 
 return(
 <IonContent>
 <IonGrid>
@@ -24,7 +25,7 @@ return(
   </IonRow>
   <IonRow>
     <IonCol>
-      <IonButton color="primary">
+      <IonButton color="primary" onClick={props.click}>
         <IonText color="light">
         يلا إسأل  
         </IonText>
