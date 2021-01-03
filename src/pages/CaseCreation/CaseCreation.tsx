@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from 'axios';
 const api=axios.create({
-  baseURL:`http://localhost:3000/`
+  baseURL:`http://localhost:8080/`
 });
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
@@ -15,7 +15,7 @@ const CaseCreation: React.FC = () => {
   // const [location, setLocation] = useState<string>();
   // const [major, setMajor] = useState<string>();
   // const [checked, setChecked] = useState(true);
-  // const [tawjihiType, setTawjihiType] = useState<string>();
+  // const [tawjehiType, setTawjehiType] = useState<string>();
   // const [gpa, setGpa] = useState<string>();
   // const [description, setDescription] = useState<string>();
 
@@ -24,7 +24,7 @@ const CaseCreation: React.FC = () => {
   const [location, setLocation] = useState<string>("رام الله");
   const [major, setMajor] = useState<string>("طب بشري");
   const [checked, setChecked] = useState(true);
-  const [tawjihiType, setTawjihiType] = useState<string>("علمي");
+  const [tawjehiType, setTawjehiType] = useState<string>("علمي");
   const [gpa, setGpa] = useState<string>("99.3");
   const [description, setDescription] = useState<string>("أريد دراسة الطب");
 
@@ -43,7 +43,7 @@ const CaseCreation: React.FC = () => {
       const location=parsedData.location?parsedData.location:"";
       const major=parsedData.major?parsedData.major:"";
       const checked=parsedData.checked?parsedData.checked:true;
-      const tawjihiType=parsedData.tawjihiType?parsedData.tawjihiType:"";
+      const tawjehiType=parsedData.tawjehiType?parsedData.tawjehiType:"";
       const gpa=parsedData.gpa?parsedData.gpa:"";
       const description=parsedData.description?parsedData.description:"";
 
@@ -52,7 +52,7 @@ const CaseCreation: React.FC = () => {
       // setLocation(location);
       // setMajor(major);
       // setChecked(checked);
-      // setTawjihiType(tawjihiType);
+      // setTawjehiType(tawjehiType);
       // setGpa(gpa);
       // setDescription(description);
 
@@ -68,27 +68,27 @@ const CaseCreation: React.FC = () => {
       location:location,
       major:major,
       checked:checked,
-      tawjihiType:tawjihiType,
+      tawjehiType:tawjehiType,
       gpa:gpa,
       description:description
     }));
    
-  },[name,location,major,checked,tawjihiType,gpa,description,created]);
+  },[name,location,major,checked,tawjehiType,gpa,description,created]);
   function handleCaseCreation(){
-    if(!name||!location||!major||!checked||!tawjihiType||!gpa||!description)
+    if(!name||!location||!major||!checked||!tawjehiType||!gpa||!description)
     {
       return;
     } 
    const createCase=async()=>{
      const id=uuidv4();
      try{
-      const res=await api.post("/api/createCases", {
+      const res=await api.post("api/v1/case" , {
         id:id,
         name:name,
         location:location,
         major:major,
         checked:checked,
-        tawjihiType:tawjihiType,
+        tawjehiType:tawjehiType,
         gpa:gpa,
         description:description
       });
@@ -149,21 +149,24 @@ component=(
        <IonItem dir="rtl">
        <IonLabel   position="floating"> مكان الإقامة </IonLabel>
        <IonSelect value={location} placeholder="رام الله" onIonChange={e => setLocation(e.detail.value)}>
-              <IonSelectOption value=" Ramallah">رام الله</IonSelectOption>
-              <IonSelectOption value="Hebron">الخليل</IonSelectOption>
-              <IonSelectOption value="Nablus"> نابلس</IonSelectOption>
-              <IonSelectOption value="Jerusalem">القدس</IonSelectOption>
-              <IonSelectOption value="Betlahem"> بيت لحم</IonSelectOption>
-              <IonSelectOption value="jenin">جنين</IonSelectOption>
-              <IonSelectOption value="Qalqilya">قلقيلية</IonSelectOption>
-              <IonSelectOption value="Jericho">أريحا</IonSelectOption>
-              <IonSelectOption value="Tobas">طوباس</IonSelectOption>
-              <IonSelectOption value="Salfit">سلفيت</IonSelectOption>
+              <IonSelectOption value=" رام الله ">رام الله</IonSelectOption>
+              <IonSelectOption value="الخليل">الخليل</IonSelectOption>
+              <IonSelectOption value="نابلس"> نابلس</IonSelectOption>
+              <IonSelectOption value="القدس">القدس</IonSelectOption>
+              <IonSelectOption value="بيت لحم"> بيت لحم</IonSelectOption>
+              <IonSelectOption value="جنين">جنين</IonSelectOption>
+              <IonSelectOption value="فلفيلية">قلقيلية</IonSelectOption>
+              <IonSelectOption value="أريحا">أريحا</IonSelectOption>
+              <IonSelectOption value="طوباس">طوباس</IonSelectOption>
+              <IonSelectOption value="سلفيت">سلفيت</IonSelectOption>
+              <IonSelectOption value="طولكرم">طولكرم</IonSelectOption>
             </IonSelect>
        </IonItem>
        <IonItem dir="rtl">
        <IonLabel  position="floating">التخصص المرغوب فيه </IonLabel>
        <IonSelect value={major} placeholder="طب بشري" onIonChange={e => setMajor((e.detail.value))}>
+            <IonSelectOption value=" العلوم">العلوم</IonSelectOption>
+            <IonSelectOption value=" الطب البشري">الطب البشري</IonSelectOption>
               <IonSelectOption value=" الهندسة والتكنولوجيا">الهندسة والتكنولوجيا</IonSelectOption>
               <IonSelectOption value=" الأعمال والاقتصاد">الأعمال والاقتصاد</IonSelectOption>
               <IonSelectOption value=" الأداب">الأداب</IonSelectOption>
@@ -176,15 +179,15 @@ component=(
        <IonItem dir="rtl">
        <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
     
-            <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiType(e.detail.value)}>
-              <IonSelectOption value=" Scientific">عملي</IonSelectOption>
-              <IonSelectOption value="Literary">أدبي</IonSelectOption>
-              <IonSelectOption value="Commercial"> تجاري</IonSelectOption>
-              <IonSelectOption value="Industrial">صناعي</IonSelectOption>
-              <IonSelectOption value="Forensic"> شرعي</IonSelectOption>
-              <IonSelectOption value="Technological">تكنولوجي</IonSelectOption>
-              <IonSelectOption value="Hotelier">فنادق</IonSelectOption>
-              <IonSelectOption value="Agricultural">زراعي</IonSelectOption>
+            <IonSelect value={tawjehiType} placeholder="علمي" onIonChange={e => setTawjehiType(e.detail.value)}>
+              <IonSelectOption value=" علمي">علمي</IonSelectOption>
+              <IonSelectOption value="أدبي">أدبي</IonSelectOption>
+              <IonSelectOption value="تجاري"> تجاري</IonSelectOption>
+              <IonSelectOption value="صناعي">صناعي</IonSelectOption>
+              <IonSelectOption value="شرعي"> شرعي</IonSelectOption>
+              <IonSelectOption value="تكنولوجي">تكنولوجي</IonSelectOption>
+              <IonSelectOption value="فنادق">فنادق</IonSelectOption>
+              <IonSelectOption value="زراعي">زراعي</IonSelectOption>
             </IonSelect>
          </IonItem>
          <IonItem dir="rtl">

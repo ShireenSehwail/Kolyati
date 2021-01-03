@@ -5,7 +5,7 @@ import { LOCAL_STORAGE_KEY_CASE_CREATED} from "../../containers/App";
 import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from "axios";
 const api=axios.create({
-  baseURL:`http://localhost:3000/`
+  baseURL:`http://localhost:8080/`
 });
 const MyCase: React.FC = () => {
   
@@ -18,7 +18,7 @@ const [caseState,setCaseState]=useState<{author:string,createdTime:string,title:
     
     if(isCreated!==null)
     {
-      api.get('/').then(res=>{
+      api.get('api/v1/case/{id}').then(res=>{
        const caseJSON=res.data[0];
        const name=caseJSON.name?caseJSON.name:"";
         const description=caseJSON.description?caseJSON.description:"";
