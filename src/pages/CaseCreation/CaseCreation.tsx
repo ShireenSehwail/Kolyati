@@ -1,15 +1,15 @@
 import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import {LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
+import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from 'axios';
-const api=axios.create({
-  baseURL:`http://localhost:8080/`
-});
+
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
-
+  const api=axios.create({
+    baseURL:BASE_URL
+  });
   const [created,setCreated]=useState<string>("");
   // const [name, setName] = useState<string>("");
   // const [location, setLocation] = useState<string>();

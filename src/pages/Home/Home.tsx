@@ -1,14 +1,33 @@
 import { IonButton, IonContent,  IonHeader,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar } from '@ionic/react';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
+import { BASE_URL } from '../../containers/App';
 
 const Home: React.FC = () => {
+  const api=axios.create({
+    baseURL:BASE_URL
+  });
+  const [casses,setCases]=useState<Array<CaseClass>>([]);
+ useEffect( () => {
+  console.log("Effect");
 
-  const casses=[{author:"مجد خصيب",createdTime:"قبل دقيقتين",title:" ساعدوني  !",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
-  ,{author:"وصفي ناصر",createdTime:"قبل 10 دقائق",title:"أحتاج المال",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
-  ,{author:"شيرين سحويل",createdTime:"قبل ساعتين",title:"أريد السعادة ",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
- ];
-  
+  const fetchData = async () => {
+    console.log("fetch");
+try{
+  const data=  await api('/casses');
+  console.log("fetched");
+
+  console.log(data.data);
+  setCases(data.data);
+}
+catch(err){
+  alert(err.message);
+}
+
+}
+  fetchData();
+},[]);
   return (
     <>
     <IonHeader dir="rtl">
@@ -26,9 +45,9 @@ const Home: React.FC = () => {
       <IonList dir="rtl" >
         
     {casses?.map(data=>(<IonItem><Case 
-author={data.author}
+author={data.name}
 createdTime={data.createdTime}
-title={data.title}
+title={"hi"}
 description={data.description}/></IonItem>
     ))}
 
