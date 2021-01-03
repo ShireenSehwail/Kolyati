@@ -2,8 +2,9 @@ import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent }
 import React from "react";
 
  const Case :React.FC<{author:string;createdTime:string;title:string;description:string}>=(props)=>
-(<IonCard>
-    <IonCardHeader color="light   ">
+{const style={width:"100%"}
+return (<IonCard style={style}>
+    <IonCardHeader color="light">
       <IonCardSubtitle>{props.author}</IonCardSubtitle>
       <IonCardSubtitle>{props.createdTime}</IonCardSubtitle>
       <IonCardTitle>{props.title}</IonCardTitle>
@@ -12,5 +13,5 @@ import React from "react";
       {props.description}
     </IonCardContent>
   </IonCard>
-          )
+          )}
 export default Case;

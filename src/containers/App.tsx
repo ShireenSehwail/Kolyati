@@ -23,6 +23,7 @@ export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 export const LOCAL_STORAGE_KEY_CASE_CREATED="koliyati.case.created";
 export const LOCAL_STORAGE_KEY_CASE_ID="koliyati.case.id"
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
+export const BASE_URL="http://localhost:8080/api/v1";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
 
