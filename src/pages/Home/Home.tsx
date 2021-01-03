@@ -3,11 +3,14 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
 import { BASE_URL } from '../../containers/App';
-
+import { format } from 'timeago.js';
 const Home: React.FC = () => {
   const api=axios.create({
     baseURL:BASE_URL
   });
+      
+
+
   const [casses,setCases]=useState<Array<CaseClass>>([]);
  useEffect( () => {
   console.log("Effect");
@@ -17,8 +20,10 @@ const Home: React.FC = () => {
 try{
   const data=  await api('/casses');
   console.log("fetched");
+  const cassesData=data.data;
 
   console.log(data.data);
+  
   setCases(data.data);
 }
 catch(err){
@@ -28,6 +33,8 @@ catch(err){
 }
   fetchData();
 },[]);
+const fullHeight={height:"100%"};
+
   return (
     <>
     <IonHeader dir="rtl">
@@ -42,17 +49,14 @@ catch(err){
 <IonListHeader dir="rtl">
  <h2> أحدث الحالات </h2>
 </IonListHeader>
-      <IonList dir="rtl" >
-        
-    {casses?.map(data=>(<IonItem><Case 
+      <IonList dir="rtl" style={fullHeight}>
+    {casses?.map(data=>(<IonItem><Case key={data.userId}
 author={data.name}
-createdTime={data.createdTime}
-title={"hi"}
+createdTime={format(data.createdTime,'ar')}
+major={data.major}
 description={data.description}/></IonItem>
     ))}
-
        </IonList>
-     
       </IonContent>
       </>
   );
