@@ -1,4 +1,4 @@
-import { IonButton, IonContent,  IonHeader,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar } from '@ionic/react';
+import { IonButton, IonContent,  IonHeader,    IonInfiniteScroll,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar, IonVirtualScroll } from '@ionic/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
@@ -8,7 +8,6 @@ const Home: React.FC = () => {
   const api=axios.create({
     baseURL:BASE_URL
   });
-      
   const [casses,setCases]=useState<Array<CaseClass>>([]);
  useEffect( () => {
   console.log("Effect");
@@ -47,6 +46,7 @@ const fullHeight={height:"100%"};
 <IonListHeader dir="rtl">
  <h2> أحدث الحالات </h2>
 </IonListHeader>
+<IonInfiniteScroll >
       <IonList dir="rtl" style={fullHeight}>
     {casses?.map(data=>(<IonItem><Case key={data.userId}
 author={data.name}
@@ -55,6 +55,7 @@ major={data.major}
 description={data.description}/></IonItem>
     ))}
        </IonList>
+</IonInfiniteScroll>
       </IonContent>
       </>
   );

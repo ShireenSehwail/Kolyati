@@ -1,9 +1,10 @@
 import { IonButton,  IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonMenuButton,  IonSelect, IonSelectOption, IonTextarea, IonTitle,  IonToolbar } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
-import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_CASE_CREATED, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
+import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
-import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from 'axios';
+import PageNotFound from '../PageNotFound/PageNotFound';
+import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
 
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
@@ -23,8 +24,7 @@ const CaseCreation: React.FC = () => {
   const [name, setName] = useState<string>("مجد خصيب");
   const [location, setLocation] = useState<string>("رام الله");
   const [major, setMajor] = useState<string>("طب بشري");
-  const [checked, setChecked] = useState(true);
-  const [tawjihiType, setTawjihiTypee] = useState<string>("علمي");
+  const [tawjihiType, setTawjihiType] = useState<string>("علمي");
   const [gpa, setGpa] = useState<string>("99.3");
   const [description, setDescription] = useState<string>("أريد دراسة الطب");
 
@@ -33,7 +33,7 @@ const CaseCreation: React.FC = () => {
   const history =useHistory();
   useEffect(()=>{
     const caseJSON=localStorage.getItem(LOCAL_STORAGE_KEY_CASE);
-    const created=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
+    const created=localStorage.getItem(LOCAL_STORAGE_KEY_USER_ID);
  
     if(created===null)
     {if(caseJSON!=null)
@@ -51,8 +51,7 @@ const CaseCreation: React.FC = () => {
       // setName(name);
       // setLocation(location);
       // setMajor(major);
-      // setChecked(checked);
-      // setTawjehiType(tawjehiType);
+      // setTawjihiType(tawjehiType);
       // setGpa(gpa);
       // setDescription(description);
 
@@ -67,37 +66,23 @@ const CaseCreation: React.FC = () => {
     localStorage.setItem(LOCAL_STORAGE_KEY_CASE,JSON.stringify({name:name,
       location:location,
       major:major,
-      checked:checked,
       tawjihiType:tawjihiType,
       gpa:gpa,
       description:description
     }));
    
-  },[name,location,major,checked,tawjihiType,gpa,description,created]);
+  },[name,location,major,tawjihiType,gpa,description,created]);
+
   function handleCaseCreation(){
-    if(!name||!location||!major||!checked||!tawjihiType||!gpa||!description)
-    {
-      return;
-    } 
+    
    const createCase=async()=>{
      const id=uuidv4();
      try{
-       console.log({
-        userId:id,
-        name:name,
-        location:location,
-        major:major,
-        checked:checked,
-        tawjihiType:tawjihiType,
-        gpa:gpa,
-        description:description
-      })
       const res=await api.post("/casses" , {
         userId:id,
         name:name,
         location:location,
         major:major,
-        checked:checked,
         tawjihiType:tawjihiType,
         gpa:gpa,
         description:description
@@ -110,16 +95,17 @@ const CaseCreation: React.FC = () => {
 
       }
       else{
-  //  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_CREATED,id);
-  //  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,);
 
-  //     history.push("/myCase");
-  console.log(res);
-      }}
+  history.push("/myCase");
+  console.log(res.data);
+  localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
+  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
+      }
+    }
       catch(err){
         console.log(err.message); 
       }
-      
+  
 
     }
     createCase();
@@ -129,7 +115,17 @@ const CaseCreation: React.FC = () => {
   let component=null;
   if(created)
   {
-    component=(<PageNotFound title="لقد قمت بإنشاء حالة بالفعل!"/>);
+    component=(
+      <><IonHeader dir="rtl">
+    <IonToolbar>
+      <IonTitle>أنشئ حالة جديدة</IonTitle>
+      <IonButton slot="start" fill="clear">
+        <IonMenuButton menu="main-menu"></IonMenuButton>
+      </IonButton>
+    </IonToolbar>
+    </IonHeader >
+    <CaseIsCreated />
+    </>);
   }
   else
   {
@@ -143,8 +139,6 @@ component=(
     </IonToolbar>
     </IonHeader >
       <IonContent >
-       
-    
         <IonList>
         <IonItem dir="rtl">
             <IonLabel position="floating">الاسم</IonLabel>
@@ -189,7 +183,7 @@ component=(
        <IonItem dir="rtl">
        <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
     
-            <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiTypee(e.detail.value)}>
+            <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiType(e.detail.value)}>
               <IonSelectOption value=" علمي">علمي</IonSelectOption>
               <IonSelectOption value="أدبي">أدبي</IonSelectOption>
               <IonSelectOption value="تجاري"> تجاري</IonSelectOption>
@@ -213,7 +207,7 @@ component=(
     
          </IonItem>
     
-         <IonButton onClick={()=>{handleCaseCreation()}}
+         <IonButton onClick={handleCaseCreation}
              color="primary"
              expand="block"
               size="small">  أنشئ حالة 

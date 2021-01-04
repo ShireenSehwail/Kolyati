@@ -1,8 +1,7 @@
 import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent } from '@ionic/react';
 import React,{useState,useEffect} from 'react';
 import Case from '../../components/Case/Case';
-import { LOCAL_STORAGE_KEY_CASE_CREATED} from "../../containers/App";
-import PageNotFound from '../PageNotFound/PageNotFound';
+import { LOCAL_STORAGE_KEY_CASE_ID} from "../../containers/App";
 import axios from "axios";
 import CaseNotFound from '../../components/CaseNotFound/CaseNotFound';
 const api=axios.create({
@@ -14,19 +13,25 @@ const [created,setCreated]=useState<string>("");
 
 const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
-    const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
-    
+    const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
     if(isCreated!==null)
-    {
-      api.get('api/v1/case/{id}').then(res=>{
-       const caseJSON=res.data[0];
-       const name=caseJSON.name?caseJSON.name:"";
-        const description=caseJSON.description?caseJSON.description:"";
-        console.log(res.data);
+    {    console.log("hi",isCreated);
+    const fetchCase=async()=>{
+      try{
+      
+      const result =await  api.get(`/cases/:${isCreated}`)
+      setCreated(isCreated);   
 
+      }
+    
+      catch(err)
+      {
+        console.log(err.message); 
+
+      }
         // setCaseState({author:name,createdTime:"قبل دقيقة واحدة",title:"ساعدوني",description:description})
-        setCreated(isCreated);   
-      })
+      };
+      fetchCase();
       
     
   }
