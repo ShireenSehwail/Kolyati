@@ -95,11 +95,13 @@ const CaseCreation: React.FC = () => {
 
       }
       else{
+        console.log(res.data);
+        localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
+        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
+        history.push(`/myCase/${res.data[1]["caseId"]}`);
+ 
 
-  history.push("/myCase");
-  console.log(res.data);
-  localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
-  localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
       }
     }
       catch(err){
