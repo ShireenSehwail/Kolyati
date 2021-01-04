@@ -1,27 +1,27 @@
 import { IonContent, IonGrid, IonRow, IonCol, IonImg, IonText, IonButton } from "@ionic/react";
 import React from "react";
-import classes from "./CaseNotFound.module.css";
+import classes from "./CaseIsCreated.module.css";
 import { useHistory } from "react-router-dom";
 
- const CaseNotFound :React.FC=()=>
+ const CaseIsCreated :React.FC=()=>
 {
 const textCenter={  textAlign: "center"}
 const history =useHistory();
 const creaCase=()=>{
-  history.push("/caseCreation");
+  history.push("/myCase");
 }
 return (
 <IonContent>
   <IonGrid style={textCenter}>
     <IonRow  >
       <IonCol >
-      <IonImg className={classes.rowStyle} src={require("../../res/CaseNotFound.svg")}/>
+      <IonImg className={classes.rowStyle} src={require("../../res/CaseIsCreated.svg")}/>
       </IonCol>
     </IonRow>
     <IonRow className="ion-align-items-center">
       <IonCol >
         <IonText>
-        <h1>ما عملت حالة؟</h1>
+        <h1>نسيت حالتك؟</h1>
         </IonText>
       </IonCol>
     </IonRow>
@@ -29,7 +29,7 @@ return (
       <IonCol>
         <IonButton className={classes.btnColor} onClick={creaCase}>
           <IonText color="light">
-          يلا نعمل وحدة  
+          يلا نتذكرها مع بعض
           </IonText>
         </IonButton>
       </IonCol>
@@ -38,4 +38,4 @@ return (
   </IonContent>
           )}
 
-export default CaseNotFound;
+export default CaseIsCreated;
