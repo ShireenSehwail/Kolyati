@@ -48,7 +48,7 @@ const fullHeight={height:"100%"};
 </IonListHeader>
 <IonInfiniteScroll >
       <IonList dir="rtl" style={fullHeight}>
-    {casses?.map(data=>(<IonItem><Case key={data.userId}
+    {casses?.map(data=>(<IonItem key={data._id}><Case 
 author={data.name}
 createdTime={format(data.createdTime,'ar')}
 major={data.major}
