@@ -4,6 +4,7 @@ import Case from '../../components/Case/Case';
 import { LOCAL_STORAGE_KEY_CASE_CREATED} from "../../containers/App";
 import PageNotFound from '../PageNotFound/PageNotFound';
 import axios from "axios";
+import CaseNotFound from '../../components/CaseNotFound/CaseNotFound';
 const api=axios.create({
   baseURL:`http://localhost:8080/`
 });
@@ -11,8 +12,7 @@ const MyCase: React.FC = () => {
   
 const [created,setCreated]=useState<string>("");
 
-const [caseState,setCaseState]=useState<{author:string,createdTime:string,title:string,description:string}>();
-   //{author:"مجد خصيب",createdTime:"قبل دقيقتين",title:" ساعدوني  !",description:"مرحبًا يا شباب ، أريد أن أسأل عن مساعدتي في العثور على الجامعة الصحيحة التي تتوافق مع احتياجاتي"}
+const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
     const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_CREATED);
     
@@ -24,7 +24,7 @@ const [caseState,setCaseState]=useState<{author:string,createdTime:string,title:
         const description=caseJSON.description?caseJSON.description:"";
         console.log(res.data);
 
-        setCaseState({author:name,createdTime:"قبل دقيقة واحدة",title:"ساعدوني",description:description})
+        // setCaseState({author:name,createdTime:"قبل دقيقة واحدة",title:"ساعدوني",description:description})
         setCreated(isCreated);   
       })
       
@@ -35,7 +35,15 @@ const [caseState,setCaseState]=useState<{author:string,createdTime:string,title:
   let component=null;
   if(created==="")
   {
-    component=(<PageNotFound title="لا يوجد لديك حالة، قم بإنشاء واحدة الآن"/>);
+    component=(<>
+      <IonHeader dir="rtl">
+      <IonToolbar>
+        <IonTitle>حالتي</IonTitle>
+        <IonButton slot="start" fill="clear">
+          <IonMenuButton menu="main-menu"></IonMenuButton>
+        </IonButton>
+      </IonToolbar>
+    </IonHeader><CaseNotFound /></>);
   }
   else
   {
@@ -50,9 +58,9 @@ component=(<>
 </IonHeader>
     <IonContent fullscreen  dir="rtl">
       <Case 
-      author={caseState?.author||""}
+      author={caseState?.name||""}
       createdTime={caseState?.createdTime||""}
-      major={caseState?.title||""}
+      major={caseState?.major||""}
       description={caseState?.description||""}/>
     </IonContent>
     </>);}
