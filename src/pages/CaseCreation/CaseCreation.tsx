@@ -24,7 +24,7 @@ const CaseCreation: React.FC = () => {
   const [location, setLocation] = useState<string>("رام الله");
   const [major, setMajor] = useState<string>("طب بشري");
   const [checked, setChecked] = useState(true);
-  const [tawjehiType, setTawjehiType] = useState<string>("علمي");
+  const [tawjihiType, setTawjihiTypee] = useState<string>("علمي");
   const [gpa, setGpa] = useState<string>("99.3");
   const [description, setDescription] = useState<string>("أريد دراسة الطب");
 
@@ -68,27 +68,37 @@ const CaseCreation: React.FC = () => {
       location:location,
       major:major,
       checked:checked,
-      tawjehiType:tawjehiType,
+      tawjihiType:tawjihiType,
       gpa:gpa,
       description:description
     }));
    
-  },[name,location,major,checked,tawjehiType,gpa,description,created]);
+  },[name,location,major,checked,tawjihiType,gpa,description,created]);
   function handleCaseCreation(){
-    if(!name||!location||!major||!checked||!tawjehiType||!gpa||!description)
+    if(!name||!location||!major||!checked||!tawjihiType||!gpa||!description)
     {
       return;
     } 
    const createCase=async()=>{
      const id=uuidv4();
      try{
-      const res=await api.post("api/v1/case" , {
-        id:id,
+       console.log({
+        userId:id,
         name:name,
         location:location,
         major:major,
         checked:checked,
-        tawjehiType:tawjehiType,
+        tawjihiType:tawjihiType,
+        gpa:gpa,
+        description:description
+      })
+      const res=await api.post("/casses" , {
+        userId:id,
+        name:name,
+        location:location,
+        major:major,
+        checked:checked,
+        tawjihiType:tawjihiType,
         gpa:gpa,
         description:description
       });
@@ -107,7 +117,7 @@ const CaseCreation: React.FC = () => {
   console.log(res);
       }}
       catch(err){
-        console.log(err); 
+        console.log(err.message); 
       }
       
 
@@ -179,7 +189,7 @@ component=(
        <IonItem dir="rtl">
        <IonLabel className="type" position="floating">فرع  الثانوية</IonLabel> 
     
-            <IonSelect value={tawjehiType} placeholder="علمي" onIonChange={e => setTawjehiType(e.detail.value)}>
+            <IonSelect value={tawjihiType} placeholder="علمي" onIonChange={e => setTawjihiTypee(e.detail.value)}>
               <IonSelectOption value=" علمي">علمي</IonSelectOption>
               <IonSelectOption value="أدبي">أدبي</IonSelectOption>
               <IonSelectOption value="تجاري"> تجاري</IonSelectOption>

@@ -52,7 +52,7 @@ component=(<>
       <Case 
       author={caseState?.author||""}
       createdTime={caseState?.createdTime||""}
-      title={caseState?.title||""}
+      major={caseState?.title||""}
       description={caseState?.description||""}/>
     </IonContent>
     </>);}
