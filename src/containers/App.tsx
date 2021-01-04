@@ -37,6 +37,7 @@ const App: React.FC = () =>{
 
   const changeFirstTimeState=()=>{
     localStorage.setItem(LOCAL_STORAGE_KEY_FIRST_TIME,JSON.stringify({firstTime:false}));
+    
     setFirstTime(false);
   };
   
