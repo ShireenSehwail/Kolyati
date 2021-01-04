@@ -9,8 +9,6 @@ const Home: React.FC = () => {
     baseURL:BASE_URL
   });
       
-
-
   const [casses,setCases]=useState<Array<CaseClass>>([]);
  useEffect( () => {
   console.log("Effect");
