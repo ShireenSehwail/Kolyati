@@ -6,6 +6,8 @@ import CaseCreation from "../../pages/CaseCreation/CaseCreation";
 import Home from "../../pages/Home/Home";
 import MyCase from "../../pages/MyCase/MyCase";
 import PageNotFound from "../../pages/PageNotFound/PageNotFound";
+import Search from "../../pages/Search/Search";
+import SharePage from "../../pages/Share/Share";
 import Nav from "../Nav/Nav";
 
 const Main:
@@ -16,7 +18,11 @@ React.FC=(props)=>(
     <IonRouterOutlet  id="main">
       <Route path="/caseCreation" component={CaseCreation} exact={true} />
       <Route path="/Home" component={Home} exact={true}/>
-      <Route path="/myCase" component={MyCase} exact={true}/>
+      <Route path="/myCase/:id" component={MyCase} exact={true}/>
+      <Route path="/Share" component={SharePage} exact={true}/>
+      <Route path="/Search" component={Search} exact={true}/>
+
+      
       <Route exact path="/" render={() => <Redirect to="/Home" />} />
       <Route component={PageNotFound} />
     </IonRouterOutlet>

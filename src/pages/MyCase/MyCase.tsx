@@ -13,14 +13,13 @@ const [created,setCreated]=useState<string>("");
 
 const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
-    const isCreated=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
-    if(isCreated!==null)
-    {    console.log("hi",isCreated);
+    const caseId=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
+    if(caseId!==null)
+    {    console.log("hi",caseId);
     const fetchCase=async()=>{
       try{
-      
-      const result =await  api.get(`/cases/:${isCreated}`)
-      setCreated(isCreated);   
+      const result =await  api.get(`/cases/:${caseId}`)
+      setCreated(caseId);   
 
       }
     
