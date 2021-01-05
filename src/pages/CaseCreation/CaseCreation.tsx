@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import PageNotFound from '../PageNotFound/PageNotFound';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
 
 const CaseCreation: React.FC = () => {

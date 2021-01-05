@@ -5,7 +5,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
 
 const SharePage: React.FC = () => {
-  const textCenter={  "text-align": "center"}
+  const textCenter={  "textAlign": "center"}
   const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
   const [showToast, setShowToast] = useState(false);
 

@@ -1,10 +1,9 @@
-import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, IonImg, IonRow, IonCol, IonGrid, IonText, IonToast, IonSearchbar } from "@ionic/react";
+import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, IonImg, IonRow, IonCol, IonGrid,  IonToast, IonSearchbar } from "@ionic/react";
 import axios from "axios";
 import React, { useState } from "react";
 import Case from "../../components/Case/Case";
 import classes from './Search.module.css';
 import { format } from 'timeago.js';
-import { useHistory } from "react-router";
 
 const SharePage: React.FC = () => {
   const api=axios.create({

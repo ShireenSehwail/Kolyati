@@ -1,4 +1,4 @@
-import { IonButton, IonContent,  IonHeader,    IonInfiniteScroll,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar, IonVirtualScroll } from '@ionic/react';
+import { IonButton, IonContent,  IonHeader,    IonInfiniteScroll,    IonItem,    IonList,    IonListHeader,    IonMenuButton,     IonTitle,  IonToolbar } from '@ionic/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
@@ -16,7 +16,6 @@ const Home: React.FC = () => {
 try{
   const data=  await api('/casses');
   console.log("fetched");
-  const cassesData=data.data;
   console.log(data.data);
   setCases(data.data);
 }

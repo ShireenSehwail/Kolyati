@@ -1,6 +1,5 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
-import { generateKeyPair } from "crypto";
-import {  addOutline, briefcase, heart, homeOutline, schoolOutline, search, shareOutline, shareSocial } from "ionicons/icons";
+import {  addOutline, briefcase, homeOutline, schoolOutline, search, shareSocial } from "ionicons/icons";
 import React from "react";
 import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
 

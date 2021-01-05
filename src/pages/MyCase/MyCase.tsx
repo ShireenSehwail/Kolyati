@@ -15,12 +15,14 @@ const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
     const caseId=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
     if(caseId!==null)
-    {    console.log("hi",caseId);
+    {    
     const fetchCase=async()=>{
+      console.log(created,caseId);
       try{
-      const result =await  api.get(`/cases/:${caseId}`)
+      const result =await  api.get(`/api/v1/case/${caseId}`);
+    
       setCreated(caseId);   
-
+      setCaseState(result.data);
       }
     
       catch(err)
