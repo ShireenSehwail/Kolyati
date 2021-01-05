@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Case from "../../components/Case/Case";
 import classes from './Search.module.css';
 import { format } from 'timeago.js';
+import { useHistory } from "react-router";
 
 const SharePage: React.FC = () => {
   const api=axios.create({
@@ -30,11 +31,12 @@ const SharePage: React.FC = () => {
     }
   
   }
+ 
   let component=null;
 
   if(searchCase)
   {
-component=(<Case 
+component=(<Case id={searchCase._id}
   author={searchCase.name}
   createdTime={format(searchCase.createdTime)}
   major={searchCase.major}
@@ -55,10 +57,8 @@ component=(<Case
         </IonToolbar>
       </IonHeader>
           <IonContent fullscreen color="light"  style={textCenter}>
-         
-         
+
           <IonGrid >
-     
   <IonRow>
     <IonCol>
     <IonSearchbar 

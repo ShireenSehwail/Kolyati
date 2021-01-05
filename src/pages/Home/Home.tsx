@@ -11,16 +11,13 @@ const Home: React.FC = () => {
   const [casses,setCases]=useState<Array<CaseClass>>([]);
  useEffect( () => {
   console.log("Effect");
-
   const fetchData = async () => {
     console.log("fetch");
 try{
   const data=  await api('/casses');
   console.log("fetched");
   const cassesData=data.data;
-
   console.log(data.data);
-  
   setCases(data.data);
 }
 catch(err){
@@ -48,7 +45,7 @@ const fullHeight={height:"100%"};
 </IonListHeader>
 <IonInfiniteScroll >
       <IonList dir="rtl" style={fullHeight}>
-    {casses?.map(data=>(<IonItem key={data._id}><Case 
+    {casses?.map(data=>(<IonItem key={data._id}><Case id={data._id}
 author={data.name}
 createdTime={format(data.createdTime)}
 major={data.major}

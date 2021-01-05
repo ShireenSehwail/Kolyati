@@ -18,7 +18,7 @@ React.FC=(props)=>(
     <IonRouterOutlet  id="main">
       <Route path="/caseCreation" component={CaseCreation} exact={true} />
       <Route path="/Home" component={Home} exact={true}/>
-      <Route path="/myCase/:id" component={MyCase} exact={true}/>
+      <Route path="/Case/:id" component={MyCase} exact={true}/>
       <Route path="/Share" component={SharePage} exact={true}/>
       <Route path="/Search" component={Search} exact={true}/>
 
