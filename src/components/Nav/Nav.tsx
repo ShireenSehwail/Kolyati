@@ -37,7 +37,7 @@ React.FC=(props)=>{
           </IonItem>
           <IonItem  routerLink="/Search">
             <IonIcon icon={search} slot="start"></IonIcon>
-            <IonLabel> البحث عن حالة</IonLabel>
+            <IonLabel> ابحث عن حالة</IonLabel>
           </IonItem>
           <IonItem   routerLink="/caseCreation">
             <IonIcon icon={addOutline}slot="start"></IonIcon>

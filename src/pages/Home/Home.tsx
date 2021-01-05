@@ -50,7 +50,7 @@ const fullHeight={height:"100%"};
       <IonList dir="rtl" style={fullHeight}>
     {casses?.map(data=>(<IonItem key={data._id}><Case 
 author={data.name}
-createdTime={format(data.createdTime,'ar')}
+createdTime={format(data.createdTime)}
 major={data.major}
 description={data.description}/></IonItem>
     ))}
