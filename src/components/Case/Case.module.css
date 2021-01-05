@@ -1,0 +1,9 @@
+.Card{
+    width:100%;
+    cursor: pointer;
+}
+.Card:hover {
+    border: 5px solid #2098D1;
+    transition: .2s;
+    text-align: start;
+  }

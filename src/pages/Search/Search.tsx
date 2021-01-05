@@ -36,7 +36,7 @@ const SharePage: React.FC = () => {
 
   if(searchCase)
   {
-component=(<Case id={searchCase._id}
+component=(<Case  id={searchCase._id}
   author={searchCase.name}
   createdTime={format(searchCase.createdTime)}
   major={searchCase.major}
@@ -44,7 +44,7 @@ component=(<Case id={searchCase._id}
   }
   else
   {
-    component=(<IonImg className={classes.rowStyle} src={require("../../res/Search.svg")}/>);
+    component=(<IonImg  style={textCenter} className={classes.rowStyle} src={require("../../res/Search.svg")}/>);
   }
     return(
         <>
@@ -56,12 +56,12 @@ component=(<Case id={searchCase._id}
           </IonButton>
         </IonToolbar>
       </IonHeader>
-          <IonContent fullscreen color="light"  style={textCenter}>
+          <IonContent fullscreen color="light" >
 
           <IonGrid >
   <IonRow>
     <IonCol>
-    <IonSearchbar 
+    <IonSearchbar  style={textCenter}
           color="danger"
           placeholder="ضع كود الحالة هنا"
           onIonChange={e=>searchForCase(e.detail.value||"")}
@@ -69,7 +69,7 @@ component=(<Case id={searchCase._id}
     </IonCol>
   </IonRow>
     <IonRow  >
-    <IonCol >
+    <IonCol  dir="rtl">
       {component}
     </IonCol>
   </IonRow>

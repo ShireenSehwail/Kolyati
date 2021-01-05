@@ -1,13 +1,13 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
 import { generateKeyPair } from "crypto";
-import {  addOutline, briefcase, heart, homeOutline, search, shareOutline, shareSocial } from "ionicons/icons";
+import {  addOutline, briefcase, heart, homeOutline, schoolOutline, search, shareOutline, shareSocial } from "ionicons/icons";
 import React from "react";
 import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
 
 const Nav:
 React.FC=(props)=>{
   let canShare=null;
-  let key="/myCase/";
+  let key="/Case/";
   const getKey=()=>{
     const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
     if(caseId)
@@ -49,9 +49,9 @@ React.FC=(props)=>{
           </IonItem>
           {canShare}
 
-          <IonItem  routerLink="/Favorite">
-            <IonIcon icon={heart} slot="start"></IonIcon>
-            <IonLabel>المفضلة</IonLabel>
+          <IonItem  routerLink="/Unversities">
+            <IonIcon icon={schoolOutline} slot="start"></IonIcon>
+            <IonLabel>الجامعات والتخصصات</IonLabel>
           </IonItem>
         </IonList>
       </IonContent>
