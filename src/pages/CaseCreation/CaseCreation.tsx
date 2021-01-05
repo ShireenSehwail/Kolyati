@@ -99,7 +99,7 @@ const CaseCreation: React.FC = () => {
         localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
         localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
-        history.push(`/myCase/${res.data[1]["caseId"]}`);
+        history.push(`/Case/${res.data[1]["caseId"]}`);
  
 
       }

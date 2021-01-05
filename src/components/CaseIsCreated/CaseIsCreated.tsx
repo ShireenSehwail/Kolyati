@@ -12,7 +12,7 @@ const history =useHistory();
 const creaCase=()=>{
   const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
 
-  history.push("/myCase/"+caseId);
+  history.push("/Case/"+caseId);
 }
 return (
 <IonContent>
