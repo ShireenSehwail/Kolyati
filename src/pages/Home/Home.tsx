@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
 import { BASE_URL } from '../../containers/App';
-import { format } from 'timeago.js';
+
 const Home: React.FC = () => {
   const api=axios.create({
     baseURL:BASE_URL
@@ -47,7 +47,7 @@ const fullHeight={height:"100%"};
       <IonList dir="rtl" style={fullHeight}>
     {casses?.map(data=>(<IonItem key={data._id}><Case id={data._id}
 author={data.name}
-createdTime={format(data.createdTime)}
+createdTime={data.createdTime}
 major={data.major}
 description={data.description}/></IonItem>
     ))}
