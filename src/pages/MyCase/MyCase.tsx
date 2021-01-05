@@ -61,7 +61,7 @@ component=(<>
   </IonToolbar>
 </IonHeader>
     <IonContent fullscreen  dir="rtl">
-      <Case 
+      <Case  id={caseState?._id}
       author={caseState?.name||""}
       createdTime={caseState?.createdTime||""}
       major={caseState?.major||""}
