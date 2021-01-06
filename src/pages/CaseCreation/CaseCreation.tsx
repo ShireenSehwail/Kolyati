@@ -1,17 +1,21 @@
-import { IonButton,  IonContent, IonHeader ,IonInfiniteScroll,IonMenuButton,  IonTitle,  IonToolbar } from '@ionic/react';
-import React, {  useState } from 'react';
+import { IonButton,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToolbar } from '@ionic/react';
+import React, {  useEffect, useState } from 'react';
 import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
 import { bedOutline, bookOutline, calculatorOutline, constructOutline, desktopOutline, earthOutline, flaskOutline,  nutritionOutline } from 'ionicons/icons';
 import TawjihiTypes from '../../components/CaseCreationSlides/TawjihiTypes/TawjihiTypes';
-
+import MajorSearch from '../../components/CaseCreationSlides/MajorSearch/MajorSearch';
+import { majorList } from '../../Data/majors';
+import { tawjihiTypeList } from '../../Data/tawjihiTypes';
+const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
   const api=axios.create({
     baseURL:BASE_URL
   });
+  
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string>();
@@ -20,8 +24,21 @@ const CaseCreation: React.FC = () => {
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>();
-
+  
   const history =useHistory();
+  useEffect(() => {
+    const tawjihiTypeData=localStorage.getItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
+    if(tawjihiTypeData)
+    {    
+
+      setTawjihiType(JSON.parse(tawjihiTypeData));
+    }
+  }, []);
+  useEffect(() => {
+    if(tawjihiType)
+    localStorage.setItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE,JSON.stringify(tawjihiType));
+    
+  }, [tawjihiType]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
@@ -66,51 +83,7 @@ const CaseCreation: React.FC = () => {
   const getTawjihiType=(data:string)=>{
     setTawjihiType(data);
   }
-  const  list = [
-    {
-      id: uuidv4(),
-      type: 'علمي',
-      icon:flaskOutline
-
-    },
-    {
-      id:  uuidv4(),
-      type: 'تكنولوجي',
-      icon:desktopOutline
-    },
-    {
-      id:  uuidv4(),
-      type: 'صناعي',
-      icon:constructOutline
-    },
-    
-    {
-      id:  uuidv4(),
-      type: 'أدبي',
-      icon:earthOutline
-    },
   
-    {
-      id:  uuidv4(),
-      type: 'زراعي',
-      icon:nutritionOutline
-    },
-    {
-      id:  uuidv4(),
-      type: 'فنادق',
-      icon:bedOutline
-    },
-    {
-      id:  uuidv4(),
-      type: 'تجاري',
-      icon:calculatorOutline
-    },
-    {
-      id:  uuidv4(),
-      type: 'شرعي',
-      icon:bookOutline
-    },
-  ];
   let component=null;
   if(created)
   {
@@ -129,8 +102,12 @@ const CaseCreation: React.FC = () => {
   else
   {let conetnt=null
     if(!tawjihiType)
-    {
-      conetnt=( <TawjihiTypes list={list} clicked={getTawjihiType}/>)
+    {const  tawjihiTypes = tawjihiTypeList;
+      conetnt=( <TawjihiTypes list={tawjihiTypes} clicked={getTawjihiType}/>)
+    }
+    else if(!major)
+    {const  majors = majorList;
+      conetnt=(<IonList dir="rtl"><MajorSearch majors={majors}/> </IonList>);
     }
 component=(
     <><IonHeader dir="rtl">
@@ -141,7 +118,7 @@ component=(
       </IonButton>
     </IonToolbar>
     </IonHeader >
-    <IonContent dir="rtl">
+    <IonContent dir={major?"rtl":"ltr"}>
     <IonInfiniteScroll >
   
 

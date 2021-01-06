@@ -2,14 +2,14 @@ import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, 
 import axios from "axios";
 import React, { useState } from "react";
 import Case from "../../components/Case/Case";
-import classes from './Search.module.css';
+import classes from './SearchCase.module.css';
 import { format } from 'timeago.js';
 
-const SharePage: React.FC = () => {
+const SearchCase: React.FC = () => {
   const api=axios.create({
     baseURL:`http://localhost:8080/`
   });
-  const textCenter={  "textAlign": "center"}
+  const textCenter={  "textAlign": "center",backGroundColor:"white"}
   const [showToast, setShowToast] = useState(false);
   const [searchCase,setSearchCase]=useState<CaseClass>();
   const searchForCase=async(text:string)=>{
@@ -55,13 +55,12 @@ component=(<Case  id={searchCase._id}
           </IonButton>
         </IonToolbar>
       </IonHeader>
-          <IonContent fullscreen color="light" >
+          <IonContent fullscreen >
 
           <IonGrid >
   <IonRow>
     <IonCol>
     <IonSearchbar  style={textCenter}
-          color="danger"
           placeholder="ضع كود الحالة هنا"
           onIonChange={e=>searchForCase(e.detail.value||"")}
           ></IonSearchbar>
@@ -86,5 +85,5 @@ component=(<Case  id={searchCase._id}
         );
 
 }
-export default SharePage;
+export default SearchCase;
  
