@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
  const CaseNotFound :React.FC=()=>
 {
-const textCenter={  textAlign: "center"}
+const textCenter={ textAlign: "center"}
 const history =useHistory();
 const creaCase=()=>{
   history.push("/caseCreation");

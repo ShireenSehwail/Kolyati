@@ -5,17 +5,9 @@ import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
 
 const Nav:
 React.FC=(props)=>{
-  let canShare=null;
   let key="/Case/";
   const getKey=()=>{
     const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
-    if(caseId)
-    {
-      canShare=(<IonItem  routerLink="/Share">
-      <IonIcon icon={shareSocial} slot="start"></IonIcon>
-      <IonLabel> مشاركة حالتي</IonLabel>
-    </IonItem>);
-    }
     key+=caseId;
   }
   getKey();
@@ -46,12 +38,14 @@ React.FC=(props)=>{
             <IonIcon icon={briefcase}slot="start"></IonIcon>
             <IonLabel> حالتي </IonLabel>
           </IonItem>
-          {canShare}
-
-          <IonItem  routerLink="/Unversities">
+          <IonItem  routerLink="/Share">
+      <IonIcon icon={shareSocial} slot="start"></IonIcon>
+      <IonLabel> مشاركة حالتي</IonLabel>
+    </IonItem>
+          {/* <IonItem  routerLink="/Unversities">
             <IonIcon icon={schoolOutline} slot="start"></IonIcon>
             <IonLabel>الجامعات والتخصصات</IonLabel>
-          </IonItem>
+          </IonItem> */}
         </IonList>
       </IonContent>
     </IonMenu>
