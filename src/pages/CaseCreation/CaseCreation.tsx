@@ -6,7 +6,7 @@ import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
 import TawjihiTypes from '../../components/CaseCreationSlides/TawjihiTypes/TawjihiTypes';
 import MajorSearch from '../../components/CaseCreationSlides/MajorSearch/MajorSearch';
-import { majorList } from '../../Data/scientific';
+import { majorList } from '../../Data/majors/scientific';
 import { tawjihiTypeList } from '../../Data/tawjihiTypes';
 import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
@@ -54,23 +54,24 @@ const CaseCreation: React.FC = () => {
     if(tawjihiType)
     localStorage.setItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE,JSON.stringify(tawjihiType));
     if(gpa)
-    {if(gpa.length<2)
+    {const gpaNumber=parseFloat(gpa);
+      if(gpaNumber==0)
       {
         localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("0"));
       }
-      else if(parseFloat(gpa)<50)
+      else if(gpaNumber<50)
       {
-        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("50"));
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("0"));
 
       }
-      else if(parseFloat(gpa)>100)
+      else if(gpaNumber>100)
       {
         localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("100"));
 
       }
       else
       {
-        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify(gpa));
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify(gpaNumber));
 
       }
       

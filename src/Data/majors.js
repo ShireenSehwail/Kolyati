@@ -1,546 +1,182 @@
 const { v4: uuidv4 } = require('uuid');
 
-export const majorList=[{
-    id: uuidv4(),
-    name:'هندسة التخطيط والتصميم الحضري',
-    tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },
-  {
-    id:  uuidv4(),
-  name: 'الهندسة الكهربائية ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },
-  {
-    id:  uuidv4(),
-  name: 'الهندسة المدنية ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة المعمارية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة الميكانيكية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },
-  {
-    id:  uuidv4(),
-  name: 'هندسة الميكاترونيكس',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة الحاسوب',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'علم الحاسوب ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة العربية وأدابها',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الانجليزية وأدابها ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الانجليزية وأدابها /فرعي الترجمة',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الفرنسية ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: ' التاريخ والاثار ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الجغرافيا',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'رئيسي علم النفس /فرعي علم الاجتماع ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'رئيسي علم النفس /فرعي دراسات المرأة ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الصحافة والإعلام',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الالمانية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'تعليم الاجتماعيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'تعليم اللغة الانجليزية كلغة أجنبية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: ' دكتور صيدلي',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'التمريض',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'علاج النطق والسمع',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'المحاسبة',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-  },{
-    id:  uuidv4(),
-  name: 'ادراة الاعمال',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-  },{
-    id:  uuidv4(),
-  name: 'العلوم المالية والمصرفية ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-  },{
-  id:  uuidv4(),
-  name: 'اقتصاد الاعمال',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-  id:  uuidv4(),
-  name: 'التسويق',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-  id:  uuidv4(),
-  name: 'الاقتصاد',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-  },{
-  id:  uuidv4(),
-  name: 'العلوم المالية الاكتوارية',
-  tawjihiTypes:['علمي']
-
-  },{
-  id:  uuidv4(),
-  name: 'القانون',
-  tawjihiTypes:['علمي','أدبي','شرعي']
-
-  },{
-  id:  uuidv4(),
-  name: 'الادارة العامة',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-  id:  uuidv4(),
-  name: 'العلوم السياسية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },
-  {
-  id:  uuidv4(),
-  name: ' الاحياء والكيمياء الحيوية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي']
-
-  },{
-  id:  uuidv4(),
-  name: 'الكيمياء',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي']
-
-  },
-  {
-  id:  uuidv4(),
-  name: 'الفيزياء',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي']
-
-  },{
-  id:  uuidv4(),
-  name: 'الرياضيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي']
-
-  },{
-    id:  uuidv4(),
-  name: 'التصميم',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الفنون البصرية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الموسقى العربية والمعاصرة',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },
-
-
-
-  //BZU stopped
-
-
-  ,{
-    id:  uuidv4(),
-  name: 'الفيزياء وفرعي الكترونيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الأحياء البيوتكنولوجيا',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الرياضيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الكيمياء',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'كيمياء تطبيقية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الفيزياء',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة المدنية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة المعمارية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة البناء',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة التخطيط العمراني',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة الميكانيكية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة الكيميائية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة الصناعية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة الحاسوب',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الهندسة الكهربائية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة الاتصالات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة الميكاترونكس',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة الطاقة والبيئة',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'هندسة علم المواد',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'علم الحاسوب',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'أنظمة المعلومات الإدارية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'أنظمة المعلومات الحاسوبية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'الشبكات وأمن المعلومات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-  },{
-    id:  uuidv4(),
-  name: 'دكتور صيدلي',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الصيدلة',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلوم الطبية الحيوية',
-  tawjihiTypes:['علمي']
-  },{
-    id:  uuidv4(),
-  name: 'العلوم الطبية الحيوية',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'القبالة',
-  tawjihiTypes:['علمي']
-  },{
-    id:  uuidv4(),
-  name: 'التمريض',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'البصريات',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلوم الطبية المخبرية',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'التصوير الطبي',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'علاج السمع والنطق ',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلاج الطبيعي ',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الطب البيطري',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الانتاج النباتي والوقاية',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الانتاج الحيواني وصحة الحيوان',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'التغذية والتصنيع الغذائي',
-  tawjihiTypes:['علمي']
-
-  },{
-    id:  uuidv4(),
-  name: 'الاقتصاد',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلوم السياسية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الجغرافيا',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الخدمة االجتماعية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'علم النفس - فرعي إرشاد نفسي',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'إذاعة والتلفزيون',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الصحافة المكتوبة والالكترونية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلاقات العامة والاتصال',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'المحاسبة ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'ادارة الاعمال ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'العلوم المالية والمصرفية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التسويق',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الموسيقى',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التصميم الداخلي )ديكور',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التصميم الجرافيكي',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'الرسم والتصوير',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'فن الخزف',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم الرياضيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم اللغة العربية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم العلوم',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم اللغة الإنجليزية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم التكنولوجي',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'معلم المرحلة األساسية العليا - تعليم االجتماعيات',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التربية - التربية الرياضية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التربية - رياض األطفال',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الفرنسية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'السياحة والاثار',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'التاريخ',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة العربية وآدابها',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'اللغة الانجليزية وآدابها',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'فقه وتشريع',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'أصول الدين',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'مصارف اسلامية',
-  tawjihiTypes:['علمي','صناعي','تكنولوجي','أدبي','زراعي','شرعي','فنادق','تجاري']
-
-  },{
-    id:  uuidv4(),
-  name: 'القانون',
-  tawjihiTypes:['علمي','أدبي','شرعي']
-
-  }
-  //Najah stoped
+export const majorList=[
+  {id:uuidv4(),name:'هندسة التخطيط والتصميم الحضري ',acceptanceRate:'80',numberOfHours:'162',hourRate:'55',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'الهندسة الكهربائية ',acceptanceRate:'80',numberOfHours:'158',hourRate:'45',tawjihiTypes:['علمي ','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'الهندسة المدنية ',acceptanceRate:'86',numberOfHours:'158',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'الهندسة المعمارية ',acceptanceRate:'93',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'الهندسة الميكانيكية',acceptanceRate:'80',numberOfHours:'158',hourRate:'50',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'هندسة الميكاترونيكس',acceptanceRate:'86',numberOfHours:'158',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'هندسة الحاسوب ',acceptanceRate:'93',numberOfHours:'158',hourRate:'50',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'علم الحاسوب ',acceptanceRate:'75',numberOfHours:'129',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'اللغة العربية وأدابها',acceptanceRate:'67',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'اللغة الانجليزية وأدابها',acceptanceRate:'82',numberOfHours:'120',hourRate:'42',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'اللغة الانجليزية وأدابها /فرعي الترجمة',acceptanceRate:'91',numberOfHours:'120',hourRate:'42',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'اللغة الفرنسية ',acceptanceRate:'70',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'رئيسي علم الاجتماع /فرعي الادارة العامة ',acceptanceRate:'68',numberOfHours:'120',hourRate:'45',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'رئيسي علم الاجتماع/فرعي علم النفس',acceptanceRate:'68',numberOfHours:'120',hourRate:'45',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'دائرة التاريخ والاثار',acceptanceRate:'67',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'دائرة الجغرافيا',acceptanceRate:'67',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'رئيسي علم النفس /فرعي علم الاجتماع ',acceptanceRate:'72',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'رئيسي علم النفس /فرعي دراسات المرأة ',acceptanceRate:'70',numberOfHours:'120',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'الاعلام',acceptanceRate:'72',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'اللغة الالمانية',acceptanceRate:'68',numberOfHours:'120',hourRate:'42',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'تعليم الاجتماعيات',acceptanceRate:'65',numberOfHours:'130',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'تعليم اللغة الانجليزية كلغة أجنبية ',acceptanceRate:'68',numberOfHours:'124',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'برنامج دكتور صيدلي ',acceptanceRate:'94',numberOfHours:'208',hourRate:'85',tawjihiTypes:['علمي',],university:'بيرزيت',  },
+  {id:uuidv4(),name:'التغذية والحمية',acceptanceRate:'82',numberOfHours:'127',hourRate:'50',tawjihiTypes:['علمي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'التمريض',acceptanceRate:'85',numberOfHours:'138',hourRate:'50',tawjihiTypes:['علمي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'علاج النطق والسمع ',acceptanceRate:'92',numberOfHours:'129',hourRate:'65',tawjihiTypes:['علمي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'المحاسبة ',acceptanceRate:'91',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'ادراة الاعمال',acceptanceRate:'85',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'العلوم المالية والمصرفية ',acceptanceRate:'80',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'اقتصاد الاعمال ',acceptanceRate:'71',numberOfHours:'126',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'التسويق',acceptanceRate:'76',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'الاقتصاد',acceptanceRate:'72',numberOfHours:'120',hourRate:'50',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'العلوم المالية الاكتوارية',acceptanceRate:'78',numberOfHours:'132',hourRate:'60',tawjihiTypes:['علمي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'القانون',acceptanceRate:'84',numberOfHours:'142',hourRate:'45',tawjihiTypes:['علمي','أدبي','شرعي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة الادارة العامة',acceptanceRate:'75',numberOfHours:'124',hourRate:'45',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة العلوم السياسية',acceptanceRate:'68',numberOfHours:'124',hourRate:'40',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة الاحياء والكيمياء الحيوية',acceptanceRate:'70',numberOfHours:'126',hourRate:'40',tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة الكيمياء',acceptanceRate:'70',numberOfHours:'126',hourRate:'40',tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة الفيزياء',acceptanceRate:'70',numberOfHours:'126',hourRate:'40',tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'دائرة الرياضيات',acceptanceRate:'70',numberOfHours:'126',hourRate:'40',tawjihiTypes:['علمي','صناعي','تكنولوجي','زراعي',],university:'بيرزيت',},
+  {id:uuidv4(),name:'التصميم',acceptanceRate:'امتحان قدرات',numberOfHours:'133',hourRate:'95',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'الفنون البصرية  ',acceptanceRate:'امتحان قدرات ',numberOfHours:'133',hourRate:'95',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'الموسقى العربية والمعاصرة',acceptanceRate:'امتحان قدرات ',numberOfHours:'121',hourRate:'95',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  {id:uuidv4(),name:'التربية الرياضية',acceptanceRate:'امتحان قدرات ',numberOfHours:'126',hourRate:'42',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق ','تجاري',],university:'بيرزيت',},
+  
+    
+  {id:uuidv4(),name:'الفيزياء وفرعي الكترونيات',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنلوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الأحياء البيوتكنولوجيا',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الرياضيات',acceptanceRate:'65',numberOfHours:'124',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الكيمياء',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'كيمياء تطبيقية ',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الفيزياء',acceptanceRate:'65',numberOfHours:'128',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة المدنية',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة المعمارية',acceptanceRate:'80',numberOfHours:'165',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة البناء',acceptanceRate:'80',numberOfHours:'168',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة التخطيط العمراني',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة الميكانيكية',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة الكيميائية',acceptanceRate:'80',numberOfHours:'159',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة الصناعية',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة الحاسوب',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الهندسة الكهربائية',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة الاتصالات',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة الميكاترونكس',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة الطاقة والبيئة',acceptanceRate:'80',numberOfHours:'160',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'هندسة علم المواد',acceptanceRate:'80',numberOfHours:'160',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'علم الحاسوب ',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'أنظمة المعلومات اإلدارية',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'أنظمة المعلومات الحاسوبية',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الشبكات وأمن المعلومات',acceptanceRate:'65',numberOfHours:'127',hourRate:'50',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'برنامج دكتور صيدلي',acceptanceRate:'80',numberOfHours:'211',hourRate:'70',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'الصيدلة',acceptanceRate:'80',numberOfHours:'161',hourRate:'65',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم الطبية الحيوية (98.5-100)',acceptanceRate:'98.5',numberOfHours:'131',hourRate:'100',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم الطبية الحيوية (95-98.49)',acceptanceRate:'95',numberOfHours:'131',hourRate:'150',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم الطبية الحيوية (90-94.49)',acceptanceRate:'90',numberOfHours:'131',hourRate:'200',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'القبالة',acceptanceRate:'70',numberOfHours:'146',hourRate:'50',tawjihiTypes:['علمي','تمريضي',],university:'النجاح',},
+  {id:uuidv4(),name:'التمريض',acceptanceRate:'70',numberOfHours:'138',hourRate:'50',tawjihiTypes:['علمي','تمريض',],university:'النجاح',},
+  {id:uuidv4(),name:'البصريات',acceptanceRate:'70',numberOfHours:'131',hourRate:'70',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم الطبية المخبرية',acceptanceRate:'70',numberOfHours:'131',hourRate:'40',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'التصوير الطبي',acceptanceRate:'70',numberOfHours:'129',hourRate:'60',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'علاج السمع والنطق ',acceptanceRate:'70',numberOfHours:'138',hourRate:'60',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'العلاج الطبيعي ',acceptanceRate:'70',numberOfHours:'138',hourRate:'60',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'الطب البيطري',acceptanceRate:'70',numberOfHours:'168',hourRate:'70',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'الانتاج النباتي والوقاية',acceptanceRate:'65',numberOfHours:'141',hourRate:'50',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'الانتاج الحيواني وصحة الحيوان',acceptanceRate:'65',numberOfHours:'141',hourRate:'50',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'التغذية والتصنيع الغذائي',acceptanceRate:'65',numberOfHours:'141',hourRate:'50',tawjihiTypes:['علمي','',],university:'النجاح',},
+  {id:uuidv4(),name:'الاقتصاد',acceptanceRate:'65',numberOfHours:'133',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق ','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم السياسية ',acceptanceRate:'65',numberOfHours:'133',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الجغرافيا',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الخدمة االجتماعية',acceptanceRate:'65',numberOfHours:'131',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'علم النفس - فرعي إرشاد نفسي',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'اإلذاعة والتلفزيون',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الصحافة المكتوبة والالكترونية',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'العلاقات العامة والاتصال',acceptanceRate:'65',numberOfHours:'127',hourRate:'45',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'المحاسبة ',acceptanceRate:'65',numberOfHours:'130',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'ادارة الاعمال ',acceptanceRate:'65',numberOfHours:'130',hourRate:'40',tawjihiTypes:['علمي','صناعي ','أدبي','شرعي','الفنادق','الزراعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'العلوم المالية والمصرفية',acceptanceRate:'65',numberOfHours:'130',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التسويق',acceptanceRate:'65',numberOfHours:'130',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الموسيقى',acceptanceRate:'65',numberOfHours:'123',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التصميم الداخلي )ديكور',acceptanceRate:'65',numberOfHours:'122',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التصميم الجرافيكي',acceptanceRate:'65',numberOfHours:'122',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'الرسم والتصوير',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'فن الخزف',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم الرياضيات',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم اللغة العربية',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم العلوم',acceptanceRate:'65',numberOfHours:'129',hourRate:'35',tawjihiTypes:['علمي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم اللغة اإلنجليزية',acceptanceRate:'65',numberOfHours:'122',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم التكنولوجي',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'معلم المرحلة األساسية العليا - تعليم االجتماعيات',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التربية - التربية الرياضية',acceptanceRate:'65',numberOfHours:'131',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التربية - رياض األطفال',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'اللغة الفرنسية',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'السياحة والاثار',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'التاريخ',acceptanceRate:'65',numberOfHours:'127',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'اللغة العربية وآدابها',acceptanceRate:'65',numberOfHours:'125',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'اللغة الانجليزية وآدابها',acceptanceRate:'65',numberOfHours:'131',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'فقه وتشريع',acceptanceRate:'65',numberOfHours:'130',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'أصول الدين',acceptanceRate:'65',numberOfHours:'130',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'مصارف اسلامية',acceptanceRate:'65',numberOfHours:'129',hourRate:'35',tawjihiTypes:['علمي','أدبي','شرعي','الفنادق','الزراعي','صناعي','تكنولوجي',],university:'النجاح',},
+  {id:uuidv4(),name:'القانون',acceptanceRate:'75',numberOfHours:'139',hourRate:'40',tawjihiTypes:['علمي','أدبي','شرعي',],university:'النجاح',},
+
+
+  
+    {id:uuidv4(),name:'هندسةالإتصالت والكترونيات',acceptanceRate:'والعلاجية80',numberOfHours:'164',hourRate:'40',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'الهندسة الميكانيكية',acceptanceRate:'80',numberOfHours:'164',hourRate:'40',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'الهندسة المدنية',acceptanceRate:'80',numberOfHours:'160',hourRate:'43',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'هندسة الميكاترونكس',acceptanceRate:'80',numberOfHours:'163',hourRate:'40',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'الهندسة المعمارية',acceptanceRate:'80',numberOfHours:'162',hourRate:'45',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'هندسة الطاقة المتجددة',acceptanceRate:'80',numberOfHours:'165',hourRate:'43',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'هندسة الاجهزة الطبية',acceptanceRate:'80',numberOfHours:'162',hourRate:'43',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'هندسة أنظمة الحاسوب',acceptanceRate:'90',numberOfHours:'167',hourRate:'40',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:' أمن الشبكات والمعلومات',acceptanceRate:'90',numberOfHours:'167',hourRate:'40',tawjihiTypes:['علمي','صناعي ',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'تكنولوجيا المعلومات',acceptanceRate:'70',numberOfHours:'132',hourRate:'38',tawjihiTypes:['زراعي','صناعي','علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'علم الحاسوب',acceptanceRate:'70',numberOfHours:'133',hourRate:'34',tawjihiTypes:['زراعي','صناعي','علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'اقتصاديات الأعمال',acceptanceRate:'65',numberOfHours:'-',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'رياضيات تطبيقية',acceptanceRate:'65',numberOfHours:'131',hourRate:'34',tawjihiTypes:['علمي','صناعي','زراعي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'كيمياء تطبيقية',acceptanceRate:'65',numberOfHours:'133',hourRate:'34',tawjihiTypes:['علمي','صناعي','زراعي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'فيزياء تطبيقية',acceptanceRate:'65',numberOfHours:'132',hourRate:'34',tawjihiTypes:['علمي','صناعي','زراعي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'أحياء تطبيقية',acceptanceRate:'65',numberOfHours:'132',hourRate:'34',tawjihiTypes:['علمي','صناعي','زراعي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'رياض الاطفال ',acceptanceRate:'65',numberOfHours:'124',hourRate:'34',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'العالج الوظيفي',acceptanceRate:'65',numberOfHours:'130',hourRate:'60',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'التمريض',acceptanceRate:'75',numberOfHours:'134',hourRate:'50',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'الطب البشري',acceptanceRate:'90',numberOfHours:'256',hourRate:'90',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'ادارة العمال المعاصرة',acceptanceRate:'65',numberOfHours:'122',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'المحاسبة ',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'اقتصاديات الأعمال',acceptanceRate:'65',numberOfHours:'123',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
+    {id:uuidv4(),name:'التغذية الصحية',acceptanceRate:'65',numberOfHours:'132',hourRate:'35',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',}
+    [
+      {id:uuidv4(),name:'تخصص انظمة المعلومات الحاسوبية',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص تكنولوجيا المعلومات والاتصالات',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الرياضيات',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص العلوم',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص المكتبات وتقنية المعلومات',acceptanceRate:'65',numberOfHours:'133',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الانتاج النباتي والوقاية',acceptanceRate:'65',numberOfHours:'148',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الإنتاج الحيواني',acceptanceRate:'65',numberOfHours:'148',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص التصنيع الغذائي',acceptanceRate:'65',numberOfHours:'148',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الخدمة الاجتماعية',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص تنمية المجتمع المحلي',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص رعاية الطفل',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص النوع الاجتماعي وقضايا التنمية',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص إدارة الأعمال',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الإقتصاد',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص المحاسبة',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص العلوم المالية والمصرفية',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص التسويق الرقمي',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الإدارة الصحية',acceptanceRate:'65',numberOfHours:'130',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص المرحلة الأساسية الأولى',acceptanceRate:'65',numberOfHours:'131',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص تعليم التربية الإسلامية',acceptanceRate:'65',numberOfHours:'131',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص تعليم الإجتماعيات',acceptanceRate:'65',numberOfHours:'131',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص التربية الخاصة',acceptanceRate:'65',numberOfHours:'131',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص مصادر التعلم وتكنولوجيا التعليم',acceptanceRate:'65',numberOfHours:'137',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الإرشاد والصحة النفسية',acceptanceRate:'65',numberOfHours:'132',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص الإعلام الجديد',acceptanceRate:'65',numberOfHours:'129',hourRate:'30',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص العلاقات العامة والإعلان',acceptanceRate:'65',numberOfHours:'129',hourRate:'30',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص اللغة العربية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص اللغة الإنجليزية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
+      {id:uuidv4(),name:'تخصص اللغة العبرية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',}
+   ]
   
 ]

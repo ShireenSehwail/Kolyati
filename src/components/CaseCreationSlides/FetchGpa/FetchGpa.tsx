@@ -6,7 +6,7 @@ import classes from './FetchGpa.module.css';
 
 const inputRef=useRef<HTMLIonInputElement>(null);
 const handleGpa=()=>{
-  if(inputRef.current?.value?.toString.length==0)
+  if(inputRef.current?.value==="")
  { handleNotGpa();
   return;
  }
