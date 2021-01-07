@@ -2,7 +2,7 @@ import { IonCol, IonGrid, IonItem, IonRow } from "@ionic/react";
 import React, { useState } from "react";
 import Major from "./Major/Major";
 import Search from "./Search/Search";
- const MajorSearch :React.FC<{majors:{id:string;name:string;}[]}>=(props)=>
+ const MajorSearch :React.FC<{majors:{id:any;name:string;tawjihiTypes:string[]}[]}>=(props)=>
 { const style={marginRight:"20px"}
 const [search,setSearch]=useState<string>("");
 const changeSearch=(data:string)=>{
