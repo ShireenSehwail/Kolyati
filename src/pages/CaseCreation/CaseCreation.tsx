@@ -106,7 +106,11 @@ const CaseCreation: React.FC = () => {
       conetnt=( <TawjihiTypes list={tawjihiTypes} clicked={getTawjihiType}/>)
     }
     else if(!major)
-    {const  majors = majorList;
+    {const  majors = majorList.filter(major=>{
+      console.log(major?.name);
+      if (major&&major.tawjihiTypes.indexOf(tawjihiType)!==-1)
+      return {id:major.id,name:major.name};
+    });
       conetnt=(<IonList dir="rtl"><MajorSearch majors={majors}/> </IonList>);
     }
 component=(
