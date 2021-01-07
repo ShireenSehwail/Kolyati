@@ -4,12 +4,13 @@ import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAG
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
-import { bedOutline, bookOutline, calculatorOutline, constructOutline, desktopOutline, earthOutline, flaskOutline,  nutritionOutline } from 'ionicons/icons';
 import TawjihiTypes from '../../components/CaseCreationSlides/TawjihiTypes/TawjihiTypes';
 import MajorSearch from '../../components/CaseCreationSlides/MajorSearch/MajorSearch';
-import { majorList } from '../../Data/majors';
+import { majorList } from '../../Data/scientific';
 import { tawjihiTypeList } from '../../Data/tawjihiTypes';
+import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
+const LOCAL_STORAGE_KEY_GPA="koliyati.gpa";
 const CaseCreation: React.FC = () => {
   const { v4: uuidv4 } = require('uuid');
   const api=axios.create({
@@ -32,13 +33,49 @@ const CaseCreation: React.FC = () => {
     {    
 
       setTawjihiType(JSON.parse(tawjihiTypeData));
+      let gpaData=localStorage.getItem(LOCAL_STORAGE_KEY_GPA);
+
+      if(gpaData)
+      { const gpaNumber=JSON.parse(gpaData);
+        console.log(gpaNumber)
+        if(gpaNumber>=50)
+        {   
+          
+          setGpa(""+gpaNumber);
+        } 
+        else
+        {
+          setGpa("0");
+        } 
+      }
     }
   }, []);
   useEffect(() => {
     if(tawjihiType)
     localStorage.setItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE,JSON.stringify(tawjihiType));
-    
-  }, [tawjihiType]);
+    if(gpa)
+    {if(gpa.length<2)
+      {
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("0"));
+      }
+      else if(parseFloat(gpa)<50)
+      {
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("50"));
+
+      }
+      else if(parseFloat(gpa)>100)
+      {
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("100"));
+
+      }
+      else
+      {
+        localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify(gpa));
+
+      }
+      
+    }
+  }, [tawjihiType,gpa]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
@@ -105,12 +142,12 @@ const CaseCreation: React.FC = () => {
     {const  tawjihiTypes = tawjihiTypeList;
       conetnt=( <TawjihiTypes list={tawjihiTypes} clicked={getTawjihiType}/>)
     }
+    else if(!gpa){
+      conetnt=( <FetchGpa gpa={gpa||""} setGpa={setGpa}/>)
+
+    }
     else if(!major)
-    {const  majors = majorList.filter(major=>{
-      console.log(major?.name);
-      if (major&&major.tawjihiTypes.indexOf(tawjihiType)!==-1)
-      return {id:major.id,name:major.name};
-    });
+    {const  majors = majorList;
       conetnt=(<IonList dir="rtl"><MajorSearch majors={majors}/> </IonList>);
     }
 component=(
@@ -122,7 +159,7 @@ component=(
       </IonButton>
     </IonToolbar>
     </IonHeader >
-    <IonContent dir={major?"rtl":"ltr"}>
+    <IonContent dir="rtl">
     <IonInfiniteScroll >
   
 
