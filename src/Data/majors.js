@@ -146,8 +146,8 @@ export const majorList=[
     {id:uuidv4(),name:'ادارة العمال المعاصرة',acceptanceRate:'65',numberOfHours:'122',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
     {id:uuidv4(),name:'المحاسبة ',acceptanceRate:'65',numberOfHours:'126',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
     {id:uuidv4(),name:'اقتصاديات الأعمال',acceptanceRate:'65',numberOfHours:'123',hourRate:'35',tawjihiTypes:['علمي','أدبي','صناعي','تكنولوجي','زراعي','شرعي ','فنادق','تجاري',],university:'بوليتكنك فلسطين',},
-    {id:uuidv4(),name:'التغذية الصحية',acceptanceRate:'65',numberOfHours:'132',hourRate:'35',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',}
-    [
+    {id:uuidv4(),name:'التغذية الصحية',acceptanceRate:'65',numberOfHours:'132',hourRate:'35',tawjihiTypes:['علمي',],university:'بوليتكنك فلسطين',},
+    
       {id:uuidv4(),name:'تخصص انظمة المعلومات الحاسوبية',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
       {id:uuidv4(),name:'تخصص تكنولوجيا المعلومات والاتصالات',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
       {id:uuidv4(),name:'تخصص الرياضيات',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
@@ -177,6 +177,6 @@ export const majorList=[
       {id:uuidv4(),name:'تخصص اللغة العربية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
       {id:uuidv4(),name:'تخصص اللغة الإنجليزية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',},
       {id:uuidv4(),name:'تخصص اللغة العبرية وآدابها',acceptanceRate:'65',numberOfHours:'129',hourRate:'19',tawjihiTypes:['العلمي',],university:'القدس المفتوحة',}
-   ]
+   
   
 ]

@@ -6,7 +6,7 @@ import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
 import TawjihiTypes from '../../components/CaseCreationSlides/TawjihiTypes/TawjihiTypes';
 import MajorSearch from '../../components/CaseCreationSlides/MajorSearch/MajorSearch';
-import { majorList } from '../../Data/majors/scientific';
+import { majorList  } from '../../Data/majors';
 import { tawjihiTypeList } from '../../Data/tawjihiTypes';
 import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
@@ -16,7 +16,7 @@ const CaseCreation: React.FC = () => {
   const api=axios.create({
     baseURL:BASE_URL
   });
-  
+  const greyBackGroundColor={"--ion-background-color":"#E7E7E7"};
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string>();
@@ -148,7 +148,18 @@ const CaseCreation: React.FC = () => {
 
     }
     else if(!major)
-    {const  majors = majorList;
+    {console.log(tawjihiType);
+      const  majors = majorList.filter(major=>
+      {
+        if(major.tawjihiTypes.indexOf(tawjihiType)!==-1)
+        {if(parseFloat(gpa)===0)
+          return major;
+          if(parseFloat(gpa)>=parseFloat(major.acceptanceRate))
+          return major;
+          return null;
+        }
+        return null;
+      });
       conetnt=(<IonList dir="rtl"><MajorSearch majors={majors}/> </IonList>);
     }
 component=(
@@ -160,7 +171,7 @@ component=(
       </IonButton>
     </IonToolbar>
     </IonHeader >
-    <IonContent dir="rtl">
+    <IonContent dir="rtl" style={greyBackGroundColor}>
     <IonInfiniteScroll >
   
 
