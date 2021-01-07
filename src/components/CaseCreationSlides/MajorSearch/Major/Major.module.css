@@ -1,5 +1,5 @@
 .Card{
-    flex-basis: 300px;
+    flex-basis: 400px;
     flex-grow: 1;
 }
 .Card:hover{
@@ -14,4 +14,10 @@ font-size: large;
 }
 .SubTitle{
     font-size: large;
+}
+.Span{
+margin-left: 8px;
+}
+.Icon{
+    vertical-align: middle;
 }

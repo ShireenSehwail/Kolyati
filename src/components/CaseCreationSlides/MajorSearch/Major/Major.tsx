@@ -3,7 +3,7 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, 
 import React from "react";
 import { cashOutline, checkmarkCircleOutline, timeOutline } from "ionicons/icons";
  const Major :React.FC<{name:string,acceptanceRate:string,numberOfHours:string,hourRate:string,university:string}>=(props)=>
-{
+{const marginLeft={"margin-left":"5px"};
 return (
         <IonCard dir="rtl"  className={classes.Card}>
           <IonCardHeader>
@@ -13,24 +13,24 @@ return (
           <IonCardContent>
             <IonGrid>
               <IonRow class={classes.Row}>
-              <IonCol size="1">
-             <IonIcon icon={checkmarkCircleOutline}/>
-              </IonCol>
-              <IonCol size="2">
-              {props.acceptanceRate}
-              </IonCol>
-              <IonCol size="1">
-              <IonIcon icon={timeOutline}/>
-              </IonCol>
-              <IonCol size="2">
-              {props.numberOfHours}
+              
+              <IonCol >
+              <span className={classes.Span}>{props.acceptanceRate}</span>
+
+              <IonIcon icon={checkmarkCircleOutline} className={classes.Icon}/>
 
               </IonCol>
-              <IonCol size="1">
-              <IonIcon icon={cashOutline}/>
+           
+              <IonCol >
+              <span className={classes.Span}>{props.numberOfHours}</span>
+
+              <IonIcon icon={timeOutline} className={classes.Icon}/>
+
               </IonCol>
-              <IonCol size="2">
-              {props.hourRate}
+             
+              <IonCol >
+              <span className={classes.Span}>{props.hourRate}</span>
+              <IonIcon icon={cashOutline} className={classes.Icon}/>
 
               </IonCol>
   

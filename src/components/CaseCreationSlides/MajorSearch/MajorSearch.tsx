@@ -15,7 +15,7 @@ const changeSearch=(data:string)=>{
 }
 return (
 <>
-<h3 style={style}> إختر 3 تخصصات تميل لها</h3>
+<h3 style={style}> إختر ۳ تخصصات تميل لها</h3>
 <Search onChange={changeSearch}/>
 <IonGrid style={whiteBackGroundColor} className={classes.Container}>
       {props.majors.map(major=>{
