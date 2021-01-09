@@ -4,7 +4,7 @@ import React from "react";
 {  const textCenter={  "textAlign": "center","--ion-background-color":"#fff"};
 return (
         <IonSearchbar  style={textCenter} dir="ltr"
-        placeholder="ابحث بكتابة إسم التخصص"
+        placeholder="ابحث عن التخصص بكتابة إسم التخصص"
         onIonChange={e=>onChange(e.detail.value||"")}
         ></IonSearchbar>
 )

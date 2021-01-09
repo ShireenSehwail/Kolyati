@@ -20,7 +20,8 @@ const CaseCreation: React.FC = () => {
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string>();
-  const [major, setMajor] = useState<string>();
+  const [majorChoice, setMajorChoice] = useState<String[]>([]);
+  const[showMajors,setShowMajors]= useState(true);
   const [checked, setChecked] = useState(true);
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
@@ -37,7 +38,6 @@ const CaseCreation: React.FC = () => {
 
       if(gpaData)
       { const gpaNumber=JSON.parse(gpaData);
-        console.log(gpaNumber)
         if(gpaNumber>=50)
         {   
           
@@ -86,7 +86,7 @@ const CaseCreation: React.FC = () => {
         userId:id,
         name:name,
         location:location,
-        major:major,
+        major:majorChoice,
         tawjihiType:tawjihiType,
         gpa:gpa,
         description:description
@@ -121,12 +121,24 @@ const CaseCreation: React.FC = () => {
   const getTawjihiType=(data:string)=>{
     setTawjihiType(data);
   }
-  
+  const setMajorState=(id:string)=>{
+    if(majorChoice.indexOf(id)!==-1)
+    {
+      const choices=[...majorChoice];
+      choices.splice(choices.indexOf(id),1);
+      setMajorChoice(choices);
+      return;
+    }
+    setMajorChoice([...majorChoice,id])
+  }
+  const handleSetShowMajors=()=>{
+    setShowMajors(false);
+  }
   let component=null;
   if(created)
   {
     component=(
-      <><IonHeader dir="rtl">
+    <><IonHeader dir="rtl">
     <IonToolbar>
       <IonTitle>أنشئ حالة جديدة</IonTitle>
       <IonButton slot="start" fill="clear" >
@@ -147,8 +159,8 @@ const CaseCreation: React.FC = () => {
       conetnt=( <FetchGpa gpa={gpa||""} setGpa={setGpa}/>)
 
     }
-    else if(!major)
-    {console.log(tawjihiType);
+    else if(showMajors)
+    {
       const  majors = majorList.filter(major=>
       {
         if(major.tawjihiTypes.indexOf(tawjihiType)!==-1)
@@ -160,7 +172,13 @@ const CaseCreation: React.FC = () => {
         }
         return null;
       });
-      conetnt=(<IonList dir="rtl"><MajorSearch majors={majors}/> </IonList>);
+      conetnt=(<IonList dir="rtl"><MajorSearch 
+      majors={majors}
+      majorState={majorChoice}
+      setMajorState={setMajorState}
+      click={handleSetShowMajors}
+      /> 
+      </IonList>);
     }
 component=(
     <><IonHeader dir="rtl">
