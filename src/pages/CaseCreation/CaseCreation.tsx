@@ -1,4 +1,4 @@
-import { IonButton,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToolbar } from '@ionic/react';
+import { IonButton,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
 import React, {  useEffect, useState } from 'react';
 import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
@@ -9,9 +9,14 @@ import MajorSearch from '../../components/CaseCreationSlides/MajorSearch/MajorSe
 import { majorList  } from '../../Data/majors';
 import { tawjihiTypeList } from '../../Data/tawjihiTypes';
 import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
+import classes from './CaseCreation.module.css'
 const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
 const LOCAL_STORAGE_KEY_GPA="koliyati.gpa";
+const LOCAL_STORAGE_KEY_MAJORS="koliyati.majors";
+
 const CaseCreation: React.FC = () => {
+  var stringSimilarity = require("string-similarity")
+
   const { v4: uuidv4 } = require('uuid');
   const api=axios.create({
     baseURL:BASE_URL
@@ -26,7 +31,8 @@ const CaseCreation: React.FC = () => {
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>();
-  
+  const [showToast, setShowToast] = useState(false);
+
   const history =useHistory();
   useEffect(() => {
     const tawjihiTypeData=localStorage.getItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
@@ -47,6 +53,10 @@ const CaseCreation: React.FC = () => {
         {
           setGpa("0");
         } 
+        const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
+        console.log(majorsData);
+        if(majorsData&&majorsData.length>0)
+        setMajorChoice(majorsData);
       }
     }
   }, []);
@@ -76,7 +86,12 @@ const CaseCreation: React.FC = () => {
       }
       
     }
-  }, [tawjihiType,gpa]);
+    if(majorChoice)
+    {
+      localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS,JSON.stringify(majorChoice));
+
+    }
+  }, [tawjihiType,gpa,majorChoice]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
@@ -104,8 +119,6 @@ const CaseCreation: React.FC = () => {
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
         localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
         history.push(`/Case/${res.data[1]["caseId"]}`);
- 
-
       }
     }
       catch(err){
@@ -122,6 +135,7 @@ const CaseCreation: React.FC = () => {
     setTawjihiType(data);
   }
   const setMajorState=(id:string)=>{
+    //If it's found then remove it
     if(majorChoice.indexOf(id)!==-1)
     {
       const choices=[...majorChoice];
@@ -129,7 +143,38 @@ const CaseCreation: React.FC = () => {
       setMajorChoice(choices);
       return;
     }
+    //Check the similarity to allow only 3 different majors
+    let currentSelectedMajors:MajorClass[]=[];
+    majorChoice.forEach(majorId => {
+      const found=majorList.find(e=>e._id===majorId);
+      if(found)
+      {
+        currentSelectedMajors.push(found);
+      }
+    });
+    console.log(currentSelectedMajors)
+    let canAdd=true;
+    if(currentSelectedMajors.length>2)
+    {
+      currentSelectedMajors.forEach(major=>{
+        const selectedMajor=majorList.find(e=>e._id===id);
+        var similarity = stringSimilarity.compareTwoStrings(major.name, selectedMajor!.name);
+        if(similarity<.6)
+        {
+            canAdd=false;          
+        }
+        else
+        {
+          canAdd=true;
+          return;
+        }
+      })
+    }
+    if(canAdd)
     setMajorChoice([...majorChoice,id])
+    else
+    setShowToast(true);
+
   }
   const handleSetShowMajors=()=>{
     setShowMajors(false);
@@ -198,6 +243,15 @@ component=(
      </IonInfiniteScroll >
 
      </IonContent >
+     <IonToast 
+            isOpen={showToast}
+            onDidDismiss={() => setShowToast(false)}
+            cssClass={classes.CenterText}
+            message="لا يمكنك إضافة هذا التخصص، يجب إختيار 3 تخصصات مختلفة فقط"
+            color="danger"
+            duration={500}
+          />
+          );
       </>
     
   );
