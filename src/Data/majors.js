@@ -7,7 +7,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة التخطيط والتصميم الحضري ",
-   tags:["التخطيط"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "55",
@@ -19,8 +19,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "الهندسةالكهربائية ",
-   tags:["كهربا"],
+   name: "الهندسة الكهربائية ",
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "158",
    hourRate: "45",
@@ -46,7 +46,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة المعمارية ",
-   tags:['عماري'],
+   tags:['عمارة'],
    acceptanceRate: "93",
    numberOfHours: "162",
    hourRate: "45",
@@ -72,7 +72,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الميكاترونيكس",
-   tags:["ميكاترونكس"],
+   tags:[],
    acceptanceRate: "86",
    numberOfHours: "158",
    hourRate: "45",
@@ -169,7 +169,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "اللغة الفرنسية ",
-   tags:["فرنسي"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "120",
    hourRate: "40",
@@ -187,7 +187,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "رئيسي علم الاجتماع /فرعي الادارة العامة ",
-   tags:["الادارة "],
+   tags:[],
    acceptanceRate: "68",
    numberOfHours: "120",
    hourRate: "45",
@@ -205,7 +205,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "رئيسي علم الاجتماع/فرعي علم النفس",
-   tags:["علم الاجتماع"],
+   tags:[],
    acceptanceRate: "68",
    numberOfHours: "120",
    hourRate: "45",
@@ -223,7 +223,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "دائرة التاريخ والاثار",
-   tags:["تاريخ"],
+   tags:[],
    acceptanceRate: "67",
    numberOfHours: "120",
    hourRate: "40",
@@ -241,7 +241,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "دائرة الجغرافيا",
-   tags:["جغرافي"],
+   tags:[],
    acceptanceRate: "67",
    numberOfHours: "120",
    hourRate: "40",
@@ -259,7 +259,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "رئيسي علم النفس /فرعي علم الاجتماع ",
-   tags:["علم النفس"],
+   tags:[],
    acceptanceRate: "72",
    numberOfHours: "120",
    hourRate: "40",
@@ -277,7 +277,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "رئيسي علم النفس /فرعي دراسات المرأة ",
-   tags:["علم النفس"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "120",
    hourRate: "40",
@@ -295,7 +295,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الاعلام",
-   tags:["اعلام"],
+   tags:[],
    acceptanceRate: "72",
    numberOfHours: "120",
    hourRate: "50",
@@ -313,7 +313,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "اللغة الالمانية",
-   tags:["الماني"],
+   tags:[],
    acceptanceRate: "68",
    numberOfHours: "120",
    hourRate: "42",
@@ -331,7 +331,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "تعليم الاجتماعيات",
-   tags:["اجتماعيات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "40",
@@ -371,7 +371,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "التغذية والحمية",
-   tags:["التغذية "],
+   tags:[],
    acceptanceRate: "82",
    numberOfHours: "127",
    hourRate: "50",
@@ -382,7 +382,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "التمريض",
-   tags:["تمريض"],
+   tags:[],
    acceptanceRate: "85",
    numberOfHours: "138",
    hourRate: "50",
@@ -393,7 +393,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "علاج النطق والسمع ",
-   tags:["علاج"],
+   tags:[],
    acceptanceRate: "92",
    numberOfHours: "129",
    hourRate: "65",
@@ -411,7 +411,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "المحاسبة ",
-   tags:["محاسبة"],
+   tags:[],
    acceptanceRate: "91",
    numberOfHours: "120",
    hourRate: "50",
@@ -429,7 +429,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادراة الاعمال",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "85",
    numberOfHours: "120",
    hourRate: "50",
@@ -447,7 +447,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "العلوم المالية والمصرفية ",
-   tags:[" علوم مالية"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "120",
    hourRate: "50",
@@ -465,7 +465,7 @@ export const majorList=[{
      "تجاري"
    ],
   name:"ادارة الأعمال",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "71",
    numberOfHours: "126",
    hourRate: "50",
@@ -483,7 +483,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التسويق",
-   tags:["تسويق"],
+   tags:[],
    acceptanceRate: "76",
    numberOfHours: "120",
    hourRate: "50",
@@ -501,7 +501,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الاقتصاد",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "72",
    numberOfHours: "120",
    hourRate: "50",
@@ -512,7 +512,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "العلوم المالية الاكتوارية",
-   tags:["العلوم المالية "],
+   tags:[],
    acceptanceRate: "78",
    numberOfHours: "132",
    hourRate: "60",
@@ -525,7 +525,7 @@ export const majorList=[{
      "شرعي"
    ],
    name: "القانون",
-   tags:["قانون"],
+   tags:[],
    acceptanceRate: "84",
    numberOfHours: "142",
    hourRate: "45",
@@ -543,7 +543,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "دائرة الادارة العامة",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "75",
    numberOfHours: "124",
    hourRate: "45",
@@ -561,7 +561,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "دائرة العلوم السياسية",
-   tags:["علوم"],
+   tags:[],
    acceptanceRate: "68",
    numberOfHours: "124",
    hourRate: "40",
@@ -575,7 +575,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "دائرة الاحياء والكيمياء الحيوية",
-   tags:["وكيمياء "],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "126",
    hourRate: "40",
@@ -589,7 +589,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "دائرة الكيمياء",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "126",
    hourRate: "40",
@@ -603,7 +603,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "دائرة الفيزياء",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "126",
    hourRate: "40",
@@ -617,7 +617,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "دائرة الرياضيات",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "126",
    hourRate: "40",
@@ -635,7 +635,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التصميم",
-   tags:["تصميم"],
+   tags:[],
    acceptanceRate: "امتحان قدرات",
    numberOfHours: "133",
    hourRate: "95",
@@ -653,7 +653,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الفنون البصرية  ",
-   tags:["فنون"],
+   tags:[],
    acceptanceRate: "امتحان قدرات ",
    numberOfHours: "133",
    hourRate: "95",
@@ -670,7 +670,7 @@ export const majorList=[{
      "فنادق ",
      "تجاري"
    ],
-   name: "الموسيقى العربية والمعاصرة",
+   name: "الموسقى العربية والمعاصرة",
    tags:['عربي'],
    acceptanceRate: "امتحان قدرات ",
    numberOfHours: "121",
@@ -689,7 +689,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التربية الرياضية",
-   tags:["تربية "],
+   tags:[],
    acceptanceRate: "امتحان قدرات ",
    numberOfHours: "126",
    hourRate: "42",
@@ -702,7 +702,7 @@ export const majorList=[{
      "تكنلوجي"
    ],
    name: "الفيزياء وفرعي الكترونيات",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "126",
    hourRate: "35",
@@ -715,7 +715,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الأحياء البيوتكنولوجيا",
-   tags:["أحياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "126",
    hourRate: "35",
@@ -728,7 +728,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الرياضيات",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "124",
    hourRate: "35",
@@ -741,7 +741,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الكيمياء",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "126",
    hourRate: "35",
@@ -754,7 +754,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "كيمياء تطبيقية ",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "125",
    hourRate: "35",
@@ -767,7 +767,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الفيزياء",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "128",
    hourRate: "35",
@@ -793,7 +793,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة المعمارية",
-   tags:['عماري'],
+   tags:['عمارة'],
    acceptanceRate: "80",
    numberOfHours: "165",
    hourRate: "45",
@@ -806,7 +806,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة البناء",
-   tags:["البناء"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "168",
    hourRate: "45",
@@ -819,7 +819,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة التخطيط العمراني",
-   tags:["التخطيط"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -845,7 +845,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة الكيميائية",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "159",
    hourRate: "45",
@@ -858,7 +858,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة الصناعية",
-   tags:["صناعي"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -884,7 +884,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة الكهربائية",
-   tags:["كهربا"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -897,7 +897,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الاتصالات",
-   tags:["اتصالات"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -910,7 +910,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الميكاترونكس",
-   tags:["ميكاترونكس"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -923,7 +923,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الطاقة والبيئة",
-   tags:["طاقة"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "160",
    hourRate: "45",
@@ -936,7 +936,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة علم المواد",
-   tags:["مواد"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "160",
    hourRate: "45",
@@ -961,8 +961,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "أنظمة المعلومات الادارية",
-   tags:["معلومات"],
+   name: "أنظمة المعلومات اإلدارية",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "45",
@@ -975,7 +975,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "أنظمة المعلومات الحاسوبية",
-   tags:['معلومات'],
+   tags:['حاسوب'],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "45",
@@ -988,7 +988,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الشبكات وأمن المعلومات",
-   tags:["معلومات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "50",
@@ -1000,7 +1000,7 @@ export const majorList=[{
      ""
    ],
    name: "برنامج دكتور صيدلي",
-   tags:['صيدل'],
+   tags:['صيدلة'],
    acceptanceRate: "80",
    numberOfHours: "211",
    hourRate: "70",
@@ -1012,7 +1012,7 @@ export const majorList=[{
      ""
    ],
    name: "الصيدلة",
-   tags:['صيدل'],
+   tags:['صيدلة'],
    acceptanceRate: "80",
    numberOfHours: "161",
    hourRate: "65",
@@ -1060,7 +1060,7 @@ export const majorList=[{
      "تمريضي"
    ],
    name: "القبالة",
-   tags:["القبالة"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "146",
    hourRate: "50",
@@ -1072,7 +1072,7 @@ export const majorList=[{
      "تمريض"
    ],
    name: "التمريض",
-   tags:["تمريض"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "138",
    hourRate: "50",
@@ -1084,7 +1084,7 @@ export const majorList=[{
      ""
    ],
    name: "البصريات",
-   tags:["بصري"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "131",
    hourRate: "70",
@@ -1120,7 +1120,7 @@ export const majorList=[{
      ""
    ],
    name: "علاج السمع والنطق ",
-   tags:["علاج"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "138",
    hourRate: "60",
@@ -1132,7 +1132,7 @@ export const majorList=[{
      ""
    ],
    name: "العلاج الطبيعي ",
-   tags:['علاج'],
+   tags:['طب'],
    acceptanceRate: "70",
    numberOfHours: "138",
    hourRate: "60",
@@ -1144,7 +1144,7 @@ export const majorList=[{
      ""
    ],
    name: "الطب البيطري",
-   tags:["طب"],
+   tags:['طب'],
    acceptanceRate: "70",
    numberOfHours: "168",
    hourRate: "70",
@@ -1156,7 +1156,7 @@ export const majorList=[{
      ""
    ],
    name: "الانتاج النباتي والوقاية",
-   tags:["الانتاج"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "141",
    hourRate: "50",
@@ -1168,7 +1168,7 @@ export const majorList=[{
      ""
    ],
    name: "الانتاج الحيواني وصحة الحيوان",
-   tags:["الانتاج"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "141",
    hourRate: "50",
@@ -1180,7 +1180,7 @@ export const majorList=[{
      ""
    ],
    name: "التغذية والتصنيع الغذائي",
-   tags:["تصنيع "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "141",
    hourRate: "50",
@@ -1197,7 +1197,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الاقتصاد",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "40",
@@ -1214,7 +1214,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "العلوم السياسية ",
-   tags:["العلوم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "40",
@@ -1231,7 +1231,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الجغرافيا",
-   tags:["جغرافي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1247,8 +1247,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "الخدمة الاجتماعية",
-   tags:["الاجتماعية"],
+   name: "الخدمة االجتماعية",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "35",
@@ -1265,7 +1265,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "علم النفس - فرعي إرشاد نفسي",
-   tags:["علم النفس"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1281,8 +1281,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "الاذاعة والتلفزيون",
-   tags:["الاذاعة "],
+   name: "اإلذاعة والتلفزيون",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "45",
@@ -1299,7 +1299,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الصحافة المكتوبة والالكترونية",
-   tags:["الصحافة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "45",
@@ -1316,7 +1316,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "العلاقات العامة والاتصال",
-   tags:["العلاقات "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "45",
@@ -1333,7 +1333,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "المحاسبة ",
-   tags:["محاسبة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "40",
@@ -1350,7 +1350,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "ادارة الاعمال ",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "40",
@@ -1367,7 +1367,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "العلوم المالية والمصرفية",
-   tags:["علوم مالية "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "40",
@@ -1384,7 +1384,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "التسويق",
-   tags:["تسويق"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "40",
@@ -1401,7 +1401,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الموسيقى",
-   tags:["موسيقى"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "123",
    hourRate: "35",
@@ -1417,8 +1417,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "(التصميم الداخلي )ديكور",
-   tags:["تصميم"],
+   name: "التصميم الداخلي )ديكور",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "122",
    hourRate: "35",
@@ -1435,7 +1435,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "التصميم الجرافيكي",
-   tags:["تصميم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "122",
    hourRate: "35",
@@ -1452,7 +1452,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الرسم والتصوير",
-   tags:["التصوير"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "125",
    hourRate: "35",
@@ -1469,7 +1469,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "فن الخزف",
-   tags:["فن"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "125",
    hourRate: "35",
@@ -1481,8 +1481,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "معلم المرحلة الاساسية  العليا - تعليم الرياضيات",
-   tags:["الرياضيات"],
+   name: "معلم المرحلة األساسية العليا - تعليم الرياضيات",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "125",
    hourRate: "35",
@@ -1512,7 +1512,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "معلم المرحلة األساسية العليا - تعليم العلوم",
-   tags:["علوم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "35",
@@ -1546,7 +1546,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "معلم المرحلة األساسية العليا - تعليم التكنولوجي",
-   tags:["تكنولوجي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1562,8 +1562,8 @@ export const majorList=[{
      "صناعي",
      "تكنولوجي"
    ],
-   name: "معلم المرحلة األساسية العليا - تعليم الاجتماعيات",
-   tags:["اجتماعيات"],
+   name: "معلم المرحلة األساسية العليا - تعليم االجتماعيات",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "125",
    hourRate: "35",
@@ -1580,7 +1580,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "التربية - التربية الرياضية",
-   tags:["تربية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "35",
@@ -1597,7 +1597,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "التربية - رياض األطفال",
-   tags:["رياض"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1614,7 +1614,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "اللغة الفرنسية",
-   tags:["فرنسي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "126",
    hourRate: "35",
@@ -1631,7 +1631,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "السياحة والاثار",
-   tags:["سياحة "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1648,7 +1648,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "التاريخ",
-   tags:["تاريخ"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "35",
@@ -1699,7 +1699,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "فقه وتشريع",
-   tags:["تشريع"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "35",
@@ -1716,7 +1716,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "أصول الدين",
-   tags:["أصول"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "35",
@@ -1733,7 +1733,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "مصارف اسلامية",
-   tags:["مصارف"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "35",
@@ -1746,7 +1746,7 @@ export const majorList=[{
      "شرعي"
    ],
    name: "القانون",
-   tags:["قانون"],
+   tags:[],
    acceptanceRate: "75",
    numberOfHours: "139",
    hourRate: "40",
@@ -1757,8 +1757,8 @@ export const majorList=[{
      "علمي",
      "صناعي "
    ],
-   name: "هندسةالاتصالات والكترونيات",
-   tags:["اتصالات"],
+   name: "هندسةالإتصالت والكترونيات",
+   tags:[],
    acceptanceRate: "والعلاجية80",
    numberOfHours: "164",
    hourRate: "40",
@@ -1794,7 +1794,7 @@ export const majorList=[{
      "صناعي "
    ],
    name: "هندسة الميكاترونكس",
-   tags:["ميكاترونكس"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "163",
    hourRate: "40",
@@ -1806,7 +1806,7 @@ export const majorList=[{
      "صناعي "
    ],
    name: "الهندسة المعمارية",
-   tags:['عماري'],
+   tags:['عمارة'],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "45",
@@ -1818,7 +1818,7 @@ export const majorList=[{
      "صناعي "
    ],
    name: "هندسة الطاقة المتجددة",
-   tags:["طاقة "],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "165",
    hourRate: "43",
@@ -1854,7 +1854,7 @@ export const majorList=[{
      "صناعي "
    ],
    name: " أمن الشبكات والمعلومات",
-   tags:["حاسوب"],
+   tags:[],
    acceptanceRate: "90",
    numberOfHours: "167",
    hourRate: "40",
@@ -1867,7 +1867,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تكنولوجيا المعلومات",
-   tags:["تكنولوجي"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "132",
    hourRate: "38",
@@ -1898,7 +1898,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "اقتصاديات الأعمال",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "-",
    hourRate: "35",
@@ -1911,7 +1911,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "رياضيات تطبيقية",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "34",
@@ -1924,7 +1924,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "كيمياء تطبيقية",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "34",
@@ -1937,7 +1937,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "فيزياء تطبيقية",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "132",
    hourRate: "34",
@@ -1950,7 +1950,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "أحياء تطبيقية",
-   tags:["أحياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "132",
    hourRate: "34",
@@ -1961,7 +1961,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "رياض الاطفال ",
-   tags:["رياض"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "124",
    hourRate: "34",
@@ -1972,7 +1972,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "العالج الوظيفي",
-   tags:["علاج"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "60",
@@ -1983,7 +1983,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "التمريض",
-   tags:["تمريض"],
+   tags:[],
    acceptanceRate: "75",
    numberOfHours: "134",
    hourRate: "50",
@@ -2011,8 +2011,8 @@ export const majorList=[{
      "فنادق",
      "تجاري"
    ],
-   name: "ادارة الاعمال المعاصرة",
-   tags:["ادارة"],
+   name: "ادارة العمال المعاصرة",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "122",
    hourRate: "35",
@@ -2030,7 +2030,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "المحاسبة ",
-   tags:["محاسبة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "126",
    hourRate: "35",
@@ -2048,7 +2048,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "اقتصاديات الأعمال",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "123",
    hourRate: "35",
@@ -2059,7 +2059,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "التغذية الصحية",
-   tags:["تغذية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "132",
    hourRate: "35",
@@ -2081,7 +2081,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص تكنولوجيا المعلومات والاتصالات",
-   tags:["تكنولوجي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2092,7 +2092,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الرياضيات",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2103,7 +2103,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص العلوم",
-   tags:["علوم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2114,7 +2114,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص المكتبات وتقنية المعلومات",
-   tags:["المعلومات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "19",
@@ -2125,7 +2125,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الانتاج النباتي والوقاية",
-   tags:["الانتاج"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "148",
    hourRate: "19",
@@ -2136,7 +2136,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الإنتاج الحيواني",
-   tags:["الانتاج"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "148",
    hourRate: "19",
@@ -2147,7 +2147,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص التصنيع الغذائي",
-   tags:["التصنيع"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "148",
    hourRate: "19",
@@ -2158,7 +2158,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الخدمة الاجتماعية",
-   tags:["الاجتماعية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2169,7 +2169,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص تنمية المجتمع المحلي",
-   tags:["تنمية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2180,7 +2180,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص رعاية الطفل",
-   tags:["رعاية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2190,8 +2190,8 @@ export const majorList=[{
    ,tawjihiTypes: [
      "علمي"
    ],
-   name: "تخصص التنوع الاجتماعي وقضايا التنمية",
-   tags:["تنمية"],
+   name: "تخصص النوع الاجتماعي وقضايا التنمية",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2202,7 +2202,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص إدارة الأعمال",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2213,7 +2213,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الإقتصاد",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2224,7 +2224,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص المحاسبة",
-   tags:["محاسبة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2235,7 +2235,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص العلوم المالية والمصرفية",
-   tags:["علوم مالية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2246,7 +2246,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص التسويق الرقمي",
-   tags:["تسويق"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2257,7 +2257,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الإدارة الصحية",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "19",
@@ -2268,7 +2268,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص المرحلة الأساسية الأولى",
-   tags:[""],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "19",
@@ -2279,7 +2279,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص تعليم التربية الإسلامية",
-   tags:["تربية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "19",
@@ -2289,8 +2289,8 @@ export const majorList=[{
    ,tawjihiTypes: [
      "علمي"
    ],
-   name: "تخصص تعليم الاجتماعيات",
-   tags:["اجتماعيات"],
+   name: "تخصص تعليم الإجتماعيات",
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "19",
@@ -2301,7 +2301,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص التربية الخاصة",
-   tags:["تربية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "19",
@@ -2312,7 +2312,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص مصادر التعلم وتكنولوجيا التعليم",
-   tags:["تكنولوجي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "137",
    hourRate: "19",
@@ -2323,7 +2323,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الإرشاد والصحة النفسية",
-   tags:["الصحة "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "132",
    hourRate: "19",
@@ -2334,7 +2334,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص الإعلام الجديد",
-   tags:["اعلام"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "30",
@@ -2345,7 +2345,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص العلاقات العامة والإعلان",
-   tags:["اعلان"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "30",
@@ -2378,7 +2378,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "تخصص اللغة العبرية وآدابها",
-   tags:["عبري"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "129",
    hourRate: "19",
@@ -2417,7 +2417,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة البناء",
-   tags:["البناء"],
+   tags:[],
    acceptanceRate: "87",
    numberOfHours: "165",
    hourRate: "24",
@@ -2430,7 +2430,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الطاقة المستدامة",
-   tags:["طاقة"],
+   tags:[],
    acceptanceRate: "84",
    numberOfHours: "166",
    hourRate: "24",
@@ -2443,7 +2443,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة وتكنولوجيا الاتصالات",
-   tags:["اتصالات"],
+   tags:[],
    acceptanceRate: "83",
    numberOfHours: "167",
    hourRate: "24",
@@ -2456,7 +2456,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "هندسة الميكاترونكس",
-   tags:["ميكاترونكس"],
+   tags:[],
    acceptanceRate: "83",
    numberOfHours: "166",
    hourRate: "24",
@@ -2469,7 +2469,7 @@ export const majorList=[{
      "تكنولوجي"
    ],
    name: "الهندسة الكهربائية ",
-   tags:["كهربا"],
+   tags:[],
    acceptanceRate: "83",
    numberOfHours: "166",
    hourRate: "24",
@@ -2497,7 +2497,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "الهندسة الكهربائية-الاتمتة الصناعية",
-   tags:["كهربا"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "166",
    hourRate: "24",
@@ -2511,7 +2511,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "الرياضيات التطبيقية ",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "135",
    hourRate: "20",
@@ -2525,7 +2525,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "الحوسبة التطبيقية ",
-   tags:["حوسبة "],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "138",
    hourRate: "20",
@@ -2539,7 +2539,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "الكيمياء ",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "135",
    hourRate: "20",
@@ -2553,7 +2553,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "الفيزياء",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "138",
    hourRate: "20",
@@ -2571,7 +2571,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "أحياء جزيئية وتطبيقية ",
-   tags:["أحياء"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "136",
    hourRate: "20",
@@ -2589,7 +2589,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادارة اللوجستيات",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "93",
    numberOfHours: "128",
    hourRate: "20",
@@ -2607,7 +2607,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادراة الاعمال والتجارة الالكترونية",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "85",
    numberOfHours: "126",
    hourRate: "20",
@@ -2625,7 +2625,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "أنظمة معلومات محاسبية ",
-   tags:["ملعومات"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "135",
    hourRate: "20",
@@ -2643,7 +2643,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "العلوم المالية والمصرفية المحوسب",
-   tags:["علوم مالية "],
+   tags:[],
    acceptanceRate: "73",
    numberOfHours: "135",
    hourRate: "20",
@@ -2661,7 +2661,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الادارة الصناعية",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "139",
    hourRate: "20",
@@ -2679,7 +2679,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التصميم والفنون التطبيقية ",
-   tags:["تصميم وفنون"],
+   tags:[],
    acceptanceRate: "90",
    numberOfHours: "139",
    hourRate: "20",
@@ -2697,7 +2697,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "تكنولوجيا الاعلام",
-   tags:["اعلام"],
+   tags:[],
    acceptanceRate: "90",
    numberOfHours: "135",
    hourRate: "20",
@@ -2715,7 +2715,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التربية الرياضية",
-   tags:["تربية "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "134",
    hourRate: "20",
@@ -2729,7 +2729,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "التربية التكنولوجية",
-   tags:["تكنولوجيا"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "138",
    hourRate: "20",
@@ -2743,7 +2743,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "البيئة الزراعية المستدامة ",
-   tags:["زراعي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "152",
    hourRate: "20",
@@ -2757,7 +2757,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "التكنولوجيا الحيوية الزراعية ",
-   tags:["زراعي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "145",
    hourRate: "20",
@@ -2771,7 +2771,7 @@ export const majorList=[{
      "زراعي"
    ],
    name: "البستنة والارشاد الزراعي ",
-   tags:["زراعي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "146",
    hourRate: "20",
@@ -2785,7 +2785,7 @@ export const majorList=[{
      "صناعي"
    ],
    name: "التصنيع الغذائي",
-   tags:["التصنيع"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "20",
@@ -2803,7 +2803,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادارة الاعمال",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2821,7 +2821,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادارة الموارد البشرية",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2839,7 +2839,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التسويق ",
-   tags:["تسويق"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2857,7 +2857,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "المحاسبة ",
-   tags:["محاسبة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2875,7 +2875,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "نظم المعلومات الإدارية (MIS)",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2893,7 +2893,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "ادارة المستشفيات والخدمات الصحية ",
-   tags:["ادارة"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2911,7 +2911,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الاقتصاد والمصارف الاسلامية ",
-   tags:["اقتصاد"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2929,7 +2929,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "العلوم المالية والمصرفية",
-   tags:["علوم مالية "],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2947,7 +2947,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "علم البيانات والتمويل ",
-   tags:["علم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "127",
    hourRate: "-",
@@ -2961,7 +2961,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "اضطرابات النطق واللغة والسمع",
-   tags:["النطق"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "138",
    hourRate: "-",
@@ -2975,7 +2975,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الأطراف الصناعية والأجهزة المساعدة",
-   tags:["صناعي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "135",
    hourRate: "-",
@@ -2986,7 +2986,7 @@ export const majorList=[{
      "الادبي"
    ],
    name: "الأطراف الصناعية والأجهزة المساعدة",
-   tags:["صناعي"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "135",
    hourRate: "-",
@@ -3008,7 +3008,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "العلاج الطبيعي",
-   tags:['علاج'],
+   tags:['طب'],
    acceptanceRate: "70",
    numberOfHours: "142",
    hourRate: "-",
@@ -3030,7 +3030,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "العلاج الوظيفي ",
-   tags:["علاج"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "142",
    hourRate: "-",
@@ -3048,7 +3048,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "علوم البيئة والتكنولوجيا ",
-   tags:["علوم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "-",
@@ -3066,7 +3066,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التربية الابتدائية - المرحلة الأساسية",
-   tags:["تربية"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "-",
@@ -3102,7 +3102,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "اللغة العربية والاعلام",
-   tags:["العربي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "134",
    hourRate: "-",
@@ -3131,7 +3131,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "دكتور في جراحة الأسنان",
-   tags:["الاسنان"],
+   tags:[],
    acceptanceRate: "85",
    numberOfHours: "210",
    hourRate: "-",
@@ -3144,7 +3144,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الهندسة الكهربائية والطاقة المتجددة",
-   tags:["كهربا"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "161",
    hourRate: "-",
@@ -3162,7 +3162,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "تكنولوجيا الوسائط المتعددة",
-   tags:["تكنولوجي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "-",
@@ -3215,7 +3215,7 @@ export const majorList=[{
      "جميع الفروع"
    ],
    name: "نظم المعلومات الجغرافية (GIS)",
-   tags:["معلومات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "132",
    hourRate: "-",
@@ -3241,7 +3241,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "هندسة الاتصالات",
-   tags:["اتصالات"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "162",
    hourRate: "-",
@@ -3254,7 +3254,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الفقه والقانون",
-   tags:["قانون"],
+   tags:[],
    acceptanceRate: "75",
    numberOfHours: "133",
    hourRate: "-",
@@ -3267,7 +3267,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "القانون",
-   tags:["قانون"],
+   tags:[],
    acceptanceRate: "75",
    numberOfHours: "133",
    hourRate: "-",
@@ -3296,7 +3296,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الاتصال ووسائل التواصل الاجتماعي",
-   tags:["الاجتماعي"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "-",
@@ -3314,7 +3314,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "الإعلام الرقمي",
-   tags:["اعلام"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "-",
@@ -3332,7 +3332,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "العلاقات العامة",
-   tags:["العلاقات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "133",
    hourRate: "-",
@@ -3350,7 +3350,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "البصريات",
-   tags:["البصري"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "136",
    hourRate: "-",
@@ -3368,7 +3368,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "التسويق الرقمي ",
-   tags:["تسويق"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "128",
    hourRate: "-",
@@ -3386,7 +3386,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "العمارة الداخلية ",
-   tags:['العمار'],
+   tags:['عمارة'],
    acceptanceRate: "70",
    numberOfHours: "128",
    hourRate: "-",
@@ -3397,7 +3397,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "التمريض",
-   tags:["تمريض"],
+   tags:[],
    acceptanceRate: "80",
    numberOfHours: "140",
    hourRate: "-",
@@ -3408,7 +3408,7 @@ export const majorList=[{
      "الادبي"
    ],
    name: "التمريض",
-   tags:["تمريض"],
+   tags:[],
    acceptanceRate: "70",
    numberOfHours: "140",
    hourRate: "-",
@@ -3422,7 +3422,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الرياضيات والاحصاء",
-   tags:["رياضيات"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "130",
    hourRate: "-",
@@ -3436,7 +3436,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "العلوم الحياتية والتقنيات الحيوية",
-   tags:["علوم"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "-",
@@ -3450,7 +3450,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الفيزياء",
-   tags:["فيزياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "128",
    hourRate: "-",
@@ -3464,7 +3464,7 @@ export const majorList=[{
      "علمي"
    ],
    name: "الكيمياء",
-   tags:["كيمياء"],
+   tags:[],
    acceptanceRate: "65",
    numberOfHours: "131",
    hourRate: "-",
@@ -3482,7 +3482,7 @@ export const majorList=[{
      "تجاري"
    ],
    name: "علوم الرياضة",
-   tags:["رياضة "],
+   tags:[],
    acceptanceRate: "60",
    numberOfHours: "133",
    hourRate: "-",
