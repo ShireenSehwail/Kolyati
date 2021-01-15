@@ -1,4 +1,4 @@
-import {  IonButton, IonCol, IonGrid, IonItem, IonRow} from "@ionic/react";
+import {  IonButton, IonGrid, IonItem} from "@ionic/react";
 import React, { useState } from "react";
 import Major from "./Major/Major";
 
