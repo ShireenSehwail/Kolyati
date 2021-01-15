@@ -15,7 +15,6 @@ const LOCAL_STORAGE_KEY_GPA="koliyati.gpa";
 const LOCAL_STORAGE_KEY_MAJORS="koliyati.majors";
 
 const CaseCreation: React.FC = () => {
-  var stringSimilarity = require("string-similarity")
 
   const { v4: uuidv4 } = require('uuid');
   const api=axios.create({
@@ -54,7 +53,6 @@ const CaseCreation: React.FC = () => {
           setGpa("0");
         } 
         const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
-        console.log(majorsData);
         if(majorsData&&majorsData.length>0)
         setMajorChoice(majorsData);
       }
@@ -110,11 +108,9 @@ const CaseCreation: React.FC = () => {
       if(res.status!==200)
       {
         alert("Something Went wrong..");
-        console.log(res);
 
       }
       else{
-        console.log(res.data);
         localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
         localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
@@ -143,37 +139,46 @@ const CaseCreation: React.FC = () => {
       setMajorChoice(choices);
       return;
     }
-    //Check the similarity to allow only 3 different majors
-    let currentSelectedMajors:MajorClass[]=[];
-    majorChoice.forEach(majorId => {
+    //Check the tags to allow only 3 different majors   
+    if(majorChoice.length>2)
+    {  let currentSelectedMajors:MajorClass[]=[];
+      majorChoice.forEach(majorId => {
       const found=majorList.find(e=>e._id===majorId);
       if(found)
       {
         currentSelectedMajors.push(found);
       }
     });
-    console.log(currentSelectedMajors)
-    let canAdd=true;
-    if(currentSelectedMajors.length>2)
-    {
-      currentSelectedMajors.forEach(major=>{
-        const selectedMajor=majorList.find(e=>e._id===id);
-        var similarity = stringSimilarity.compareTwoStrings(major.name, selectedMajor!.name);
-        if(similarity<.6)
-        {
-            canAdd=false;          
-        }
-        else
-        {
+    const found=majorList.find(e=>e._id===id);
+    let canAdd=false;
+      for(var i=0;i<found!.tags.length;i++)
+      {
+        currentSelectedMajors.forEach(major=>{
+          
+          major.tags.forEach((tag:string)=>{
+            if(tag===found?.tags[i])
           canAdd=true;
-          return;
-        }
-      })
-    }
+        })
+        });
+        if(canAdd)
+        break;
+      }
     if(canAdd)
     setMajorChoice([...majorChoice,id])
-    else
-    setShowToast(true);
+else
+setShowToast(true);
+    return;
+
+      }
+     
+      
+    
+   
+
+    //Case when majors are not 3 yet
+    setMajorChoice([...majorChoice,id])
+  
+   
 
   }
   const handleSetShowMajors=()=>{
