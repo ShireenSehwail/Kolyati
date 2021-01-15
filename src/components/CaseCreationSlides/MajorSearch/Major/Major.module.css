@@ -25,11 +25,16 @@ font-size: large;
 }
 .Span{
 margin-left: 8px;
+display: inline-block;
+text-align: center;
+vertical-align: middle;
+
 }
 .Icon{
-    vertical-align: middle;
-    font-size: 24px;
+    vertical-align: top;
+    font-size: 22px;
     color:#30475e;
+    margin-left: 8px;
 }
 .icon{
     color: #f9ed69;
@@ -39,4 +44,10 @@ margin-left: 8px;
 }
 .subTitle{
     color: #456268;
+}
+.divide{
+    display: block;
+    line-height: .7;
+    font-weight: bold;
+    font-size: 16px;
 }

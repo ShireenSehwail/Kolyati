@@ -26,7 +26,7 @@ const CaseCreation: React.FC = () => {
   const [location, setLocation] = useState<string>();
   const [majorChoice, setMajorChoice] = useState<String[]>([]);
   const[showMajors,setShowMajors]= useState(true);
-  const [checked, setChecked] = useState(true);
+  const [prefenceSelected, setPrefenceSelected] = useState(false);
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>();
@@ -229,6 +229,10 @@ setShowToast(true);
       click={handleSetShowMajors}
       /> 
       </IonList>);
+    }
+    else if(!prefenceSelected)
+    {
+      conetnt=(<h1>hi</h1>)
     }
 component=(
     <><IonHeader dir="rtl">

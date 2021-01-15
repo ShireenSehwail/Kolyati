@@ -51,10 +51,12 @@ return (
 <>
 <h3 style={style}> إختر  التخصصات التي  تميل لها</h3>
 <Search onChange={changeSearch}/>
-{props.majorState.length>0?(<IonItem>
-      <IonButton onClick={props.click}>
+{props.majorState.length>0?(<IonItem className={classes.center}>
+        <div className={classes.center}>
+<IonButton onClick={props.click}class={classes.btn}>
               إخترت تخصصاتي
-              </IonButton>  
+</IonButton>  
+</div>
 </IonItem>):null}
 {displayElement}
 

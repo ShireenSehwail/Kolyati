@@ -28,22 +28,46 @@ return (
             <IonGrid>
               <IonRow class={classes.Row}>
               <IonCol >
-              <span className={classes.Span}>{props.acceptanceRate}</span>
-
               <IonIcon icon={checkmarkCircleOutline} className={classes.Icon+styledIcon}/>
+
+              <span className={classes.Span}>
+              <span className={classes.divide}>
+              معدل القبول
+              </span>
+              <span>
+              {props.acceptanceRate}
+
+              </span>
+                
+                </span>
+
 
               </IonCol>
            
               <IonCol >
-              <span className={classes.Span}>{props.numberOfHours}</span>
-
               <IonIcon icon={timeOutline} className={classes.Icon+styledIcon}/>
+
+              <span className={classes.Span}>
+              <span className={classes.divide}>
+                عدد الساعات
+              </span>
+              <span>
+              {props.numberOfHours} ساعة  
+              </span>
+                </span>
+
 
               </IonCol>
              
               <IonCol >
-              <span className={classes.Span}>{props.hourRate}</span>
               <IonIcon icon={cashOutline} className={classes.Icon+styledIcon}/>
+
+              <span className={classes.Span}>
+              <span className={classes.divide}>
+              سعر الساعة
+              </span>
+              <span>{props.hourRate} دينار</span>
+              </span>
 
               </IonCol>
   
