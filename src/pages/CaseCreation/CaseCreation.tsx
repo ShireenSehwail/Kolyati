@@ -268,7 +268,12 @@ setShowToast(true);
 
           <IonCardContent>
           <IonItem>
-          <span className={classes.FullHeight}><span>أعلى</span><div className={classes.Line}></div> <span> أقل   </span></span>
+          <span className={classes.FullHeight}>
+          <span className={classes.BiggerText}>أعلى</span>
+          <div className={classes.ArrowUp}/>
+          <div className={classes.Line}/>
+          <span className={classes.BiggerText}> أقل   </span>
+            </span>
 
           <PrefrencesContainer 
         
