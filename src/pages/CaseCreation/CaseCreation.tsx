@@ -1,6 +1,6 @@
-import { IonButton,  IonContent, IonHeader ,IonInfiniteScroll,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
+import { IonButton,  IonCard,  IonCardContent,  IonCardHeader,  IonCardSubtitle,  IonCardTitle,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
 import React, {  useEffect, useState } from 'react';
-import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID} from '../../containers/App'
+import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID, LOCAL_STORAGE_KEY_GPA, LOCAL_STORAGE_KEY_MAJORS, LOCAL_STORAGE_KEY_MAJORS_SHOW, LOCAL_STORAGE_KEY_TAWIJIHI_TYPE, LOCAL_STORAGE_KEY_PREFRENCES, LOCAL_STORAGE_KEY_PREFRENCES_SELECTED} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
@@ -10,10 +10,7 @@ import { majorList  } from '../../Data/majors';
 import { tawjihiTypeList } from '../../Data/tawjihiTypes';
 import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 import classes from './CaseCreation.module.css'
-const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
-const LOCAL_STORAGE_KEY_GPA="koliyati.gpa";
-const LOCAL_STORAGE_KEY_MAJORS="koliyati.majors";
-
+import PrefrencesContainer from '../../components/CaseCreationSlides/SelectionPrefrences/PrefrencesContainer';
 const CaseCreation: React.FC = () => {
 
   const { v4: uuidv4 } = require('uuid');
@@ -27,6 +24,7 @@ const CaseCreation: React.FC = () => {
   const [majorChoice, setMajorChoice] = useState<String[]>([]);
   const[showMajors,setShowMajors]= useState(true);
   const [prefenceSelected, setPrefenceSelected] = useState(false);
+  const [prefrences,setPrefrences]=useState<string[]>(['جودة التعليم','فرص العمل','صعوبة المواصلات','التكاليف الدراسية'])
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>();
@@ -52,11 +50,24 @@ const CaseCreation: React.FC = () => {
         {
           setGpa("0");
         } 
-        const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
-        if(majorsData&&majorsData.length>0)
-        setMajorChoice(majorsData);
+      
+
       }
     }
+    const showMajorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS_SHOW)!);
+    const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
+      if(majorsData&&majorsData.length>0)
+    setMajorChoice(majorsData);
+    if(!showMajorsData)
+    {setShowMajors(false);
+     
+    }
+    const prefrencesData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_PREFRENCES)!);
+    if(prefrencesData)
+    setPrefrences(prefrencesData);
+    const prefrencesSelectedData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED)!);
+    if(prefrencesSelectedData)
+    setPrefenceSelected(prefrencesSelectedData);
   }, []);
   useEffect(() => {
     if(tawjihiType)
@@ -87,9 +98,13 @@ const CaseCreation: React.FC = () => {
     if(majorChoice)
     {
       localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS,JSON.stringify(majorChoice));
-
     }
-  }, [tawjihiType,gpa,majorChoice]);
+      localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS_SHOW,JSON.stringify(showMajors));
+      
+      localStorage.setItem(LOCAL_STORAGE_KEY_PREFRENCES,JSON.stringify(prefrences));
+      localStorage.setItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED,JSON.stringify(prefenceSelected));
+
+  }, [tawjihiType,gpa,majorChoice,showMajors,prefrences,prefenceSelected]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
@@ -184,6 +199,16 @@ setShowToast(true);
   const handleSetShowMajors=()=>{
     setShowMajors(false);
   }
+  function handlePrefrencesChanged(result:any){
+    if(!result.destination)return;
+    const items=[...prefrences];
+    const [recordedItem]=items.splice(result.source.index,1);
+    items.splice(result.destination.index,0,recordedItem);
+    setPrefrences(items);
+  }
+  function handlePrefrencesClicked(){
+    setPrefenceSelected(true);
+  }
   let component=null;
   if(created)
   {
@@ -232,7 +257,35 @@ setShowToast(true);
     }
     else if(!prefenceSelected)
     {
-      conetnt=(<h1>hi</h1>)
+      conetnt=(
+        <IonCard className={classes.Container}>
+
+<IonCardHeader>
+            <IonCardTitle>إسحب لترتيب الأهمية</IonCardTitle>
+
+
+          </IonCardHeader>
+
+          <IonCardContent>
+          <IonItem>
+          <span className={classes.FullHeight}><span>أعلى</span><div className={classes.Line}></div> <span> أقل   </span></span>
+
+          <PrefrencesContainer 
+        
+        prefrences={prefrences}
+        setPrefrences={handlePrefrencesChanged}
+      
+      />
+          </IonItem>
+        <div className={classes.ButtonContainer}>
+        <IonButton className={classes.Button} onClick={handlePrefrencesClicked}>
+        إستمر
+      </IonButton>
+          </div>
+      
+      </IonCardContent>
+     
+       </IonCard>)
     }
 component=(
     <><IonHeader dir="rtl">
