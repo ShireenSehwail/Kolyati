@@ -24,10 +24,21 @@
      width: 80px;
      text-align: center;
      }
+     .Arrow{
+        width: 0; 
+        height: 0; 
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #19456b;
+        margin:  auto;
+
+     }
  .Line{
-    border-left: 4px dashed rgb(0, 0, 0);
+    border-left: 4px solid #19456b;
      width: 0px;
      height: 74%;
-     opacity: .3;
      margin:  auto;
  }
+ .BiggerFont{
+    font-size: large;
+}
