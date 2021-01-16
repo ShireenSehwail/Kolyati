@@ -51,17 +51,17 @@ const CaseCreation: React.FC = () => {
           setGpa("0");
         } 
       
-
+        const showMajorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS_SHOW)!);
+        const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
+          if(majorsData&&majorsData.length>0)
+        setMajorChoice(majorsData);
+        if(!showMajorsData)
+        {setShowMajors(false);
+         
+        }
       }
     }
-    const showMajorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS_SHOW)!);
-    const majorsData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_MAJORS)!);
-      if(majorsData&&majorsData.length>0)
-    setMajorChoice(majorsData);
-    if(!showMajorsData)
-    {setShowMajors(false);
-     
-    }
+   
     const prefrencesData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_PREFRENCES)!);
     if(prefrencesData)
     setPrefrences(prefrencesData);

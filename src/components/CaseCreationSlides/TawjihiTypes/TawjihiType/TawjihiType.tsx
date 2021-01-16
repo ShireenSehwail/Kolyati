@@ -7,7 +7,7 @@ import classes from './TawjihiType.module.css'
 return (
 <IonCard dir="rtl" className={classes.Card} style={whiteBackGroundColor}onClick={()=>props.click(props.type)} >
           <IonCardHeader>
-            <IonCardSubtitle><IonIcon icon={props.icon} color="dark"/></IonCardSubtitle>
+            <IonCardSubtitle><IonIcon  className={classes.Icon} icon={props.icon} color="dark"/></IonCardSubtitle>
             <IonCardTitle >{props.type}</IonCardTitle>
           </IonCardHeader>
         </IonCard>)
