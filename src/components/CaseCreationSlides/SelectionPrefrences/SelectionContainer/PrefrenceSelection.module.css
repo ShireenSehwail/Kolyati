@@ -1,0 +1,23 @@
+.First{
+   border-right: 5px solid #ef4f4f;
+}
+.Second{
+   border-right: 5px solid #30475e;
+}
+.Third{
+   border-right: 5px solid #74c7b8;
+}
+.Fourth{
+   border-right: 5px solid #ffcda3;
+}
+.Card:hover{
+   background-color:#ececec;
+   cursor: pointer;
+}
+.Card:active{
+   background-color:#ececec;
+   cursor: pointer;
+}
+.Icon{
+   font-size: 24px;
+}

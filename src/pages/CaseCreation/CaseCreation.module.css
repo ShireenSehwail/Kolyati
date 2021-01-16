@@ -2,3 +2,32 @@
     text-align: center;
     font-size: 20px;
 }
+.ButtonContainer{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 56px;
+}
+.Button{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-right: 16px;
+}
+.Container{
+    --ion-background-color:#fff;
+    margin-top: 32px;
+ }
+ .FullHeight{
+     height: 100%;
+     padding-top: 32px;
+     width: 80px;
+     text-align: center;
+     }
+ .Line{
+    border-left: 4px dashed rgb(0, 0, 0);
+     width: 0px;
+     height: 74%;
+     opacity: .3;
+     margin:  auto;
+ }

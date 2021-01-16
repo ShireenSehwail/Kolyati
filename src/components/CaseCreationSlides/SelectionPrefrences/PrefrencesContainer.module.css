@@ -1,0 +1,13 @@
+.Container{
+   --ion-background-color:#fff;
+   text-align: center;
+   margin: 0 auto;
+   width: 100%;
+}
+.Title{
+   margin-bottom: 50px;
+}
+.drag{
+  top:auto !important;
+  left: auto !important;
+}

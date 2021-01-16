@@ -23,6 +23,13 @@ export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
 export const LOCAL_STORAGE_KEY_CASE_ID="koliyati.case.id";
 export const LOCAL_STORAGE_KEY_USER_ID="koliyati.user.id";
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
+export const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
+export const LOCAL_STORAGE_KEY_GPA="koliyati.gpa";
+export const LOCAL_STORAGE_KEY_MAJORS_SHOW="koliyati.majors.show";
+export const LOCAL_STORAGE_KEY_MAJORS="koliyati.majors";
+export const LOCAL_STORAGE_KEY_PREFRENCES="koliyati.prefrences";
+export const LOCAL_STORAGE_KEY_PREFRENCES_SELECTED="koliyati.prefrences.selected";
+
 export const BASE_URL="http://localhost:8080/api/v1";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
