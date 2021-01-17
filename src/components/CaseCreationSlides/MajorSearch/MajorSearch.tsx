@@ -7,7 +7,7 @@ import classes from "./Majors.module.css";
 import MajorNotFound from "./MajorNotFound/MajorNotFound";
 
  const MajorSearch :React.FC<{majors:{_id:any;name:string,acceptanceRate:string,numberOfHours:string,hourRate:string,university:string}[],majorState:String[],setMajorState:(data:string)=>void;click:()=>void}>=(props)=>
-{ const style={marginRight:"20px" ,color:"#636363"}
+{ const style={marginRight:"20px" ,color:"#000"}
 const whiteBackGroundColor={"--ion-background-color":"#fff"};
 
 const [search,setSearch]=useState<string>("");

@@ -1,6 +1,6 @@
 import { IonButton,  IonCard,  IonCardContent,  IonCardHeader,  IonCardSubtitle,  IonCardTitle,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
 import React, {  useEffect, useState } from 'react';
-import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID, LOCAL_STORAGE_KEY_GPA, LOCAL_STORAGE_KEY_MAJORS, LOCAL_STORAGE_KEY_MAJORS_SHOW, LOCAL_STORAGE_KEY_TAWIJIHI_TYPE, LOCAL_STORAGE_KEY_PREFRENCES, LOCAL_STORAGE_KEY_PREFRENCES_SELECTED} from '../../containers/App'
+import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID, LOCAL_STORAGE_KEY_GPA, LOCAL_STORAGE_KEY_MAJORS, LOCAL_STORAGE_KEY_MAJORS_SHOW, LOCAL_STORAGE_KEY_TAWIJIHI_TYPE, LOCAL_STORAGE_KEY_PREFRENCES, LOCAL_STORAGE_KEY_PREFRENCES_SELECTED, LOCAL_STORAGE_KEY_DESCRIPTION, LOCAL_STORAGE_KEY_LOCATION, LOCAL_STORAGE_KEY_NAME, LOCAL_STORAGE_KEY_CREATED} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
@@ -14,11 +14,11 @@ import PrefrencesContainer from '../../components/CaseCreationSlides/SelectionPr
 import UserDetailsFetch from '../../components/CaseCreationSlides/UserDetailsFetch/UserDetailsFetch';
 const CaseCreation: React.FC = () => {
 
-  const { v4: uuidv4 } = require('uuid');
   const api=axios.create({
     baseURL:BASE_URL
   });
   const greyBackGroundColor={"--ion-background-color":"#E7E7E7"};
+  let style={};
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string>("");
@@ -30,16 +30,14 @@ const CaseCreation: React.FC = () => {
   const [gpa, setGpa] = useState<string>();
   const [description, setDescription] = useState<string>("");
   const [showToast, setShowToast] = useState(false);
-
+  const [toastMessage,setToastMessage]=useState<string>("لا يمكنك إضافة هذا التخصص، يجب إختيار 3 تخصصات مختلفة فقط");
   const history =useHistory();
   useEffect(() => {
     const tawjihiTypeData=localStorage.getItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
     if(tawjihiTypeData)
     {    
-
       setTawjihiType(JSON.parse(tawjihiTypeData));
       let gpaData=localStorage.getItem(LOCAL_STORAGE_KEY_GPA);
-
       if(gpaData)
       { const gpaNumber=JSON.parse(gpaData);
         if(gpaNumber>=50)
@@ -69,6 +67,18 @@ const CaseCreation: React.FC = () => {
     const prefrencesSelectedData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED)!);
     if(prefrencesSelectedData)
     setPrefenceSelected(prefrencesSelectedData);
+    const nameData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_NAME)!);
+    if(nameData)
+    setName(nameData);
+    const locationData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_LOCATION)!);
+    if(locationData)
+    setLocation(locationData);
+    const descriptionData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_DESCRIPTION)!);
+    if(descriptionData)
+    setDescription(descriptionData);
+    const createdData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CREATED)!);
+    if(createdData)
+    setCreated(createdData);
   }, []);
   useEffect(() => {
     if(tawjihiType)
@@ -104,18 +114,42 @@ const CaseCreation: React.FC = () => {
       
       localStorage.setItem(LOCAL_STORAGE_KEY_PREFRENCES,JSON.stringify(prefrences));
       localStorage.setItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED,JSON.stringify(prefenceSelected));
+      if(name)
+      localStorage.setItem(LOCAL_STORAGE_KEY_NAME,JSON.stringify(name));
+      if(location)
+      localStorage.setItem(LOCAL_STORAGE_KEY_LOCATION,JSON.stringify(location));
+      if(description)
+      localStorage.setItem(LOCAL_STORAGE_KEY_DESCRIPTION,JSON.stringify(description));
+      localStorage.setItem(LOCAL_STORAGE_KEY_CREATED,JSON.stringify(created));
 
-  }, [tawjihiType,gpa,majorChoice,showMajors,prefrences,prefenceSelected]);
+  }, [tawjihiType,gpa,majorChoice,showMajors,prefrences,prefenceSelected,name,location,description,created]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
-     const id=uuidv4();
+    const idData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER_ID)!);
+    if(!idData)
+    {
+      setShowToast(true);
+      setToastMessage("الاي دي محذوف من وحدة التخزين،يرجى إعادة المحاولة");
+      return;
+    }
+
+  
      try{
-      const res=await api.post("/casses" , {
-        userId:id,
+       console.log({
+        userId:idData,
         name:name,
         location:location,
-        major:majorChoice,
+        majors:majorChoice,
+        tawjihiType:tawjihiType,
+        gpa:gpa,
+        description:description
+      });
+      const res=await api.post("/casses" , {
+        userId:idData,
+        name:name,
+        location:location,
+        majors:majorChoice,
         tawjihiType:tawjihiType,
         gpa:gpa,
         description:description
@@ -126,11 +160,10 @@ const CaseCreation: React.FC = () => {
         alert("Something Went wrong..");
 
       }
-      else{
-        localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,res.data[0]["userId"]);
+      else if(res.status===200){
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
         localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
-        history.push(`/Case/${res.data[1]["caseId"]}`);
+        //history.push(`/Case/${res.data[1]["caseId"]}`);
       }
     }
       catch(err){
@@ -219,6 +252,30 @@ setShowToast(true);
   function handleSetDescription(description:string){
     setDescription(description);
   }
+  function handleClick(){
+    console.log(name);
+    if(name==="")
+    {
+      setToastMessage("يجب عليك إدخال الإسم");
+      setShowToast(true);
+    
+return;
+    }
+    if(location==="")
+    {
+      setToastMessage("يجب عليك إدخال مكان الإقامة");
+      setShowToast(true);
+  
+return;
+    }
+    if(description==="")
+    {
+      setToastMessage("يجب عليك إدخال الوصف");
+      setShowToast(true);
+      return;
+    }
+    handleCaseCreation();
+  }
   let component=null;
   if(created)
   {
@@ -238,6 +295,7 @@ setShowToast(true);
   {let conetnt=null
     if(!tawjihiType)
     {const  tawjihiTypes = tawjihiTypeList;
+      style=greyBackGroundColor;
       conetnt=( <TawjihiTypes list={tawjihiTypes} clicked={getTawjihiType}/>)
     }
     else if(!gpa){
@@ -245,7 +303,7 @@ setShowToast(true);
 
     }
     else if(showMajors)
-    {
+    { 
       const  majors = majorList.filter(major=>
       {
         if(major.tawjihiTypes.indexOf(tawjihiType)!==-1)
@@ -257,7 +315,7 @@ setShowToast(true);
         }
         return null;
       });
-      conetnt=(<IonList dir="rtl"><MajorSearch 
+      conetnt=(<IonList dir="rtl" style={greyBackGroundColor}><MajorSearch 
       majors={majors}
       majorState={majorChoice}
       setMajorState={setMajorState}
@@ -310,6 +368,7 @@ setShowToast(true);
         setName={handleSetName}
         setLocation={handleSetLocation}
         setDescritpion={handleSetDescription}
+        handleClick={handleClick}
       />);
     }
 component=(
@@ -321,7 +380,7 @@ component=(
       </IonButton>
     </IonToolbar>
     </IonHeader >
-    <IonContent dir="rtl" style={greyBackGroundColor}>
+    <IonContent dir="rtl" style={style}>
     <IonInfiniteScroll >
   
 
@@ -334,7 +393,7 @@ component=(
             isOpen={showToast}
             onDidDismiss={() => setShowToast(false)}
             cssClass={classes.CenterText}
-            message="لا يمكنك إضافة هذا التخصص، يجب إختيار 3 تخصصات مختلفة فقط"
+            message={toastMessage}
             color="danger"
             duration={500}
           />

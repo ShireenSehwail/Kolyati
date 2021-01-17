@@ -29,6 +29,10 @@ export const LOCAL_STORAGE_KEY_MAJORS_SHOW="koliyati.majors.show";
 export const LOCAL_STORAGE_KEY_MAJORS="koliyati.majors";
 export const LOCAL_STORAGE_KEY_PREFRENCES="koliyati.prefrences";
 export const LOCAL_STORAGE_KEY_PREFRENCES_SELECTED="koliyati.prefrences.selected";
+export const LOCAL_STORAGE_KEY_NAME="koliyati.prefrences.name";
+export const LOCAL_STORAGE_KEY_LOCATION="koliyati.prefrences.location";
+export const LOCAL_STORAGE_KEY_DESCRIPTION="koliyati.prefrences.description";
+export const LOCAL_STORAGE_KEY_CREATED="koliyati.created";
 
 export const BASE_URL="http://localhost:8080/api/v1";
 const App: React.FC = () =>{    
@@ -44,7 +48,9 @@ const App: React.FC = () =>{
 
   const changeFirstTimeState=()=>{
     localStorage.setItem(LOCAL_STORAGE_KEY_FIRST_TIME,JSON.stringify({firstTime:false}));
-    
+    const { v4: uuidv4 } = require('uuid');
+    const id=uuidv4();
+    localStorage.setItem(LOCAL_STORAGE_KEY_USER_ID,JSON.stringify(id))
     setFirstTime(false);
   };
   

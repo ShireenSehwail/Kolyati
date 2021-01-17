@@ -1,7 +1,21 @@
 .Large{
-    font-size: 28px;
+    font-size: large;
+    font-weight: bold;
 }
 .Col{
     text-align: center;
    
 }
+.CenterText{
+    text-align: center;
+}
+.btn{
+    font-size: large;
+    font-weight: bold;
+}
+@media only screen and (min-width: 600px) {
+    .Large{
+        font-size: 28px;
+        font-weight: bold;
+    }
+  }
