@@ -136,15 +136,7 @@ const CaseCreation: React.FC = () => {
 
   
      try{
-       console.log({
-        userId:idData,
-        name:name,
-        location:location,
-        majors:majorChoice,
-        tawjihiType:tawjihiType,
-        gpa:gpa,
-        description:description
-      });
+
       const res=await api.post("/casses" , {
         userId:idData,
         name:name,
@@ -154,7 +146,7 @@ const CaseCreation: React.FC = () => {
         gpa:gpa,
         description:description
       });
-    
+      console.log(res.status);
       if(res.status!==200)
       {
         alert("Something Went wrong..");
@@ -162,12 +154,11 @@ const CaseCreation: React.FC = () => {
       }
       else if(res.status===200){
         localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_CASE);
-        //history.push(`/Case/${res.data[1]["caseId"]}`);
+        history.push(`/Case/${res.data[1]["caseId"]}`);
       }
     }
       catch(err){
-        console.log(err.message); 
+        console.log("error",err.message); 
       }
   
 
