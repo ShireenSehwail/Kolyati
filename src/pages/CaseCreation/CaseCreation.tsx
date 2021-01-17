@@ -11,6 +11,7 @@ import { tawjihiTypeList } from '../../Data/tawjihiTypes';
 import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 import classes from './CaseCreation.module.css'
 import PrefrencesContainer from '../../components/CaseCreationSlides/SelectionPrefrences/PrefrencesContainer';
+import UserDetailsFetch from '../../components/CaseCreationSlides/UserDetailsFetch/UserDetailsFetch';
 const CaseCreation: React.FC = () => {
 
   const { v4: uuidv4 } = require('uuid');
@@ -20,14 +21,14 @@ const CaseCreation: React.FC = () => {
   const greyBackGroundColor={"--ion-background-color":"#E7E7E7"};
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
-  const [location, setLocation] = useState<string>();
+  const [location, setLocation] = useState<string>("");
   const [majorChoice, setMajorChoice] = useState<String[]>([]);
   const[showMajors,setShowMajors]= useState(true);
   const [prefenceSelected, setPrefenceSelected] = useState(false);
   const [prefrences,setPrefrences]=useState<string[]>(['جودة التعليم','فرص العمل','صعوبة المواصلات','التكاليف الدراسية'])
   const [tawjihiType, setTawjihiType] = useState<string>();
   const [gpa, setGpa] = useState<string>();
-  const [description, setDescription] = useState<string>();
+  const [description, setDescription] = useState<string>("");
   const [showToast, setShowToast] = useState(false);
 
   const history =useHistory();
@@ -209,6 +210,15 @@ setShowToast(true);
   function handlePrefrencesClicked(){
     setPrefenceSelected(true);
   }
+  function handleSetName(name:string){
+    setName(name);
+  }
+  function handleSetLocation(location:string){
+    setLocation(location);
+  }
+  function handleSetDescription(description:string){
+    setDescription(description);
+  }
   let component=null;
   if(created)
   {
@@ -291,6 +301,16 @@ setShowToast(true);
       </IonCardContent>
      
        </IonCard>)
+    }
+    else{
+      conetnt=(<UserDetailsFetch 
+        name={name}
+        location={location}
+        description={description}
+        setName={handleSetName}
+        setLocation={handleSetLocation}
+        setDescritpion={handleSetDescription}
+      />);
     }
 component=(
     <><IonHeader dir="rtl">
