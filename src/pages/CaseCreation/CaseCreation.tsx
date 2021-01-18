@@ -23,7 +23,7 @@ const CaseCreation: React.FC = () => {
   const [created,setCreated]=useState<string>("");
   const [name, setName] = useState<string>("");
   const [location, setLocation] = useState<string>("");
-  const [majorChoice, setMajorChoice] = useState<String[]>([]);
+  const [majorsChoice, setMajorChoice] = useState<String[]>([]);
   const[showMajors,setShowMajors]= useState(true);
   const [prefenceSelected, setPrefenceSelected] = useState(false);
   const [prefrences,setPrefrences]=useState<string[]>(['جودة التعليم','فرص العمل','صعوبة المواصلات','التكاليف الدراسية'])
@@ -108,9 +108,9 @@ const CaseCreation: React.FC = () => {
       }
       
     }
-    if(majorChoice)
+    if(majorsChoice)
     {
-      localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS,JSON.stringify(majorChoice));
+      localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS,JSON.stringify(majorsChoice));
     }
       localStorage.setItem(LOCAL_STORAGE_KEY_MAJORS_SHOW,JSON.stringify(showMajors));
       
@@ -124,7 +124,7 @@ const CaseCreation: React.FC = () => {
       localStorage.setItem(LOCAL_STORAGE_KEY_DESCRIPTION,JSON.stringify(description));
       localStorage.setItem(LOCAL_STORAGE_KEY_CREATED,JSON.stringify(created));
 
-  }, [tawjihiType,gpa,majorChoice,showMajors,prefrences,prefenceSelected,name,location,description,created]);
+  }, [tawjihiType,gpa,majorsChoice,showMajors,prefrences,prefenceSelected,name,location,description,created]);
   function handleCaseCreation(){
     
    const createCase=async()=>{
@@ -136,22 +136,13 @@ const CaseCreation: React.FC = () => {
       return;
     }
      try{
-       console.log({
-        userId:idData,
-        name:name,
-        prefrences:prefrences,
-        location:location,
-        majors:majorChoice,
-        tawjihiType:tawjihiType,
-        gpa:gpa,
-        description:description
-      });
+      
       const res=await api.post("/casses" , {
         userId:idData,
         name:name,
         prefrences:prefrences,
         location:location,
-        majors:majorChoice,
+        majorsChoice:majorsChoice,
         tawjihiType:tawjihiType,
         gpa:gpa,
         description:description
@@ -169,19 +160,18 @@ const CaseCreation: React.FC = () => {
         }
         else
         cassesData=[res.data[1]["caseId"]];
-        console.log(cassesData);
         localStorage.setItem(LOCAL_STORAGE_KEY_CASSES_ID,JSON.stringify(cassesData));
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
-        // localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS);
         
-        // history.push(`/Case/${res.data[1]["caseId"]}`);
+        history.push(`/Case/${res.data[1]["caseId"]}`);
       }
     }
       catch(err){
@@ -201,20 +191,20 @@ const CaseCreation: React.FC = () => {
   }
   const setMajorState=(id:string)=>{
     //If it's found then remove it
-    if(majorChoice.indexOf(id)!==-1)
+    if(majorsChoice.indexOf(id)!==-1)
     {
-      const choices=[...majorChoice];
+      const choices=[...majorsChoice];
       choices.splice(choices.indexOf(id),1);
       setMajorChoice(choices);
       return;
     }
     //Check the first 3 majors with tags to allow only 3 different majors   
-    if(majorChoice.length>2)
+    if(majorsChoice.length>2)
     {  let currentSelectedMajors:MajorClass[]=[];
       //Only add the first three majors
-      for(var i=0;i<majorChoice.length&&i<3;i++)
+      for(var i=0;i<majorsChoice.length&&i<3;i++)
       {
-        const found=majorList.find(e=>e._id===majorChoice[i]);
+        const found=majorList.find(e=>e._id===majorsChoice[i]);
       if(found)
         currentSelectedMajors.push(found);
       }
@@ -222,10 +212,9 @@ const CaseCreation: React.FC = () => {
     const found=majorList.find(e=>e._id===id);
     let canAdd=false;
     //The below code only takes the first tag of the first three majors
-   
       for(var j=0;j<currentSelectedMajors.length;j++)
      { 
-        if(currentSelectedMajors[j].tags[0]===found!.tags[i])
+        if(currentSelectedMajors[j].tags[0]===found!.tags[0])
         canAdd=true;
         
     }
@@ -243,7 +232,7 @@ const CaseCreation: React.FC = () => {
       //   break;
       // }
     if(canAdd)
-    setMajorChoice([...majorChoice,id])
+    setMajorChoice([...majorsChoice,id])
 else
 setShowToast(true);
     return;
@@ -255,7 +244,7 @@ setShowToast(true);
    
 
     //Case when majors are not 3 yet
-    setMajorChoice([...majorChoice,id])
+    setMajorChoice([...majorsChoice,id])
   
    
 
@@ -346,7 +335,7 @@ return;
       });
       conetnt=(<IonList dir="rtl" style={greyBackGroundColor}><MajorSearch 
       majors={majors}
-      majorState={majorChoice}
+      majorState={majorsChoice}
       setMajorState={setMajorState}
       click={handleSetShowMajors}
       /> 
