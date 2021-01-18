@@ -146,7 +146,6 @@ const CaseCreation: React.FC = () => {
         gpa:gpa,
         description:description
       });
-      console.log(res.status);
       if(res.status!==200)
       {
         alert("Something Went wrong..");
@@ -158,6 +157,8 @@ const CaseCreation: React.FC = () => {
       }
     }
       catch(err){
+        setToastMessage("الشبكة غير متاحة");
+        setShowToast(true);
         console.log("error",err.message); 
       }
   
@@ -244,7 +245,6 @@ setShowToast(true);
     setDescription(description);
   }
   function handleClick(){
-    console.log(name);
     if(name==="")
     {
       setToastMessage("يجب عليك إدخال الإسم");
