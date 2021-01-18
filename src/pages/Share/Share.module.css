@@ -1,6 +1,10 @@
 .centerText{
     text-align: center;
 }
+.whiteBackground{
+    margin-top: 20px;
+    background-color: white;
+}
 .rowStyle
 {
 height: 400px;

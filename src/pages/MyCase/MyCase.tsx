@@ -18,11 +18,9 @@ const [caseState,setCaseState]=useState<CaseClass>();
      if(cassesData)
      cassesId=JSON.parse(cassesData);
 
-    console.log(cassesId,"yes");
     if(cassesId!==null)
     {    
     const fetchCase=async()=>{
-      console.log(created,cassesId[0]);
       try{
       const result =await  api.get(`/api/v1/case/${cassesId[cassesId.length-1]}`);
     

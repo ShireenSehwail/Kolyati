@@ -15,7 +15,6 @@ const SearchCase: React.FC = () => {
   const searchForCase=async(text:string)=>{
     try{
       const result =await  api.get(`api/v1/case/${text}`);
-      console.log("fecthed",result);
       if(result)
       {
         setSearchCase(result.data);
@@ -37,7 +36,7 @@ const SearchCase: React.FC = () => {
   {
 component=(<Case  id={searchCase._id}
   author={searchCase.name}
-  createdTime={format(searchCase.createdTime)}
+  createdTime={searchCase.createdTime}
   major={searchCase.major}
   description={searchCase.description}/>)
   }
