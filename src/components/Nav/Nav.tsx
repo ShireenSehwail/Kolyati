@@ -1,14 +1,15 @@
 import { IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel } from "@ionic/react";
-import {  addOutline, briefcase, homeOutline, schoolOutline, search, shareSocial } from "ionicons/icons";
+import {  addOutline, briefcase, homeOutline, search, shareSocial } from "ionicons/icons";
 import React from "react";
-import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
+import { LOCAL_STORAGE_KEY_CASSES_ID } from "../../containers/App";
 
 const Nav:
 React.FC=(props)=>{
   let key="/Case/";
   const getKey=()=>{
-    const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
-    key+=caseId;
+    const cassesId= localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
+    if(cassesId!==undefined&&cassesId!==null)
+    key+=cassesId![cassesId!.length-1];
   }
   getKey();
   return (

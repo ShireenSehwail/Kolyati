@@ -1,6 +1,6 @@
-import { IonButton,  IonCard,  IonCardContent,  IonCardHeader,  IonCardSubtitle,  IonCardTitle,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
+import { IonButton,  IonCard,  IonCardContent,  IonCardHeader,  IonCardTitle,  IonContent, IonHeader ,IonInfiniteScroll,IonItem,IonList,IonMenuButton,  IonTitle,  IonToast,  IonToolbar } from '@ionic/react';
 import React, {  useEffect, useState } from 'react';
-import {BASE_URL, LOCAL_STORAGE_KEY_CASE,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_CASE_ID, LOCAL_STORAGE_KEY_GPA, LOCAL_STORAGE_KEY_MAJORS, LOCAL_STORAGE_KEY_MAJORS_SHOW, LOCAL_STORAGE_KEY_TAWIJIHI_TYPE, LOCAL_STORAGE_KEY_PREFRENCES, LOCAL_STORAGE_KEY_PREFRENCES_SELECTED, LOCAL_STORAGE_KEY_DESCRIPTION, LOCAL_STORAGE_KEY_LOCATION, LOCAL_STORAGE_KEY_NAME, LOCAL_STORAGE_KEY_CREATED} from '../../containers/App'
+import {BASE_URL,LOCAL_STORAGE_KEY_USER_ID, LOCAL_STORAGE_KEY_GPA, LOCAL_STORAGE_KEY_MAJORS, LOCAL_STORAGE_KEY_MAJORS_SHOW, LOCAL_STORAGE_KEY_TAWIJIHI_TYPE, LOCAL_STORAGE_KEY_PREFRENCES, LOCAL_STORAGE_KEY_PREFRENCES_SELECTED, LOCAL_STORAGE_KEY_DESCRIPTION, LOCAL_STORAGE_KEY_LOCATION, LOCAL_STORAGE_KEY_NAME, LOCAL_STORAGE_KEY_CREATED, LOCAL_STORAGE_KEY_CASSES_ID} from '../../containers/App'
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import CaseIsCreated from '../../components/CaseIsCreated/CaseIsCreated';
@@ -12,6 +12,7 @@ import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 import classes from './CaseCreation.module.css'
 import PrefrencesContainer from '../../components/CaseCreationSlides/SelectionPrefrences/PrefrencesContainer';
 import UserDetailsFetch from '../../components/CaseCreationSlides/UserDetailsFetch/UserDetailsFetch';
+import { locationSharp } from 'ionicons/icons';
 const CaseCreation: React.FC = () => {
 
   const api=axios.create({
@@ -31,6 +32,7 @@ const CaseCreation: React.FC = () => {
   const [description, setDescription] = useState<string>("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage,setToastMessage]=useState<string>("لا يمكنك إضافة هذا التخصص، يجب إختيار 3 تخصصات مختلفة فقط");
+  
   const history =useHistory();
   useEffect(() => {
     const tawjihiTypeData=localStorage.getItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
@@ -136,7 +138,6 @@ const CaseCreation: React.FC = () => {
 
   
      try{
-
       const res=await api.post("/casses" , {
         userId:idData,
         name:name,
@@ -152,7 +153,23 @@ const CaseCreation: React.FC = () => {
 
       }
       else if(res.status===200){
-        localStorage.setItem(LOCAL_STORAGE_KEY_CASE_ID,res.data[1]["caseId"]);
+        let cassesData= JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID)!);
+        if(cassesData)
+        {
+          cassesData.push(res.data[1]["caseId"]);
+        }
+        else
+        cassesData=[res.data[1]["caseId"]];
+        console.log(cassesData);
+        localStorage.setItem(LOCAL_STORAGE_KEY_CASSES_ID,JSON.stringify(cassesData));
+        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
+        
         history.push(`/Case/${res.data[1]["caseId"]}`);
       }
     }

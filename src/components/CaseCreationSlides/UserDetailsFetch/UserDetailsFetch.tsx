@@ -67,7 +67,7 @@ value={location}
 onIonChange={handleLocationChange}
 placeholder="" dir="rtl" 
 ref={locationSelectRef}>
-              <IonSelectOption value=" رام الله ">رام الله</IonSelectOption>
+              <IonSelectOption value="رام الله">رام الله</IonSelectOption>
               <IonSelectOption value="الخليل">الخليل</IonSelectOption>
               <IonSelectOption value="نابلس"> نابلس</IonSelectOption>
               <IonSelectOption value="القدس">القدس</IonSelectOption>

@@ -2,15 +2,18 @@ import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent, 
 import React, { useState } from "react";
 import classes from './Share.module.css';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
+import { LOCAL_STORAGE_KEY_CASSES_ID } from "../../containers/App";
 import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 
 const SharePage: React.FC = () => {
   const textCenter={  "textAlign": "center"}
-  const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
+  const cassesData=localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
+  let cassesId:string[]=[];
+  if(cassesData)
+  cassesId=JSON.parse(cassesData);
   const [showToast, setShowToast] = useState(false);
   let canShare=null;
-  if(caseId)
+  if(cassesId!==undefined&&cassesId!==null)
   {
     canShare=(<><IonGrid>
       <IonRow>
@@ -30,7 +33,7 @@ const SharePage: React.FC = () => {
       </IonRow>
       <IonRow>
         <IonCol>
-        <CopyToClipboard text={""+caseId}>
+        <CopyToClipboard text={""+cassesId[cassesId.length-1]}>
         <IonButton color="danger" onClick={() => setShowToast(true)}>
             <IonText color="light">
             مشاركة

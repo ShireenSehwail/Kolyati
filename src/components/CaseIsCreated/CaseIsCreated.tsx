@@ -2,7 +2,7 @@ import { IonContent, IonGrid, IonRow, IonCol, IonImg, IonText, IonButton } from 
 import React from "react";
 import classes from "./CaseIsCreated.module.css";
 import { useHistory } from "react-router-dom";
-import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
+import { LOCAL_STORAGE_KEY_CASSES_ID } from "../../containers/App";
 
  const CaseIsCreated :React.FC=()=>
 {
@@ -10,9 +10,9 @@ import { LOCAL_STORAGE_KEY_CASE_ID } from "../../containers/App";
 const textCenter={  textAlign: "center"}
 const history =useHistory();
 const creaCase=()=>{
-  const caseId= localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
+  const cassesId= localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
 
-  history.push("/Case/"+caseId);
+  history.push("/Case/"+cassesId![cassesId!.length-1]);
 }
 return (
 <IonContent>

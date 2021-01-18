@@ -1,7 +1,7 @@
 import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent } from '@ionic/react';
 import React,{useState,useEffect} from 'react';
 import Case from '../../components/Case/Case';
-import { LOCAL_STORAGE_KEY_CASE_ID} from "../../containers/App";
+import { LOCAL_STORAGE_KEY_CASSES_ID} from "../../containers/App";
 import axios from "axios";
 import CaseNotFound from '../../components/CaseNotFound/CaseNotFound';
 const api=axios.create({
@@ -13,15 +13,20 @@ const [created,setCreated]=useState<string>("");
 
 const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
-    const caseId=localStorage.getItem(LOCAL_STORAGE_KEY_CASE_ID);
-    if(caseId!==null)
+     const cassesData=localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
+     let cassesId:string[]=[];
+     if(cassesData)
+     cassesId=JSON.parse(cassesData);
+
+    console.log(cassesId,"yes");
+    if(cassesId!==null)
     {    
     const fetchCase=async()=>{
-      console.log(created,caseId);
+      console.log(created,cassesId[0]);
       try{
-      const result =await  api.get(`/api/v1/case/${caseId}`);
+      const result =await  api.get(`/api/v1/case/${cassesId[cassesId.length-1]}`);
     
-      setCreated(caseId);   
+      setCreated(cassesId[0]);   
       setCaseState(result.data);
       }
     

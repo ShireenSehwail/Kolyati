@@ -19,8 +19,7 @@ import '@ionic/react/css/display.css';
 import Welcome from '../components/Welcome/Welcome';
 import Main from '../components/Main/Main';
 
-export const LOCAL_STORAGE_KEY_CASE="koliyati.case";
-export const LOCAL_STORAGE_KEY_CASE_ID="koliyati.case.id";
+export const LOCAL_STORAGE_KEY_CASSES_ID="koliyati.casses.ids";
 export const LOCAL_STORAGE_KEY_USER_ID="koliyati.user.id";
 export const LOCAL_STORAGE_KEY_FIRST_TIME="koliyati.first.time";
 export const LOCAL_STORAGE_KEY_TAWIJIHI_TYPE="koliyati.tawjihitype";
