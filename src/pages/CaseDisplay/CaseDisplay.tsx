@@ -1,7 +1,7 @@
 import { IonHeader, IonToolbar, IonTitle, IonButton, IonMenuButton, IonContent } from '@ionic/react';
 import React,{useState,useEffect} from 'react';
 import Case from '../../components/Case/Case';
-import { LOCAL_STORAGE_KEY_CASSES_ID} from "../../containers/App";
+import { LOCAL_STORAGE_KEY_CASSES_ID, LOCAL_STORAGE_KEY_USER_ID} from "../../containers/App";
 import axios from "axios";
 import CaseNotFound from '../../components/CaseNotFound/CaseNotFound';
 const api=axios.create({
@@ -13,18 +13,16 @@ const [created,setCreated]=useState<string>("");
 
 const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
-     const cassesData=localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
-     let cassesId:string[]=[];
-     if(cassesData)
-     cassesId=JSON.parse(cassesData);
-
-    if(cassesId!==null)
-    {    
+     const userIdData=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_USER_ID)!);
+ 
     const fetchCase=async()=>{
       try{
-      const result =await  api.get(`/api/v1/case/${cassesId[cassesId.length-1]}`);
-    
-      setCreated(cassesId[0]);   
+        const url=window.location.href;
+        const caseId=url.substring(url.lastIndexOf("/"));
+        console.log(`/api/v1/case/${caseId}/${userIdData}`);
+      const result =await  api.get(`/api/v1/case${caseId}/${userIdData}`);
+    console.log(result.data);
+      setCreated(caseId);   
       setCaseState(result.data);
       }
     
@@ -33,12 +31,11 @@ const [caseState,setCaseState]=useState<CaseClass>();
         console.log(err.message); 
 
       }
-        // setCaseState({author:name,createdTime:"قبل دقيقة واحدة",title:"ساعدوني",description:description})
       };
       fetchCase();
       
     
-  }
+  
    
   },[]);
   let component=null;

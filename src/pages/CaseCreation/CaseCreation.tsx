@@ -136,9 +136,20 @@ const CaseCreation: React.FC = () => {
       return;
     }
      try{
+       console.log({
+        userId:idData,
+        name:name,
+        prefrences:prefrences,
+        location:location,
+        majors:majorChoice,
+        tawjihiType:tawjihiType,
+        gpa:gpa,
+        description:description
+      });
       const res=await api.post("/casses" , {
         userId:idData,
         name:name,
+        prefrences:prefrences,
         location:location,
         majors:majorChoice,
         tawjihiType:tawjihiType,
@@ -167,6 +178,7 @@ const CaseCreation: React.FC = () => {
         localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
         localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
         localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
         
         history.push(`/Case/${res.data[1]["caseId"]}`);
       }
