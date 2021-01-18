@@ -25,7 +25,7 @@ return (
         </IonText>
       </IonCol>
     </IonRow>
-    {/* <IonRow className="ion-align-items-center">
+    <IonRow className="ion-align-items-center">
       <IonCol>
         <IonButton className={classes.btnColor} onClick={creaCase}>
           <IonText color="light">
@@ -33,7 +33,7 @@ return (
           </IonText>
         </IonButton>
       </IonCol>
-    </IonRow> */}
+    </IonRow>
   </IonGrid>
   </IonContent>
           )}

@@ -19,10 +19,9 @@ React.FC=(props)=>(
       <Route path="/caseCreation" component={CaseCreation} exact={true} />
       <Route path="/Home" component={Home} exact={true}/>
       <Route path="/Case/:id" component={MyCase} exact={true}/>
+      <Route path="/Case/" component={MyCase} exact={true}/>
       <Route path="/Share" component={SharePage} exact={true}/>
       <Route path="/Search" component={Search} exact={true}/>
-
-      
       <Route exact path="/" render={() => <Redirect to="/Home" />} />
       <Route component={PageNotFound} />
     </IonRouterOutlet>

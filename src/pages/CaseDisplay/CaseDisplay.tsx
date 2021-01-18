@@ -9,7 +9,7 @@ const api=axios.create({
 });
 const MyCase: React.FC = () => {
   
-const [created,setCreated]=useState<string>("");
+const [created,setCreated]=useState<string>();
 
 const [caseState,setCaseState]=useState<CaseClass>();
    useEffect(()=>{
@@ -21,7 +21,7 @@ const [caseState,setCaseState]=useState<CaseClass>();
         const caseId=url.substring(url.lastIndexOf("/"));
         console.log(`/api/v1/case/${caseId}/${userIdData}`);
       const result =await  api.get(`/api/v1/case${caseId}/${userIdData}`);
-    console.log(result.data);
+      console.log(result.data);
       setCreated(caseId);   
       setCaseState(result.data);
       }
@@ -39,7 +39,7 @@ const [caseState,setCaseState]=useState<CaseClass>();
    
   },[]);
   let component=null;
-  if(created==="")
+  if(!created)
   {
     component=(<>
       <IonHeader dir="rtl">
@@ -49,7 +49,9 @@ const [caseState,setCaseState]=useState<CaseClass>();
           <IonMenuButton menu="main-menu"></IonMenuButton>
         </IonButton>
       </IonToolbar>
-    </IonHeader><CaseNotFound /></>);
+    </IonHeader>
+    <CaseNotFound />
+    </>);
   }
   else
   {

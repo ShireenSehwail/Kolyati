@@ -36,17 +36,12 @@ const SharePage: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [casses, setCasses] = useState<CaseClass[]>([]);
   let canShare = null;
-  let cassesElements = ( <Loader
-    type="TailSpin"
-    color="#00BFFF"
-    height={100}
-    width={100}
-    timeout={3000} //3 secs
- />);
+  let cassesElements = null;
 useEffect(() => {
   async function fetchCasses(){
     try{
    const res=await api.get(`/user/${userId}`);
+   console.log(res.data);
  if(res.status===200)
  {
    setCasses(res.data);
@@ -58,7 +53,8 @@ useEffect(() => {
   }
   fetchCasses();
 }, []);
-  if (casses.length > 0) {  
+  if (casses.length > 0) { 
+     
     cassesElements = (
       <>
       <h1>حالاتي</h1>
@@ -78,12 +74,12 @@ useEffect(() => {
                 </IonButton>
               </CopyToClipboard>
             </IonCol>
-          </IonRow>
+          </IonRow>   
         ))}
       </>
     );
   }
-  if (casses.length!=0) {
+  if (casses.length!==0) {
     canShare = (
       <>
         <IonList>
@@ -112,6 +108,8 @@ useEffect(() => {
       </>
     );
   } else {
+    console.log(casses);
+
     canShare = <CaseNotFound />;
   }
   return (
@@ -125,11 +123,8 @@ useEffect(() => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen color="light" style={textCenter}>
-      <IonInfiniteScroll >
-
         {canShare}
-        </IonInfiniteScroll >
-
+        
       </IonContent>
       <IonToast
           isOpen={showToast}

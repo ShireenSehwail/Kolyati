@@ -179,6 +179,7 @@ const CaseCreation: React.FC = () => {
         localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
         localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
         localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
+        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS);
         
         history.push(`/Case/${res.data[1]["caseId"]}`);
       }
