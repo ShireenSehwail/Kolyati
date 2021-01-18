@@ -171,17 +171,17 @@ const CaseCreation: React.FC = () => {
         cassesData=[res.data[1]["caseId"]];
         console.log(cassesData);
         localStorage.setItem(LOCAL_STORAGE_KEY_CASSES_ID,JSON.stringify(cassesData));
-        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
-        localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_DESCRIPTION);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_GPA);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES_SELECTED);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_PREFRENCES);
+        // localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS);
         
-        history.push(`/Case/${res.data[1]["caseId"]}`);
+        // history.push(`/Case/${res.data[1]["caseId"]}`);
       }
     }
       catch(err){
