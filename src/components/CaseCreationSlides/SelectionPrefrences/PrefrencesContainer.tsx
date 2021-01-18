@@ -17,7 +17,6 @@ import PrefrenceSelection from "./SelectionContainer/PrefrenceSelection";
                         
                         >
                                 {prefrences.map((element,index)=>{
-                                        console.log(index,element)
                                         return(
                                         <Draggable 
                                         key={element}
