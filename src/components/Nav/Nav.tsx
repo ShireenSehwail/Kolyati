@@ -7,9 +7,11 @@ const Nav:
 React.FC=(props)=>{
   let key="/Case/";
   const getKey=()=>{
-    const cassesId= localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
-    if(cassesId!==undefined&&cassesId!==null)
-    key+=cassesId![cassesId!.length-1];
+    const cassesIdData= localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID);
+    if(cassesIdData!==undefined&&cassesIdData!==null)
+    {
+      const cassesId=JSON.parse(cassesIdData!)
+      key+=cassesId[cassesId!.length-1];}
   }
   getKey();
   return (
@@ -37,7 +39,7 @@ React.FC=(props)=>{
           </IonItem>
           <IonItem   routerLink={key}>
             <IonIcon icon={briefcase}slot="start"></IonIcon>
-            <IonLabel> حالتي </IonLabel>
+            <IonLabel> تصفح الحالة </IonLabel>
           </IonItem>
           <IonItem  routerLink="/Share">
       <IonIcon icon={shareSocial} slot="start"></IonIcon>

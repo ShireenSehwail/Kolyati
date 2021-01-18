@@ -4,7 +4,7 @@ import React from "react";
 import { Route, Redirect } from "react-router";
 import CaseCreation from "../../pages/CaseCreation/CaseCreation";
 import Home from "../../pages/Home/Home";
-import MyCase from "../../pages/MyCase/MyCase";
+import MyCase from "../../pages/CaseDisplay/CaseDisplay";
 import PageNotFound from "../../pages/PageNotFound/PageNotFound";
 import Search from "../../pages/Search/SearchCase";
 import SharePage from "../../pages/Share/Share";

@@ -132,11 +132,9 @@ const CaseCreation: React.FC = () => {
     if(!idData)
     {
       setShowToast(true);
-      setToastMessage("الاي دي محذوف من وحدة التخزين،يرجى إعادة المحاولة");
+      setToastMessage("الاي دي محذوف من وحدة التخزين،يرجى إعادة تنزيل التطبيق");
       return;
     }
-
-  
      try{
       const res=await api.post("/casses" , {
         userId:idData,
@@ -197,30 +195,40 @@ const CaseCreation: React.FC = () => {
       setMajorChoice(choices);
       return;
     }
-    //Check the tags to allow only 3 different majors   
+    //Check the first 3 majors with tags to allow only 3 different majors   
     if(majorChoice.length>2)
     {  let currentSelectedMajors:MajorClass[]=[];
-      majorChoice.forEach(majorId => {
-      const found=majorList.find(e=>e._id===majorId);
-      if(found)
+      //Only add the first three majors
+      for(var i=0;i<majorChoice.length&&i<3;i++)
       {
+        const found=majorList.find(e=>e._id===majorChoice[i]);
+      if(found)
         currentSelectedMajors.push(found);
       }
-    });
+
     const found=majorList.find(e=>e._id===id);
     let canAdd=false;
-      for(var i=0;i<found!.tags.length;i++)
-      {
-        currentSelectedMajors.forEach(major=>{
+    //The below code only takes the first tag of the first three majors
+   
+      for(var j=0;j<currentSelectedMajors.length;j++)
+     { 
+        if(currentSelectedMajors[j].tags[0]===found!.tags[i])
+        canAdd=true;
+        
+    }
+    //The below code add multiple majors with multiple tags
+      // for(var i=0;i<found!.tags.length;i++)
+      // {
+      //   currentSelectedMajors.forEach(major=>{
           
-          major.tags.forEach((tag:string)=>{
-            if(tag===found?.tags[i])
-          canAdd=true;
-        })
-        });
-        if(canAdd)
-        break;
-      }
+      //     major.tags.forEach((tag:string)=>{
+      //       if(tag===found?.tags[i])
+      //     canAdd=true;
+      //   })
+      //   });
+      //   if(canAdd)
+      //   break;
+      // }
     if(canAdd)
     setMajorChoice([...majorChoice,id])
 else

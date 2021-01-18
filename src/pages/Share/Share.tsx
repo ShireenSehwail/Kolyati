@@ -18,7 +18,7 @@ import {
 import React, { useEffect, useState } from "react";
 import classes from "./Share.module.css";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { BASE_URL, LOCAL_STORAGE_KEY_CASSES_ID, LOCAL_STORAGE_KEY_USER_ID } from "../../containers/App";
+import { BASE_URL, LOCAL_STORAGE_KEY_USER_ID } from "../../containers/App";
 import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 import Case from "../../components/Case/Case";
 import Loader from 'react-loader-spinner'
