@@ -1,0 +1,18 @@
+  .size{
+     font-size: large;
+  }
+  .black{
+    color:#000
+  }
+  .inputShow{
+    background-color: rgb(240, 240, 238);
+  }
+  .btn{
+     font-size: large; 
+  }
+  .center{
+    justify-content: right;
+  }
+  .margin{
+    margin-top: 16px;
+  }

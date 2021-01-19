@@ -10,13 +10,10 @@ interface Props{
     majors?:major[];
 }
 const MajorsElements :React.FC<Props>=({majors})=>
-{let element=null;
+{   let element=null;
+    
     const isCaseOnwer=useContext(IsCaseOwnerContext);
-    let advisingElemnet=(<GiveAdvice/>);
-if(isCaseOnwer.isCaseOwner)
-{
-    advisingElemnet=(<Advices/>);
-}
+
 if(majors)
 {
    element=(<IonCard className={classes.centerText}>
@@ -47,18 +44,16 @@ if(majors)
     </IonRow>
     {majors.map(major=>{
         return(
+            <>
         <IonRow  className={classes.FullWidth} key={major._id}>
-            <MajorElement major={major}/>
-            
+            <MajorElement major={major} />
         </IonRow>
-        
-
+         {isCaseOnwer.isCaseOwner?<Advices/>:<GiveAdvice majorId={major._id}/>}
+         </>
         )
 
     })}
-<IonRow className={classes.FullWidth+" "+classes.centerText}>
-    {advisingElemnet}
-</IonRow>
+
 </IonGrid>
    </IonCard>) 
 }

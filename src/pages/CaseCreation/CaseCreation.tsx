@@ -12,7 +12,6 @@ import FetchGpa from '../../components/CaseCreationSlides/FetchGpa/FetchGpa';
 import classes from './CaseCreation.module.css'
 import PrefrencesContainer from '../../components/CaseCreationSlides/SelectionPrefrences/PrefrencesContainer';
 import UserDetailsFetch from '../../components/CaseCreationSlides/UserDetailsFetch/UserDetailsFetch';
-import { locationSharp } from 'ionicons/icons';
 const CaseCreation: React.FC = () => {
 
   const api=axios.create({

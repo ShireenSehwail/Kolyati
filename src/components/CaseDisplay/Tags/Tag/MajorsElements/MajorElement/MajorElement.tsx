@@ -1,6 +1,7 @@
 import { IonCard, IonCol, IonItem, IonRow } from "@ionic/react";
-import React from "react";
+import React, { useContext } from "react";
 import major from "../../../../../../Models/major";
+import { MajorChoices } from "../../../../../../pages/CaseShow/CaseShow";
 import classes from "./MajorElement.module.css"
 
 interface Props{
@@ -8,6 +9,16 @@ interface Props{
 }
 const MajorElement :React.FC<Props>=({major})=>
 {let element=null;
+    const majorsChoice=useContext(MajorChoices);
+ let pointsData=0;
+    if(majorsChoice.majorChoices[0]!=="")
+{   for(var i=0;i<majorsChoice.majorChoices.length;i++)
+    if(major?._id===majorsChoice.majorChoices[i])
+    {pointsData+=5;
+    break;
+    }
+
+}
 if(major)
 {
    element=(
@@ -40,7 +51,7 @@ return (    <IonRow className={classes.centerText} key={type}><IonCol>{type}</Io
 
 </IonCol>
 <IonCol>
-    0
+    {pointsData}
     </IonCol> 
 </>
    ) 
