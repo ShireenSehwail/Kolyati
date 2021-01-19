@@ -12,7 +12,6 @@ interface Props{
 if(caseInformation!==undefined)
 {
       tags=caseInformation.tags;
-      console.log(tags);
 }
       return (
 <IonContent fullscreen  dir="rtl">

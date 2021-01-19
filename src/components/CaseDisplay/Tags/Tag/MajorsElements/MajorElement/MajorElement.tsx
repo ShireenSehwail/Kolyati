@@ -9,7 +9,7 @@ interface Props{
 const MajorElement :React.FC<Props>=({major})=>
 {let element=null;
 if(major)
-{console.log(major.tawjihiTypes)
+{
    element=(
        <>
     <IonCol>
@@ -34,11 +34,14 @@ major.university
 
 <IonCol >
 {major.tawjihiTypes.map(type=>{
-return (    <IonRow className={classes.centerText}><IonCol>{type}</IonCol></IonRow>
+return (    <IonRow className={classes.centerText} key={type}><IonCol>{type}</IonCol></IonRow>
     )
 })}
 
-</IonCol> 
+</IonCol>
+<IonCol>
+    0
+    </IonCol> 
 </>
    ) 
 }

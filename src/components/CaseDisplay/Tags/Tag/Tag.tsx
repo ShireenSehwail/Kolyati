@@ -1,17 +1,15 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonIcon, IonItem, IonRow, IonTitle } from "@ionic/react";
-import { addCircle, addOutline, removeCircle } from "ionicons/icons";
+import { IonCard, IonCardContent, IonCardHeader,  IonIcon,  IonRow, IonTitle } from "@ionic/react";
+import { addCircle, removeCircle } from "ionicons/icons";
 import React, { useState } from "react";
 import tag from "../../../../Models/tag";
-import Tags from "../Tags";
+
 import MajorsElements from "./MajorsElements/MajorsElements";
 import classes from './Tag.module.css';
-
 interface Props{
     tag?:tag;
 }
 const Tag :React.FC<Props>=({tag})=>
 {let element=null;
-    console.log("tag",tag);
     const [showContent,setShowContent]=useState(false);
     let style=classes.green;
     let icon=addCircle;

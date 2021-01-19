@@ -9,7 +9,7 @@ interface Props{
     let element=null;
     if(tags)
     {
-element=(tags.map(tag=>(<Tag tag={tag}/>)))
+element=(tags.map(tag=>(<Tag tag={tag} key={tag._id}/>)))
     }
 return (
     <>

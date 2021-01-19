@@ -70,7 +70,7 @@ useEffect(() => {
               />
                 <CopyToClipboard text={"" + data._id}>
                 <IonButton color="danger" onClick={() => setShowToast(true)}>
-                  <IonText color="light">مشاركة</IonText>
+                <IonText color="light">مشاركة</IonText>
                 </IonButton>
               </CopyToClipboard>
             </IonCol>
@@ -124,7 +124,6 @@ useEffect(() => {
       </IonHeader>
       <IonContent fullscreen color="light" style={textCenter}>
         {canShare}
-        
       </IonContent>
       <IonToast
           isOpen={showToast}
