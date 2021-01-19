@@ -6,6 +6,7 @@ class CaseClass{
     createdTime;
     location;
     major;
+    tags;
     tawjihiType;
     gpa;
     description;

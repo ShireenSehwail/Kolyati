@@ -11,7 +11,7 @@ React.FC=(props)=>{
     if(cassesIdData!==undefined&&cassesIdData!==null)
     {
       const cassesId=JSON.parse(cassesIdData!)
-      key+=cassesId[cassesId!.length-1];}
+      key+=cassesId;}
   }
   getKey();
   return (

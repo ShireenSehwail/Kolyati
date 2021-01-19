@@ -153,14 +153,8 @@ const CaseCreation: React.FC = () => {
 
       }
       else if(res.status===200){
-        let cassesData= JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY_CASSES_ID)!);
-        if(cassesData)
-        {
-          cassesData.push(res.data[1]["caseId"]);
-        }
-        else
-        cassesData=[res.data[1]["caseId"]];
-        localStorage.setItem(LOCAL_STORAGE_KEY_CASSES_ID,JSON.stringify(cassesData));
+        //We only need one id for the last id to be used in navigation
+        localStorage.setItem(LOCAL_STORAGE_KEY_CASSES_ID,JSON.stringify(res.data[1]["caseId"]));
         localStorage.removeItem(LOCAL_STORAGE_KEY_MAJORS_SHOW);
         localStorage.removeItem(LOCAL_STORAGE_KEY_NAME);
         localStorage.removeItem(LOCAL_STORAGE_KEY_LOCATION);
