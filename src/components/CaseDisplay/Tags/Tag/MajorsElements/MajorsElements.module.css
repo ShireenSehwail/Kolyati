@@ -1,0 +1,12 @@
+.centerText{
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+.color{
+    color: rgb(34, 149, 151);
+}
+.FullWidth{
+    width: 100%;
+    vertical-align: middle;
+}
