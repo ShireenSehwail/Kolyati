@@ -1,5 +1,6 @@
-import { IonCard, IonCardContent, IonCardHeader, IonItem, IonTitle } from "@ionic/react";
-import React from "react";
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonIcon, IonItem, IonRow, IonTitle } from "@ionic/react";
+import { addCircle, addOutline, removeCircle } from "ionicons/icons";
+import React, { useState } from "react";
 import tag from "../../../../Models/tag";
 import Tags from "../Tags";
 import MajorsElements from "./MajorsElements/MajorsElements";
@@ -11,16 +12,30 @@ interface Props{
 const Tag :React.FC<Props>=({tag})=>
 {let element=null;
     console.log("tag",tag);
+    const [showContent,setShowContent]=useState(false);
+    let style=classes.green;
+    let icon=addCircle;
+    if(showContent)
+    {style=classes.red;
+    icon=removeCircle;
+    }
 if(tag)
 {
-   element=(<IonCard className={classes.Card}>
+element=(<IonCard className={classes.Card}>
 <IonCardHeader>
-    <IonTitle>
+    <IonTitle className={classes.Title}>
+   <IonRow >
+   <IonIcon 
+    icon={icon} className={classes.Icon+" "+style}
+    onClick={e=>setShowContent(prev=>!prev)}
+    />
         {tag.tagName}
+   </IonRow>
     </IonTitle>
 </IonCardHeader>
 <IonCardContent>
-<MajorsElements majors={tag.majors}/>
+{showContent?<MajorsElements majors={tag.majors}/>
+:null}
 </IonCardContent>
    </IonCard>) 
 }
