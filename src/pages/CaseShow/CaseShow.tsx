@@ -13,10 +13,12 @@ import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 import CaseDisplay from "../../components/CaseDisplay/CaseDisplay";
 import Case from "../../Models/Case";
 import classes from "./CaseShow.module.css";
+import { CaseShortData } from "../../Models/CaseShortData";
 export const Context = React.createContext({
   userId: "",
   caseOwnerId: "",
   majorChoices: [""],
+  caseId:"",
   handleClick: (
     name: string,
     majorId: string,
@@ -40,20 +42,24 @@ const CaseShow: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState<string>("");
   const [caseState, setCaseState] = useState<Case>();
+  const [shortCaseState,setShortCaseState]=useState<CaseShortData>();
   useEffect(() => {
     const fetchCase = async () => {
       try {
         const url = window.location.href;
         const caseId = url.substring(url.lastIndexOf("/"));
-        const result = await api.get(`/api/v1/case${caseId}/${userIdData}`);
+        const result = await api.get(`/api/v1/case${caseId}`);
         if(result.status===200)
         {setCreated(caseId);
-        setCaseState(result.data);}
+        setCaseState(result.data);
+        console.log(result.data)
+      }
       } catch (err) {
         console.log(err.message);
       }
     };
     fetchCase();
+    
   }, []);
   useEffect(() => {
     if (caseState?.userId) {
@@ -109,11 +115,12 @@ const CaseShow: React.FC = () => {
               handleVote(userId,majorId,-1);
               handleVote(userId,majorId,-1);
 
-            }
+            },
+            caseId:caseState?caseState!._id:""
 
           }}
         >
-          <CaseDisplay caseInformation={caseState} />
+         {(caseState?<CaseDisplay caseInformation={caseState} />:null)} 
         </Context.Provider>
       </>
     );

@@ -51,7 +51,7 @@ return (    <IonRow className={classes.centerText} key={type}><IonCol>{type}</Io
 
 </IonCol>
 <IonCol>
-    {pointsData}
+    {major.points}
     </IonCol> 
 </>
    ) 

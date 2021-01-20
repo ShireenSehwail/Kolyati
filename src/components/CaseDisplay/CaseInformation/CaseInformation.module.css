@@ -6,3 +6,39 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: .2s;
   }
+  .Row{
+
+    font-size: large;
+    }
+    .Span{
+    margin-left: 8px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    
+    }
+    .large{
+        font-size: large;
+    }
+    .medium{
+        font-size: medium;
+    }
+    .marginTop{
+margin-top: 8px;
+    }
+    .Icon{
+        vertical-align: top;
+        font-size: 24px;
+        color:#ff5656;
+        margin-left: 8px;
+    }
+    .chat{
+        color: cornflowerblue;
+    }
+    .divide{
+        display: block;
+        line-height: .7;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    

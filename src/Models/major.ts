@@ -8,5 +8,6 @@ export default interface major{
     numberOfHours:string;
     hourRate:string;
     university:string; 
+    points:number;
     advices?:advice[];
 }

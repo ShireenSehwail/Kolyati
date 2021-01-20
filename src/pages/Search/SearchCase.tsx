@@ -15,7 +15,7 @@ const SearchCase: React.FC = () => {
   const [searchCase,setSearchCase]=useState<CaseShortData>();
   const searchForCase=async(text:string)=>{
     try{
-      const result =await  api.get(`api/v1/case/${text}`);
+      const result =await  api.get(`api/v1/caseSearch/${text}`);
       if(result)
       {
         console.log(result.data);
