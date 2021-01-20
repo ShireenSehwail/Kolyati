@@ -2,7 +2,7 @@
 import classes from "./AdviceElement.module.css";
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle,  IonCol, IonGrid, IonInput, IonLabel, IonRow, IonSelect, IonSelectOption } from "@ionic/react";
 import React, { useContext, useRef }   from "react";
-import { AdviceHandle } from "../../../../../../pages/CaseShow/CaseShow";
+import { Context } from "../../../../../../pages/CaseShow/CaseShow";
 
  const AdviceElement :React.FC<{majorId:string}>=({majorId})=>{
     const qualityRef=useRef<HTMLIonSelectElement>(null);
@@ -10,7 +10,7 @@ import { AdviceHandle } from "../../../../../../pages/CaseShow/CaseShow";
     const jobRef=useRef<HTMLIonSelectElement>(null);
     const descriptionInputRef=useRef<HTMLIonInputElement>(null);
     const nameInputRef=useRef<HTMLIonInputElement>(null);
-    const handleClick= useContext(AdviceHandle);
+    const handleClick= useContext(Context);
 function handleSend(){
 handleClick.handleClick(""+nameInputRef.current?.value,majorId,[qualityRef.current?.value,transportationRef.current?.value,jobRef.current?.value],""+descriptionInputRef.current?.value);
 }

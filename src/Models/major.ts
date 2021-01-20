@@ -1,3 +1,5 @@
+import { advice } from "./Advice";
+
 export default interface major{
     _id:string;
     tawjihiTypes:string[];
@@ -6,4 +8,5 @@ export default interface major{
     numberOfHours:string;
     hourRate:string;
     university:string; 
+    advices?:advice[];
 }

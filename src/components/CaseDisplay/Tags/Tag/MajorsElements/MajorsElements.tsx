@@ -1,9 +1,7 @@
-import { IonCard, IonCol, IonGrid, IonItem, IonRow } from "@ionic/react";
-import React, { useContext } from "react";
+import { IonCard, IonCol, IonGrid,  IonRow } from "@ionic/react";
+import React   from "react";
 import major from "../../../../../Models/major";
-import { IsCaseOwnerContext } from "../../../../../pages/CaseShow/CaseShow";
 import Advices from "../Advices/Advices";
-import GiveAdvice from "../GiveAdvice/GiveAdvice";
 import MajorElement from "./MajorElement/MajorElement";
 import classes from "./MajorsElements.module.css"
 interface Props{
@@ -12,7 +10,6 @@ interface Props{
 const MajorsElements :React.FC<Props>=({majors})=>
 {   let element=null;
     
-    const isCaseOnwer=useContext(IsCaseOwnerContext);
 
 if(majors)
 {
@@ -48,7 +45,7 @@ if(majors)
         <IonRow  className={classes.FullWidth} key={major._id}>
             <MajorElement major={major} />
         </IonRow>
-         {isCaseOnwer.isCaseOwner?<Advices/>:<GiveAdvice majorId={major._id}/>}
+         {<Advices major={major}/>}
          </>
         )
 

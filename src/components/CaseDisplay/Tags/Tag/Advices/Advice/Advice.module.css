@@ -1,0 +1,34 @@
+.center{
+  text-align: center;
+}
+.btn{
+ font-size: large; 
+}
+.rightAlign{
+  text-align: right;
+}
+.Col{
+  font-size: large;
+  font-weight: bold;
+}
+.Color{
+  color: black;
+  font-size: 24px;
+}
+.fatherSpan{
+  margin: 0 8px;
+}
+.Icon{
+  margin: 0 8px;
+}
+.Icon:hover{
+  cursor: pointer;
+  color: cadetblue;
+}
+.Voting{
+  color: blueviolet;
+  font-size: 22px;
+}
+.Voting:hover{
+  cursor: pointer;
+}
