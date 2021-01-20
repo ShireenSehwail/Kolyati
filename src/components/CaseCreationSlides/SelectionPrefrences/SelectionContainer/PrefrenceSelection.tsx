@@ -1,27 +1,30 @@
 import classes from "./PrefrenceSelection.module.css";
 import { IonCard,  IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from "@ionic/react";
-import { briefcase, carSport, cashOutline, logoBitcoin, schoolOutline } from "ionicons/icons";
+import { briefcase, carSport, cashOutline, personOutline, schoolOutline } from "ionicons/icons";
 import React, { useState } from "react";
 
  const PrefrenceSelection :React.FC<{name:string}>=({name})=>
 { let icon=cashOutline;
+        console.log(name);
 let cardStyle;
-
         switch(name){
-                case 'صعوبة المواصلات':
-                        icon=carSport;
+                case 'كفائة الطاقم التدريسي':
+                        icon=personOutline;
                         cardStyle=classes.First;
+                        break;
+                case 'المواصلات':
+                        icon=carSport;
+                        cardStyle=classes.Second;
                         break;
                 case 'فرص العمل':
                         icon=briefcase;
-                        cardStyle=classes.Second;
-                        break;
-
-                case  'جودة التعليم':
-                        icon=schoolOutline;
                         cardStyle=classes.Third;
                         break;
-                default :icon=cashOutline; cardStyle=classes.Fourth;         
+                case  'صعوبة الدراسة':
+                        icon=schoolOutline;
+                        cardStyle=classes.Fourth;
+                        break;
+                default :icon=cashOutline; cardStyle=classes.Fifth;         
         }
         const [text,setText]=useState<string>("");
         function onHover(){

@@ -4,7 +4,7 @@ import React from "react";
 import {DragDropContext,Droppable,Draggable} from 'react-beautiful-dnd';
 import PrefrenceSelection from "./SelectionContainer/PrefrenceSelection";
  const PrefrencesContainer:React.FC<{prefrences:string[];setPrefrences:(result:any)=>void}>=({prefrences,setPrefrences})=>
-{ 
+{ console.log("prefs",prefrences)
         return (
         <DragDropContext onDragEnd={setPrefrences}>
         <Droppable droppableId="prefrences">

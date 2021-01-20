@@ -25,12 +25,14 @@ export const Context = React.createContext({
   ) => {},
   handleUpVote:(userId:string,majorId:string)=>{},
   handleDownVote:(userId:string,majorId:string)=>{}
+  ,
 });
 const api = axios.create({
   baseURL: `http://localhost:8080/`,
 });
 const CaseShow: React.FC = () => {
   const [created, setCreated] = useState<string>();
+
   const userIdData = JSON.parse(
     localStorage.getItem(LOCAL_STORAGE_KEY_USER_ID)!
   );
@@ -105,6 +107,7 @@ const CaseShow: React.FC = () => {
             },
             handleDownVote:(userId:string,majorId:string)=>{
               handleVote(userId,majorId,-1);
+              handleVote(userId,majorId,-1);
 
             }
 
@@ -122,16 +125,21 @@ const CaseShow: React.FC = () => {
     description: string
   ) {
     if (selections[0] === undefined) {
-      setToastMessage("ضع تقييم لجودة التعليم");
+      setToastMessage("ضع تقييم لصعوبة التخصص ");
       setShowToast(true);
       return;
     }
     if (selections[1] === undefined) {
-      setToastMessage("ضع تقييم لفرص العمل في السوق");
+      setToastMessage("ضع تقييم لكفائة الطاقة التدريسي ");
       setShowToast(true);
       return;
     }
     if (selections[2] === undefined) {
+      setToastMessage("ضع تقييم لفرص العمل في السوق");
+      setShowToast(true);
+      return;
+    }
+    if (selections[3] === undefined) {
       setToastMessage("ضع تقييم لصعوبة المواصلات");
       setShowToast(true);
 
@@ -201,7 +209,7 @@ const CaseShow: React.FC = () => {
     };
     updateCase();
   }
-  function handleVote(userId:string,majorId:string,type:1|-1){
+  function handleVote(userId:string,majorId:string,type:number){
 const data=findAdviceVotingData(userId,majorId);
 const voting=data?.advice.voting;
 console.log(data)
@@ -226,7 +234,7 @@ const updateAdvice = async () => {
       tagName:data?.tagName,
       majorId:data?.majorId,
       advice:data?.advice,
-      vote:{userId:userIdData,result:1}
+      vote:{userId:userIdData,result:type}
     });
     if (result.status === 200) {
       setCaseState(result.data);

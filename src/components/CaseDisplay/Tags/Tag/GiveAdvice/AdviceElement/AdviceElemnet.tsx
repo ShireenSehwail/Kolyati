@@ -5,14 +5,15 @@ import React, { useContext, useRef }   from "react";
 import { Context } from "../../../../../../pages/CaseShow/CaseShow";
 
  const AdviceElement :React.FC<{majorId:string}>=({majorId})=>{
-    const qualityRef=useRef<HTMLIonSelectElement>(null);
+    const difficalityRef=useRef<HTMLIonSelectElement>(null);
+    const staffRef=useRef<HTMLIonSelectElement>(null);
     const transportationRef=useRef<HTMLIonSelectElement>(null);
     const jobRef=useRef<HTMLIonSelectElement>(null);
     const descriptionInputRef=useRef<HTMLIonInputElement>(null);
     const nameInputRef=useRef<HTMLIonInputElement>(null);
     const handleClick= useContext(Context);
 function handleSend(){
-handleClick.handleClick(""+nameInputRef.current?.value,majorId,[qualityRef.current?.value,transportationRef.current?.value,jobRef.current?.value],""+descriptionInputRef.current?.value);
+handleClick.handleClick(""+nameInputRef.current?.value,majorId,[difficalityRef.current?.value,staffRef.current?.value,jobRef.current?.value,transportationRef.current?.value],""+descriptionInputRef.current?.value);
 }
   return(
 <IonCard>
@@ -24,7 +25,7 @@ handleClick.handleClick(""+nameInputRef.current?.value,majorId,[qualityRef.curre
            
           <IonRow>
               <IonCol size="3" className={classes.black}>
-                  جودة تعليم التخصص في الجامعة
+              صعوبة التخصص
               </IonCol>
               <IonCol>           
 <IonLabel color="medium"  position="floating" >
@@ -32,9 +33,27 @@ handleClick.handleClick(""+nameInputRef.current?.value,majorId,[qualityRef.curre
 </IonLabel>
 <IonSelect  
 color="dark" 
+placeholder="سهل جداً" dir="rtl" 
+ref={difficalityRef}>
+              <IonSelectOption value="سهل جداً">سهل جداً</IonSelectOption>
+              <IonSelectOption value="سهل">سهل</IonSelectOption>
+              <IonSelectOption value="محايد">محايد</IonSelectOption>
+              <IonSelectOption value="الصع متوسط الصعوبة">متوسط الصعوبة</IonSelectOption>
+              <IonSelectOption value="صعب">صعب</IonSelectOption>
+              <IonSelectOption value="صعب جداً">صعب جداً</IonSelectOption>
+            </IonSelect>
+              </IonCol>
+            </IonRow> 
+            <IonRow>
+              <IonCol size="3" className={classes.black}>
+              كفائة الطاقم التدريسي
+              
+              </IonCol>
+              <IonCol>
+<IonSelect  
+color="dark" 
 placeholder="ممتاز" dir="rtl" 
-value="ممتاز"
-ref={qualityRef}>
+ref={staffRef}>
               <IonSelectOption value="ممتاز">ممتاز</IonSelectOption>
               <IonSelectOption value="جيد جداً">جيد جداً</IonSelectOption>
               <IonSelectOption value="جيد">جيد</IonSelectOption>
@@ -44,22 +63,17 @@ ref={qualityRef}>
               <IonSelectOption value="سيء">سيء جداً</IonSelectOption>
             </IonSelect>
               </IonCol>
-            </IonRow> 
+            </IonRow>
             <IonRow>
               <IonCol size="3" className={classes.black}>
     فرص العمل في السوق
                 </IonCol>
               <IonCol>
-                                
-<IonLabel color="medium"  position="floating" >
-  التقييم
-</IonLabel>
 
 <IonSelect  
 color="dark" 
 placeholder="ممتاز" dir="rtl" 
-value="ممتاز"
-ref={transportationRef}>
+ref={jobRef}>
               <IonSelectOption value="ممتاز">ممتاز</IonSelectOption>
               <IonSelectOption value="جيد جداً">جيد جداً</IonSelectOption>
               <IonSelectOption value="جيد">جيد</IonSelectOption>
@@ -72,19 +86,13 @@ ref={transportationRef}>
             </IonRow>  
             <IonRow>
               <IonCol size="3" className={classes.black}>
-                  صعوبة المواصلات
+                   المواصلات
               </IonCol>
               <IonCol>
-                                
-<IonLabel color="medium"  position="floating" >
-  التقييم
-</IonLabel>
-
 <IonSelect  
 color="dark" 
 placeholder="ممتاز" dir="rtl" 
-value="محايد"
-ref={jobRef}>
+ref={transportationRef}>
               <IonSelectOption value="ممتاز">ممتاز</IonSelectOption>
               <IonSelectOption value="جيد جداً">جيد جداً</IonSelectOption>
               <IonSelectOption value="جيد">جيد</IonSelectOption>
@@ -95,7 +103,7 @@ ref={jobRef}>
             </IonSelect>
               </IonCol>
             </IonRow>
-            <IonRow>
+<IonRow>
            <IonCol size="3" className={classes.black}>
                   الإسم
               </IonCol> 
@@ -103,11 +111,10 @@ ref={jobRef}>
                   <IonInput 
                   placeholder="إسمي"
                   className={classes.inputShow}
-                  value="مجد"
                   ref={nameInputRef}
                   />
               </IonCol>
-           </IonRow>
+              </IonRow>
             <IonRow>
               <IonCol size="3" className={classes.black}>
                   رأيك
@@ -116,7 +123,6 @@ ref={jobRef}>
                   <IonInput 
                   placeholder="أعتقد أن.."
                   className={classes.inputShow}
-                  value="أنصحك بدخول هذا التخصص لأن فرص العمل فيه في كل مكان"
                   ref={descriptionInputRef}
                   />
               </IonCol>

@@ -9,8 +9,22 @@ import classes from "./Advice.module.css";
  const Advice :React.FC<{advice:advice,majorId:string}>=({advice,majorId})=>{
    const  context = useContext(Context);
    let votes=0;
+   let upSelected="";
+   let downSelected="";
+
    if(advice.voting.length)
    advice.voting.forEach(vote=>{
+     if(vote.userId===context.userId)
+     {
+       if(vote.result===1)
+       {
+         upSelected=classes.Selected;
+       }
+       else if(vote.result===-1)
+       {
+        downSelected=classes.Selected;
+      }
+     }
     votes+=vote.result;
    })
   return (  <IonCard>
@@ -28,8 +42,7 @@ import classes from "./Advice.module.css";
         <IonCol className={classes.Col+ " "+classes.Color}>
        <IonRow>
          <IonCol>
-         جودة التعليم    
-
+        صعوبة التخصص
          </IonCol>
          <IonCol>
          {advice.rating[0]}
@@ -37,7 +50,7 @@ import classes from "./Advice.module.css";
        </IonRow>
        <IonRow>
          <IonCol>
-         فرص العمل  
+        كفائة الطاقم التدريسي
 
          </IonCol>
          <IonCol>
@@ -46,20 +59,29 @@ import classes from "./Advice.module.css";
        </IonRow>
        <IonRow>
          <IonCol>
-          المواصلات 
+         فرص العمل  
 
          </IonCol>
          <IonCol>
          {advice.rating[2]}
          </IonCol>
        </IonRow>
+       <IonRow>
+         <IonCol>
+          المواصلات 
+
+         </IonCol>
+         <IonCol>
+         {advice.rating[3]}
+         </IonCol>
+       </IonRow>
         </IonCol>
       </IonRow>
       <IonRow>
         <IonCol className={classes.Col}>
-          <IonIcon icon={caretUpSharp} className={classes.Icon} onClick={e=>context.handleUpVote(advice.userId,majorId)}/>
+          <IonIcon icon={caretUpSharp} className={classes.Icon+" "+upSelected} onClick={e=>context.handleUpVote(advice.userId,majorId)}/>
             <span className={classes.Voting}>{votes}</span>
-            <IonIcon icon={caretDownSharp} className={classes.Icon} onClick={e=>context.handleDownVote(advice.userId,majorId)}/>
+            <IonIcon icon={caretDownSharp} className={classes.Icon+" "+downSelected} onClick={e=>context.handleDownVote(advice.userId,majorId)}/>
         </IonCol>
       </IonRow>
     </IonGrid>

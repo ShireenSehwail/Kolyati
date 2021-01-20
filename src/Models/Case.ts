@@ -12,3 +12,4 @@ export default interface Case{
     prefrences:string[];
     tags:tag[];
 }
+

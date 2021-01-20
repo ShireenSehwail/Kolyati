@@ -1,4 +1,4 @@
-import { IonCard, IonCol, IonItem, IonRow } from "@ionic/react";
+import {  IonCol, IonRow } from "@ionic/react";
 import React, { useContext } from "react";
 import major from "../../../../../../Models/major";
 import { Context } from "../../../../../../pages/CaseShow/CaseShow";
@@ -9,11 +9,11 @@ interface Props{
 }
 const MajorElement :React.FC<Props>=({major})=>
 {let element=null;
-    const majorsChoice=useContext(Context);
+    const context=useContext(Context);
  let pointsData=0;
-    if(majorsChoice.majorChoices[0]!=="")
-{   for(var i=0;i<majorsChoice.majorChoices.length;i++)
-    if(major?._id===majorsChoice.majorChoices[i])
+    if(context.majorChoices[0]!=="")
+{   for(var i=0;i<context.majorChoices.length;i++)
+    if(major?._id===context.majorChoices[i])
     {pointsData+=5;
     break;
     }

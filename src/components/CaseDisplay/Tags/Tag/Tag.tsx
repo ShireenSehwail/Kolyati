@@ -10,7 +10,7 @@ interface Props{
 }
 const Tag :React.FC<Props>=({tag})=>
 {let element=null;
-    const [showContent,setShowContent]=useState(true);
+    const [showContent,setShowContent]=useState(false);
     let style=classes.green;
     let icon=addCircle;
     if(showContent)

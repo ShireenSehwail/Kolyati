@@ -9,7 +9,7 @@ import classes from "./Advices.module.css";
 
 
  const Advices :React.FC<{major:major}>=({major})=>{
-  const [advicesShow,setAdvicesShow]=useState<boolean>(true);
+  const [advicesShow,setAdvicesShow]=useState<boolean>(false);
   const idsContext=useContext(Context);
   let canGive=true;
 

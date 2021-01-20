@@ -5,7 +5,7 @@ import AdviceElement from "./AdviceElement/AdviceElemnet";
 import classes from "./GiveAdvice.module.css";
 
  const GiveAdvice :React.FC<{majorId:string}>=({majorId})=>{
-const [adviceShow,setAdviceShow]=useState<boolean>(true);
+const [adviceShow,setAdviceShow]=useState<boolean>(false);
 let btn=(<IonButton onClick={e=>setAdviceShow(true)} className={classes.btn}>
               <IonIcon icon={addOutline}>
               </IonIcon>

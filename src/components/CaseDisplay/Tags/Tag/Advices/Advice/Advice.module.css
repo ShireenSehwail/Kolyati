@@ -25,6 +25,12 @@
   cursor: pointer;
   color: cadetblue;
 }
+.Selected{
+  color: coral;
+}
+.Selected:hover{
+  color: rgb(194, 64, 17);
+}
 .Voting{
   color: blueviolet;
   font-size: 22px;

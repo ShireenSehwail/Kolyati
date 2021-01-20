@@ -10,6 +10,10 @@
 .Fourth{
    border-right: 5px solid #ffcda3;
 }
+.Fifth{
+   border-right: 5px solid #c6a3ff;
+
+}
 .Card:hover{
    background-color:#ececec;
    cursor: pointer;
