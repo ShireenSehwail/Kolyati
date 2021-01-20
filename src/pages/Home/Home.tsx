@@ -3,12 +3,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Case from '../../components/Case/Case';
 import { BASE_URL } from '../../containers/App';
-
+import { CaseShortData } from '../../Models/CaseShortData';
+import classes from "./Home.module.css";
 const Home: React.FC = () => {
   const api=axios.create({
     baseURL:BASE_URL
   });
-  const [casses,setCases]=useState<Array<CaseClass>>([]);
+  const [casses,setCases]=useState<Array<CaseShortData>>([]);
  useEffect( () => {
   console.log("Effect");
   const fetchData = async () => {
@@ -27,7 +28,6 @@ catch(err){
   fetchData();
 },[]);
 const fullHeight={height:"100%"};
-
   return (
     <>
     <IonHeader dir="rtl">
@@ -43,13 +43,19 @@ const fullHeight={height:"100%"};
  <h2> أحدث الحالات </h2>
 </IonListHeader>
 <IonInfiniteScroll >
-      <IonList dir="rtl" style={fullHeight}>
-    {casses?.map(data=>(<IonItem key={data._id}><Case id={data._id}
-author={data.name}
+      <IonList dir="rtl" style={fullHeight} className={classes.list}>
+  <div className={classes.flex}>
+  {casses?.map(data=>(<div key={data.id} className={classes.flexBasis}>
+    <Case id={data.id}
+author={data.author}
 createdTime={data.createdTime}
-major={data.major}
-description={data.description}/></IonItem>
+tags={data.tags}
+advicesNumber={data.advicesNumber}
+votesNumber={data.votesNumber}
+description={data.description}/>
+    </div>
     ))}
+  </div>
        </IonList>
 </IonInfiniteScroll>
       </IonContent>

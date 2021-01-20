@@ -23,6 +23,7 @@ import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 import Case from "../../components/Case/Case";
 import Loader from 'react-loader-spinner'
 import axios from "axios";
+import { CaseShortData } from "../../Models/CaseShortData";
 
 const SharePage: React.FC = () => {
   const api=axios.create({
@@ -34,7 +35,7 @@ const SharePage: React.FC = () => {
   if(userData)
   userId=JSON.parse(userData);
   const [showToast, setShowToast] = useState(false);
-  const [casses, setCasses] = useState<CaseClass[]>([]);
+  const [casses, setCasses] = useState<CaseShortData[]>([]);
   let canShare = null;
   let cassesElements = null;
 useEffect(() => {
@@ -59,16 +60,18 @@ useEffect(() => {
       <>
       <h1>حالاتي</h1>
         {casses?.map((data) => (
-          <IonRow key={data._id} dir="rtl">
+          <IonRow key={data.id} dir="rtl">
             <IonCol>
               <Case
-                id={data._id}
-                author={data.name}
-                createdTime={data.createdTime}
-                major={data.major}
-                description={data.description}
+               id={data.id}
+               author={data.author}
+               createdTime={data.createdTime}
+               tags={data.tags}
+               advicesNumber={data.advicesNumber}
+               votesNumber={data.votesNumber}
+               description={data.description}
               />
-                <CopyToClipboard text={"" + data._id}>
+                <CopyToClipboard text={"" + data.id}>
                 <IonButton color="danger" onClick={() => setShowToast(true)}>
                 <IonText color="light">مشاركة</IonText>
                 </IonButton>

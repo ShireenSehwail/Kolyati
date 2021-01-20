@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Case from "../../components/Case/Case";
 import classes from './SearchCase.module.css';
 import { format } from 'timeago.js';
+import { CaseShortData } from "../../Models/CaseShortData";
 
 const SearchCase: React.FC = () => {
   const api=axios.create({
@@ -11,13 +12,15 @@ const SearchCase: React.FC = () => {
   });
   const textCenter={  "textAlign": "center",backGroundColor:"white"}
   const [showToast, setShowToast] = useState(false);
-  const [searchCase,setSearchCase]=useState<CaseClass>();
+  const [searchCase,setSearchCase]=useState<CaseShortData>();
   const searchForCase=async(text:string)=>{
     try{
       const result =await  api.get(`api/v1/case/${text}`);
       if(result)
       {
-        setSearchCase(result.data);
+        console.log(result.data);
+
+        setSearchCase(result.data[0]);
       }
       
         setShowToast(true);
@@ -31,13 +34,16 @@ const SearchCase: React.FC = () => {
   }
  
   let component=null;
+  console.log(searchCase);
 
   if(searchCase)
   {
-component=(<Case  id={searchCase._id}
-  author={searchCase.name}
+component=(<Case  id={searchCase.id}
+  author={searchCase.author}
   createdTime={searchCase.createdTime}
-  major={searchCase.major}
+  tags={searchCase.tags}
+  advicesNumber={searchCase.advicesNumber}
+  votesNumber={searchCase.votesNumber}
   description={searchCase.description}/>)
   }
   else
