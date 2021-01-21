@@ -1,10 +1,11 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonInfiniteScroll, IonItem, IonList } from "@ionic/react";
+import {  IonItem, IonList } from "@ionic/react";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import major from "../../../Models/major";
 import { Context } from "../../../pages/CaseShow/CaseShow";
 import classes from "./CaseResults.module.css"
 import Result from "./Result/Result";
+import Statistic from "./Statistics/Statistics";
 
 const api = axios.create({
       baseURL: `http://localhost:8080/`,
@@ -37,9 +38,17 @@ fetchTopTwoMajors();
             </h1>
 
            </IonItem>
-           {topTwoMajors?(<>
-            <Result major={topTwoMajors[0]}/>
-           <Result major={topTwoMajors[1]}/></>):null}
+           {topTwoMajors?(<div><div className={classes.flex}>
+            {topTwoMajors.map((e,index)=>
+            <div className={classes.basis}><Result major={e} index={index}color={index===0?"#eb596e":"rgba(54, 162, 235, 1)"}/></div>
+           )
+           }</div>
+           <IonItem>
+           <h2>الإحصائيات</h2>
+           </IonItem>
+            <Statistic majors={topTwoMajors}/>
+           </div>
+           ):null}
 </IonList>)
           }
 

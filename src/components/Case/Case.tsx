@@ -37,7 +37,7 @@ const Case: React.FC<{
   return (
     <IonCard onClick={navigateToCase} className={classes.Card}>
       <IonCardHeader color="light">
-        <IonCardSubtitle>{props.author}</IonCardSubtitle>
+        <IonCardSubtitle className={classes.author}>{props.author}</IonCardSubtitle>
         <IonCardSubtitle>
           {" "}
           <TimeAgo datetime={props.createdTime} locale="ar" />
@@ -82,7 +82,7 @@ const Case: React.FC<{
             </IonGrid>
         </IonCardTitle>
       </IonCardHeader>
-      <IonCardContent>{props.description}</IonCardContent>
+      <IonCardContent className={classes.description}>{props.description}</IonCardContent>
     </IonCard>
   );
 };

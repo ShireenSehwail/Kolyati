@@ -1,0 +1,23 @@
+.first {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    display: inline;
+    color: rgb(253, 249, 0);
+    text-align: center;
+
+    font: 32px Arial, sans-serif;
+}
+.second{
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    display: inline;
+    color: #492961;
+    text-align: center;
+
+    font: 32px Arial, sans-serif;
+   
+}

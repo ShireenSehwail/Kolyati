@@ -4,3 +4,12 @@
 .margin{
     margin: 16px;
 }
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.basis{
+    flex-basis: 700px;
+    margin: 16px;
+}
