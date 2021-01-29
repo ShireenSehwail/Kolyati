@@ -7,7 +7,7 @@ import {
   IonToast,
 } from "@ionic/react";
 import React, { useState, useEffect } from "react";
-import { LOCAL_STORAGE_KEY_USER_ID } from "../../containers/App";
+import { BASE_URL, LOCAL_STORAGE_KEY_USER_ID } from "../../containers/App";
 import axios from "axios";
 import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 import CaseDisplay from "../../components/CaseDisplay/CaseDisplay";
@@ -29,10 +29,11 @@ export const Context = React.createContext({
   handleDownVote:(userId:string,majorId:string)=>{}
   ,
 });
-const api = axios.create({
-  baseURL: `http://localhost:8080/`,
-});
+
 const CaseShow: React.FC = () => {
+  const api = axios.create({
+    baseURL: BASE_URL,
+  });
   const [created, setCreated] = useState<string>();
 
   const userIdData = JSON.parse(
@@ -48,7 +49,7 @@ const CaseShow: React.FC = () => {
       try {
         const url = window.location.href;
         const caseId = url.substring(url.lastIndexOf("/"));
-        const result = await api.get(`/api/v1/case${caseId}`);
+        const result = await api.get(`/case${caseId}`);
         if(result.status===200)
         {setCreated(caseId);
         setCaseState(result.data);
@@ -199,7 +200,7 @@ const CaseShow: React.FC = () => {
         author: name,
       }))
       try {
-        const result = await api.post(`/api/v1/advice/${caseState!._id}`, {
+        const result = await api.post(`/advice/${caseState!._id}`, {
           tagName: major?.tagName,
           majorId: majorId,
           rating: selections,
@@ -237,7 +238,7 @@ const updateAdvice = async () => {
     vote:{userId:userIdData,result:type}
   }))
   try {
-    const result = await api.post(`/api/v1/voting/${caseState!._id}`, {
+    const result = await api.post(`/voting/${caseState!._id}`, {
       tagName:data?.tagName,
       majorId:data?.majorId,
       advice:data?.advice,

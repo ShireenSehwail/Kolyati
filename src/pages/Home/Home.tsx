@@ -15,7 +15,7 @@ const Home: React.FC = () => {
   const fetchData = async () => {
     console.log("fetch");
 try{
-  const data=  await api.get('/casses');
+  const data=  await api.get('/cases');
   console.log("fetched");
   console.log(data.data);
   setCases(data.data);

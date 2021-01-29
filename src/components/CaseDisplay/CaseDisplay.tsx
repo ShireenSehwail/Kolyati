@@ -1,6 +1,7 @@
 import { IonCard, IonCardContent, IonContent, IonInfiniteScroll, IonItem } from "@ionic/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../../containers/App";
 import Case from "../../Models/Case";
 import { CaseShortData } from "../../Models/CaseShortData";
 import tag from "../../Models/tag";
@@ -10,11 +11,12 @@ import Tags from "./Tags/Tags";
 interface Props{
       caseInformation?:Case;
 }
-const api = axios.create({
-      baseURL: `http://localhost:8080/`,
-    });
+
  const CaseDisplay :React.FC<Props>=({caseInformation})=>
-{ let tags:tag[]=[];
+{ const api = axios.create({
+      baseURL: BASE_URL,
+    });
+      let tags:tag[]=[];
       const [shortCaseData,setShortCaseData]=useState<CaseShortData>();
 useEffect(() => {
       console.log("whhy",caseInformation);
@@ -23,7 +25,7 @@ useEffect(() => {
             console.log("hiiii")
 
             try {
-              const result = await api.get(`api/v1/caseSearch/${caseInformation!._id}`);
+              const result = await api.get(`/caseSearch/${caseInformation!._id}`);
               if(result.status==200)
               {
               setShortCaseData(result.data[0]);

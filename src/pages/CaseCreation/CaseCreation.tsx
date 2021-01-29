@@ -136,7 +136,7 @@ const CaseCreation: React.FC = () => {
     }
      try{
       
-      const res=await api.post("/casses" , {
+      const res=await api.post("/cases" , {
         userId:idData,
         name:name,
         prefrences:prefrences,

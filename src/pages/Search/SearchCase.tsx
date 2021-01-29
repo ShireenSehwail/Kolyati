@@ -5,17 +5,18 @@ import Case from "../../components/Case/Case";
 import classes from './SearchCase.module.css';
 import { format } from 'timeago.js';
 import { CaseShortData } from "../../Models/CaseShortData";
+import { BASE_URL } from "../../containers/App";
 
 const SearchCase: React.FC = () => {
   const api=axios.create({
-    baseURL:`http://localhost:8080/`
+    baseURL:BASE_URL
   });
   const textCenter={  "textAlign": "center",backGroundColor:"white"}
   const [showToast, setShowToast] = useState(false);
   const [searchCase,setSearchCase]=useState<CaseShortData>();
   const searchForCase=async(text:string)=>{
     try{
-      const result =await  api.get(`api/v1/caseSearch/${text}`);
+      const result =await  api.get(`/caseSearch/${text}`);
       if(result)
       {
         console.log(result.data);
