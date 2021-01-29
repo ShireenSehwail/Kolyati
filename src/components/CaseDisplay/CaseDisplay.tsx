@@ -35,12 +35,13 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
       }
     };
     if (caseInformation !== undefined) fetchShortCase();
-  }, []);
+  }, [caseInformation]);
   if (caseInformation !== undefined) {
     tags = caseInformation.tags;
   }
   let caseData = null;
   if (shortCaseData) {
+    console.log("short",shortCaseData)
     caseData = (
       <CaseInformation
         id={shortCaseData!.id}

@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import major from "../../../../Models/major";
 import { Bar } from "react-chartjs-2";
+import { Context } from "../../../../pages/CaseShow/CaseShow";
 const Statistic: React.FC<{ majors: major[] }> = ({ majors }) => {
+  const context = useContext(Context);
+  const temp=context.prefrences;
+  let prefrences:number[] = [1,1,1,1,1];
+  if (temp.length > 0) {
+    prefrences = [
+      5-temp.findIndex(p => "صعوبة الدراسة" == p ),
+      5-temp.findIndex((p) =>  "فرص العمل" == p),
+      5-temp.findIndex((p) =>  "المواصلات" == p),
+
+      5-temp.findIndex((p) => "كفائة الطاقم التدريسي" == p),
+     5-temp.findIndex((p) =>"التكاليف الدراسية" == p),
+    ];
+console.log(prefrences)
+  }
   let data = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
   ];
   let min = 0;
   let max = 10;
-  if (majors)
+  if (majors) {
     for (var i = 0; i < majors.length; i++) {
       const advices = majors[i].advices;
       if (advices)
@@ -19,18 +34,29 @@ const Statistic: React.FC<{ majors: major[] }> = ({ majors }) => {
           for (var k = 0; k < votings.length; k++) {
             multiplied += votings[k].result;
           }
-          if (multiplied === 0) multiplied = 1;
-          data[i][0] += stringToInt(ratings[0]) * multiplied;
+          console.log(ratings)
+          if(multiplied==0)
+          multiplied=1;
+          data[i][0] += stringToInt(ratings[0]) * multiplied*prefrences[0];
           if (data[i][0] > max) max = data[i][0];
           if (data[i][0] < min) min = data[i][0];
           for (var k = 1; k < ratings.length; k++) {
-            data[i][k] += stringToIntPref(ratings[k]) * multiplied;
+            data[i][k] += stringToIntPref(ratings[k]) * multiplied*prefrences[k];
             if (data[i][k] > max) max = data[i][k];
             if (data[i][k] < min) min = data[i][k];
           }
         }
     }
-
+    const firstMajor = majors[0];
+    const secondMajor = majors[1];
+    data[0][4] -=
+      (Math.ceil(prefrences[4]*( Math.ceil(parseFloat(firstMajor.hourRate) * parseFloat(firstMajor.numberOfHours) /
+      5000))));
+    data[1][4]-=
+      (Math.ceil(prefrences[4]*(Math.ceil(parseFloat(secondMajor.hourRate) *
+        parseFloat(secondMajor.numberOfHours) /
+      5000))));
+  }
   function stringToInt(str: string) {
     if (str.localeCompare("سهل جداً") === 0) return 2;
     else if (str.localeCompare("سهل") === 0) return 1;
@@ -62,6 +88,7 @@ const Statistic: React.FC<{ majors: major[] }> = ({ majors }) => {
             "فرص العمل",
             "المواصلات",
             "كفائة الطاقم التدريسي",
+            "التكاليف الدراسية",
           ],
           datasets: [
             {

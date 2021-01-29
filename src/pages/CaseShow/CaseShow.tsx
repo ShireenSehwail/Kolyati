@@ -18,6 +18,7 @@ export const Context = React.createContext({
   caseOwnerId: "",
   majorChoices: [""],
   caseId: "",
+  prefrences:[""],
   handleClick: (
     name: string,
     majorId: string,
@@ -95,6 +96,7 @@ const CaseShow: React.FC = () => {
               JSON.parse("" + localStorage.getItem(LOCAL_STORAGE_KEY_USER_ID)),
             caseOwnerId: "" + caseState?.userId,
             majorChoices: majorChoices,
+            prefrences:caseState?.prefrences?caseState.prefrences:[],
             handleClick: (
               name: string,
               majorId: string,
@@ -107,7 +109,6 @@ const CaseShow: React.FC = () => {
               handleVote(userId, majorId, 1);
             },
             handleDownVote: (userId: string, majorId: string) => {
-              handleVote(userId, majorId, -1);
               handleVote(userId, majorId, -1);
             },
             caseId: caseState ? caseState!._id : "",
@@ -183,6 +184,12 @@ const CaseShow: React.FC = () => {
   function handleVote(userId: string, majorId: string, type: number) {
     const data = findAdviceVotingData(userId, majorId);
     const voting = data?.advice.voting;
+    if(userIdData===data?.advice.userId)
+    {
+      setToastMessage("لا يمكنك التصويت لنفسك ");
+        setShowToast(true);
+        return;
+    }
     for (var i = 0; i < voting!.length; i++) {
       if (voting![i].userId === userIdData && voting![i].result === type) {
         setToastMessage("لا يمكنك التقييم أكثر من مرة");
@@ -195,7 +202,7 @@ const CaseShow: React.FC = () => {
         const result = await api.post(`/voting/${caseState!._id}`, {
           tagName: data?.tagName,
           majorId: data?.majorId,
-          advice: data?.advice,
+          userId: data?.advice.userId,
           vote: { userId: userIdData, result: type },
         });
         if (result.status === 200) {

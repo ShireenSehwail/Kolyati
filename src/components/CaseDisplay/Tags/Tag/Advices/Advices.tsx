@@ -45,7 +45,7 @@ canGive=false;
          </div>
         {advicesShow?( <div>
               {major.advices!.length>0?
-              major.advices?.map(advice=>{return (<Advice key={major._id} advice={advice}majorId={major._id}/>)})
+              major.advices?.map(advice=>{return (<Advice key={advice.userId} advice={advice}majorId={major._id}/>)})
               :(<div>لا يوجد نصائح</div>)}
               {canGive?<GiveAdvice majorId={major._id}></GiveAdvice>:null}
               </div>):null}

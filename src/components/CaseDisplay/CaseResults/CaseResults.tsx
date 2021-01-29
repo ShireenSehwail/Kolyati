@@ -26,7 +26,7 @@ const CaseResults: React.FC = () => {
       }
     };
     if (context.caseId !== "") fetchTopTwoMajors();
-  }, []);
+  }, [context]);
   return (
     <IonList className={classes.marginButtom}>
       <IonItem>
