@@ -24,7 +24,7 @@ const Home: React.FC = () => {
     let isMounted = true;
     const fetchData = async () => {
       try {
-        const data = await api.get("/cases");
+        const data = await api.get("/casses");
         if (isMounted)
         setCases(data.data);
       } catch (err) {

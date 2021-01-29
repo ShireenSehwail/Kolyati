@@ -38,3 +38,9 @@
 .Voting:hover{
   cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+  .Color{
+      font-size: 14px;
+  }
+}

@@ -24,10 +24,10 @@ handleClick.handleClick(""+nameInputRef.current?.value,majorId,[difficalityRef.c
        <IonGrid>
            
           <IonRow>
-              <IonCol size="3" className={classes.black}>
+              <IonCol size="8" className={classes.black+" "+classes.size}>
               صعوبة التخصص
               </IonCol>
-              <IonCol>           
+              <IonCol className={classes.size}>           
 <IonLabel color="medium"  position="floating" >
   التقييم
 </IonLabel>
@@ -45,11 +45,11 @@ ref={difficalityRef}>
               </IonCol>
             </IonRow> 
             <IonRow>
-              <IonCol size="3" className={classes.black}>
+              <IonCol size="8" className={classes.black}>
               كفائة الطاقم التدريسي
               
               </IonCol>
-              <IonCol>
+              <IonCol  className={classes.size}>
 <IonSelect  
 color="dark" 
 placeholder="ممتاز" dir="rtl" 
@@ -65,10 +65,10 @@ ref={staffRef}>
               </IonCol>
             </IonRow>
             <IonRow>
-              <IonCol size="3" className={classes.black}>
+              <IonCol size="8" className={classes.black}>
     فرص العمل في السوق
                 </IonCol>
-              <IonCol>
+              <IonCol  className={classes.size}>
 
 <IonSelect  
 color="dark" 
@@ -85,10 +85,10 @@ ref={jobRef}>
               </IonCol>
             </IonRow>  
             <IonRow>
-              <IonCol size="3" className={classes.black}>
+              <IonCol size="8" className={classes.black}>
                    المواصلات
               </IonCol>
-              <IonCol>
+              <IonCol  className={classes.size}>
 <IonSelect  
 color="dark" 
 placeholder="ممتاز" dir="rtl" 
@@ -104,10 +104,10 @@ ref={transportationRef}>
               </IonCol>
             </IonRow>
 <IonRow>
-           <IonCol size="3" className={classes.black}>
+           <IonCol size="4" className={classes.black}>
                   الإسم
               </IonCol> 
-              <IonCol>
+              <IonCol  className={classes.size}>
                   <IonInput 
                   placeholder="إسمي"
                   className={classes.inputShow}
@@ -116,10 +116,10 @@ ref={transportationRef}>
               </IonCol>
               </IonRow>
             <IonRow>
-              <IonCol size="3" className={classes.black}>
+              <IonCol size="4" className={classes.black}>
                   رأيك
               </IonCol>
-              <IonCol>
+              <IonCol  className={classes.size}>
                   <IonInput 
                   placeholder="أعتقد أن.."
                   className={classes.inputShow}

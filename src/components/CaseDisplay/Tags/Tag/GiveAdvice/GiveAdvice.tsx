@@ -8,7 +8,7 @@ const GiveAdvice: React.FC<{ majorId: string }> = ({ majorId }) => {
   const [adviceShow, setAdviceShow] = useState<boolean>(false);
   let btn = (
     <IonButton onClick={(e) => setAdviceShow(true)} className={classes.btn}>
-      <IonIcon icon={addOutline}></IonIcon>
+      <IonIcon icon={addOutline} ></IonIcon>
       إعطاء نصيحة
     </IonButton>
   );

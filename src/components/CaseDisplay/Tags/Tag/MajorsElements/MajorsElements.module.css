@@ -10,3 +10,8 @@
     width: 100%;
     vertical-align: middle;
 }
+@media only screen and (max-width: 600px) {
+    .centerText{
+        font-size: 12px;
+    }
+  }
