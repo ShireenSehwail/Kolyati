@@ -28,7 +28,7 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
       }
     };
     if (caseInformation !== undefined) fetchShortCase();
-  }, [caseInformation]);
+  }, [caseInformation,api]);
 
   let caseData = null;
   if (shortCaseData) {

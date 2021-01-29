@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [api]);
   const fullHeight = { height: "100%" };
   return (
     <>
