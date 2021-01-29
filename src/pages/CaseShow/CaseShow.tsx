@@ -43,7 +43,6 @@ const CaseShow: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState<string>("");
   const [caseState, setCaseState] = useState<Case>();
-  const [shortCaseState,setShortCaseState]=useState<CaseShortData>();
   useEffect(() => {
     const fetchCase = async () => {
       try {
@@ -53,7 +52,6 @@ const CaseShow: React.FC = () => {
         if(result.status===200)
         {setCreated(caseId);
         setCaseState(result.data);
-        console.log(result.data)
       }
       } catch (err) {
         console.log(err.message);
@@ -168,37 +166,13 @@ const CaseShow: React.FC = () => {
         if (majorId === tag.majors[i]._id) return tag.majors[i];
       }
     });
-    console.log({
-      major: major,
-      rating: selections,
-      description: description,
-      userId: userIdData,
-      author: name,
-    });
-    console.log(
-      JSON.stringify({
-        major: major?.tagName,
-      })
-    );
-    console.log(
-      JSON.stringify({
-        tagName: major?.tagName,
-        majorId: majorId,
-        rating: selections,
-        description: description,
-        userId: userIdData,
-        author: name,
-      })
-    );
+  
+   
+ 
+    
+
     const updateCase = async () => {
-      console.log(JSON.stringify({
-        tagName: major?.tagName,
-        majorId: majorId,
-        rating: selections,
-        description: description,
-        userId: userIdData,
-        author: name,
-      }))
+
       try {
         const result = await api.post(`/advice/${caseState!._id}`, {
           tagName: major?.tagName,
@@ -220,7 +194,6 @@ const CaseShow: React.FC = () => {
   function handleVote(userId:string,majorId:string,type:number){
 const data=findAdviceVotingData(userId,majorId);
 const voting=data?.advice.voting;
-console.log(data)
 for(var i=0;i<voting!.length;i++)
 {
   if(voting![i].userId===userIdData&&voting![i].result===type)
@@ -231,12 +204,7 @@ for(var i=0;i<voting!.length;i++)
   }
 }
 const updateAdvice = async () => {
- console.log( JSON.stringify({
-    tagName:data?.tagName,
-    majorId:data?.majorId,
-    advice:data?.advice,
-    vote:{userId:userIdData,result:type}
-  }))
+ 
   try {
     const result = await api.post(`/voting/${caseState!._id}`, {
       tagName:data?.tagName,
