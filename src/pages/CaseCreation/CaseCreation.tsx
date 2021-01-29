@@ -86,7 +86,7 @@ const CaseCreation: React.FC = () => {
     localStorage.setItem(LOCAL_STORAGE_KEY_TAWIJIHI_TYPE,JSON.stringify(tawjihiType));
     if(gpa)
     {const gpaNumber=parseFloat(gpa);
-      if(gpaNumber==0)
+      if(gpaNumber===0)
       {
         localStorage.setItem(LOCAL_STORAGE_KEY_GPA,JSON.stringify("0"));
       }
@@ -196,8 +196,8 @@ const CaseCreation: React.FC = () => {
     {  let currentSelectedMajors:MajorClass[]=[];
       //Only add the first three majors
       for(var i=0;i<majorsChoice.length&&i<3;i++)
-      {
-        const found=majorList.find(e=>e._id===majorsChoice[i]);
+      {const index=i;
+        const found=majorList.find(e=>e._id===majorsChoice[index]);
       if(found)
         currentSelectedMajors.push(found);
       }

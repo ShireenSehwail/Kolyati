@@ -21,12 +21,10 @@ const Case: React.FC<{
   author: string;
   createdTime: string;
   description: string;
-  tags:string[];
-  advicesNumber:Number;
-  votesNumber:Number;
-
+  tags: string[];
+  advicesNumber: Number;
+  votesNumber: Number;
 }> = (props) => {
-  const style = { width: "100%", cursor: "pointer" };
   const history = useHistory();
   timeago.register("ar", ar);
 
@@ -37,52 +35,42 @@ const Case: React.FC<{
   return (
     <IonCard onClick={navigateToCase} className={classes.Card}>
       <IonCardHeader color="light">
-        <IonCardSubtitle className={classes.author}>{props.author}</IonCardSubtitle>
+        <IonCardSubtitle className={classes.author}>
+          {props.author}
+        </IonCardSubtitle>
         <IonCardSubtitle>
           {" "}
           <TimeAgo datetime={props.createdTime} locale="ar" />
         </IonCardSubtitle>
         <IonCardTitle>
+          <IonGrid>
+            <IonRow class={classes.Row}>
+              <IonCol>
+                <IonIcon
+                  icon={chatbubblesOutline}
+                  className={classes.Icon + " " + classes.chat}
+                />
 
-<IonGrid>
-              <IonRow class={classes.Row}>
-              <IonCol >
-              <IonIcon icon={chatbubblesOutline} className={classes.Icon+" "+classes.chat}/>
-
-              <span className={classes.Span}>
-              <span className={classes.divide}>
-              عدد النصائح
-              </span>
-              <span>
-              {props.advicesNumber}
-
-              </span>
-                
+                <span className={classes.Span}>
+                  <span className={classes.divide}>عدد النصائح</span>
+                  <span>{props.advicesNumber}</span>
                 </span>
-
-
               </IonCol>
-              <IonCol >
-              <IonIcon icon={flameOutline} className={classes.Icon}/>
+              <IonCol>
+                <IonIcon icon={flameOutline} className={classes.Icon} />
 
-              <span className={classes.Span}>
-              <span className={classes.divide}>
-              عدد التصويتات
-              </span>
-              <span>
-              {props.votesNumber}
-
-              </span>
-                
+                <span className={classes.Span}>
+                  <span className={classes.divide}>عدد التصويتات</span>
+                  <span>{props.votesNumber}</span>
                 </span>
-
-
               </IonCol>
-              </IonRow>
-            </IonGrid>
+            </IonRow>
+          </IonGrid>
         </IonCardTitle>
       </IonCardHeader>
-      <IonCardContent className={classes.description}>{props.description}</IonCardContent>
+      <IonCardContent className={classes.description}>
+        {props.description}
+      </IonCardContent>
     </IonCard>
   );
 };

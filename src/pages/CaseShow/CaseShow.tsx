@@ -57,7 +57,7 @@ const CaseShow: React.FC = () => {
       }
     };
     fetchCase();
-  }, []);
+  });
   useEffect(() => {
     if (caseState?.userId) {
       setMajorChoices(caseState.majorsChoice);

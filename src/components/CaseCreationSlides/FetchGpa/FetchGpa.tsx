@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import classes from './FetchGpa.module.css';
  const FetchGpa :React.FC<{gpa:string,setGpa:(gpa:string)=>void}>=({gpa,setGpa})=>
 {const style={marginRight:"20px",color:"#636363"};
-const whiteBackGroundColor={"--ion-background-color":"#fff"};
 const inputRef=useRef<HTMLIonInputElement>(null);
 const handleGpa=()=>{
   if(inputRef.current?.value==="")

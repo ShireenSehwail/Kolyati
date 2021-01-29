@@ -8,14 +8,13 @@ const Statistic: React.FC<{ majors: major[] }> = ({ majors }) => {
   let prefrences:number[] = [1,1,1,1,1];
   if (temp.length > 0) {
     prefrences = [
-      5-temp.findIndex(p => "صعوبة الدراسة" == p ),
-      5-temp.findIndex((p) =>  "فرص العمل" == p),
-      5-temp.findIndex((p) =>  "المواصلات" == p),
+      5-temp.findIndex(p => "صعوبة الدراسة" === p ),
+      5-temp.findIndex((p) =>  "فرص العمل" === p),
+      5-temp.findIndex((p) =>  "المواصلات" === p),
 
-      5-temp.findIndex((p) => "كفائة الطاقم التدريسي" == p),
-     5-temp.findIndex((p) =>"التكاليف الدراسية" == p),
+      5-temp.findIndex((p) => "كفائة الطاقم التدريسي" === p),
+     5-temp.findIndex((p) =>"التكاليف الدراسية" === p),
     ];
-console.log(prefrences)
   }
   let data = [
     [0, 0, 0, 0, 0],
@@ -34,13 +33,12 @@ console.log(prefrences)
           for (var k = 0; k < votings.length; k++) {
             multiplied += votings[k].result;
           }
-          console.log(ratings)
-          if(multiplied==0)
+          if(multiplied===0)
           multiplied=1;
           data[i][0] += stringToInt(ratings[0]) * multiplied*prefrences[0];
           if (data[i][0] > max) max = data[i][0];
           if (data[i][0] < min) min = data[i][0];
-          for (var k = 1; k < ratings.length; k++) {
+          for ( k = 1; k < ratings.length; k++) {
             data[i][k] += stringToIntPref(ratings[k]) * multiplied*prefrences[k];
             if (data[i][k] > max) max = data[i][k];
             if (data[i][k] < min) min = data[i][k];

@@ -1,6 +1,5 @@
 import {
   IonCard,
-  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,
@@ -20,7 +19,7 @@ const Result: React.FC<{ major: major; color: string; index: number }> = ({
   return (
     <IonCard style={style}>
       <IonCardHeader>
-        {index == 0 ? (
+        {index === 0 ? (
           <div className={classes.first}>{major.points} </div>
         ) : (
           <div className={classes.second}>{major.points} </div>

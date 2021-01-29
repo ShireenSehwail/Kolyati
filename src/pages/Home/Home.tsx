@@ -3,7 +3,6 @@ import {
   IonContent,
   IonHeader,
   IonInfiniteScroll,
-  IonItem,
   IonList,
   IonListHeader,
   IonMenuButton,

@@ -1,15 +1,9 @@
-import {
-
-  IonContent,
-  IonInfiniteScroll,
-  IonItem,
-} from "@ionic/react";
+import { IonContent, IonInfiniteScroll, IonItem } from "@ionic/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../../containers/App";
 import Case from "../../Models/Case";
 import { CaseShortData } from "../../Models/CaseShortData";
-import tag from "../../Models/tag";
 import CaseInformation from "./CaseInformation/CaseInformation";
 import CaseResults from "./CaseResults/CaseResults";
 import Tags from "./Tags/Tags";
@@ -21,13 +15,12 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
   const api = axios.create({
     baseURL: BASE_URL,
   });
-  let tags: tag[] = [];
   const [shortCaseData, setShortCaseData] = useState<CaseShortData>();
   useEffect(() => {
     const fetchShortCase = async () => {
       try {
         const result = await api.get(`/caseSearch/${caseInformation!._id}`);
-        if (result.status == 200) {
+        if (result.status === 200) {
           setShortCaseData(result.data[0]);
         }
       } catch (err) {
@@ -36,12 +29,9 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
     };
     if (caseInformation !== undefined) fetchShortCase();
   }, [caseInformation]);
-  if (caseInformation !== undefined) {
-    tags = caseInformation.tags;
-  }
+
   let caseData = null;
   if (shortCaseData) {
-    console.log("short",shortCaseData)
     caseData = (
       <CaseInformation
         id={shortCaseData!.id}
