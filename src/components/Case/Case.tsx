@@ -15,7 +15,7 @@ import TimeAgo from "timeago-react";
 import ar from "timeago.js/lib/lang/ar";
 import * as timeago from "timeago.js";
 import classes from "./Case.module.css";
-import { accessibilityOutline, bulbOutline, cashOutline, chatboxEllipsesOutline, chatbubbleOutline, chatbubbleSharp, chatbubblesOutline, checkmarkCircleOutline, eyedropOutline, eyeOutline, flameOutline, helpBuoyOutline, timeOutline } from "ionicons/icons";
+import { chatbubblesOutline, flameOutline } from "ionicons/icons";
 const Case: React.FC<{
   id: string;
   author: string;

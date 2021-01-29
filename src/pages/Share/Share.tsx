@@ -8,11 +8,9 @@ import {
   IonImg,
   IonRow,
   IonCol,
-  IonGrid,
   IonText,
   IonToast,
   IonItem,
-  IonInfiniteScroll,
   IonList,
 } from "@ionic/react";
 import React, { useEffect, useState } from "react";
@@ -42,7 +40,6 @@ useEffect(() => {
   async function fetchCasses(){
     try{
    const res=await api.get(`/user/${userId}`);
-   console.log(res.data);
  if(res.status===200)
  {
    setCasses(res.data);
@@ -111,7 +108,6 @@ useEffect(() => {
       </>
     );
   } else {
-    console.log(casses);
 
     canShare = <CaseNotFound />;
   }

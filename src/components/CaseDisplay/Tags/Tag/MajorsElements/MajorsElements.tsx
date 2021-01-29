@@ -41,12 +41,12 @@ if(majors)
     </IonRow>
     {majors.map(major=>{
         return(
-            <>
+            <div key={major._id}>
         <IonRow  className={classes.FullWidth} key={major._id}>
             <MajorElement major={major} />
         </IonRow>
          {<Advices major={major}/>}
-         </>
+         </div>
         )
 
     })}

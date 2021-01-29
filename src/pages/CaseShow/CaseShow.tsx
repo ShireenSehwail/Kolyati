@@ -13,21 +13,19 @@ import CaseNotFound from "../../components/CaseNotFound/CaseNotFound";
 import CaseDisplay from "../../components/CaseDisplay/CaseDisplay";
 import Case from "../../Models/Case";
 import classes from "./CaseShow.module.css";
-import { CaseShortData } from "../../Models/CaseShortData";
 export const Context = React.createContext({
   userId: "",
   caseOwnerId: "",
   majorChoices: [""],
-  caseId:"",
+  caseId: "",
   handleClick: (
     name: string,
     majorId: string,
     selections: string[],
     description: string
   ) => {},
-  handleUpVote:(userId:string,majorId:string)=>{},
-  handleDownVote:(userId:string,majorId:string)=>{}
-  ,
+  handleUpVote: (userId: string, majorId: string) => {},
+  handleDownVote: (userId: string, majorId: string) => {},
 });
 
 const CaseShow: React.FC = () => {
@@ -49,16 +47,15 @@ const CaseShow: React.FC = () => {
         const url = window.location.href;
         const caseId = url.substring(url.lastIndexOf("/"));
         const result = await api.get(`/case${caseId}`);
-        if(result.status===200)
-        {setCreated(caseId);
-        setCaseState(result.data);
-      }
+        if (result.status === 200) {
+          setCreated(caseId);
+          setCaseState(result.data);
+        }
       } catch (err) {
         console.log(err.message);
       }
     };
     fetchCase();
-    
   }, []);
   useEffect(() => {
     if (caseState?.userId) {
@@ -106,20 +103,17 @@ const CaseShow: React.FC = () => {
             ) => {
               handleAdviceSend(name, majorId, selections, description);
             },
-            handleUpVote:(userId:string,majorId:string)=>{
-              handleVote(userId,majorId,1);
-
+            handleUpVote: (userId: string, majorId: string) => {
+              handleVote(userId, majorId, 1);
             },
-            handleDownVote:(userId:string,majorId:string)=>{
-              handleVote(userId,majorId,-1);
-              handleVote(userId,majorId,-1);
-
+            handleDownVote: (userId: string, majorId: string) => {
+              handleVote(userId, majorId, -1);
+              handleVote(userId, majorId, -1);
             },
-            caseId:caseState?caseState!._id:""
-
+            caseId: caseState ? caseState!._id : "",
           }}
         >
-         {(caseState?<CaseDisplay caseInformation={caseState} />:null)} 
+          {caseState ? <CaseDisplay caseInformation={caseState} /> : null}
         </Context.Provider>
       </>
     );
@@ -166,13 +160,8 @@ const CaseShow: React.FC = () => {
         if (majorId === tag.majors[i]._id) return tag.majors[i];
       }
     });
-  
-   
- 
-    
 
     const updateCase = async () => {
-
       try {
         const result = await api.post(`/advice/${caseState!._id}`, {
           tagName: major?.tagName,
@@ -191,66 +180,58 @@ const CaseShow: React.FC = () => {
     };
     updateCase();
   }
-  function handleVote(userId:string,majorId:string,type:number){
-const data=findAdviceVotingData(userId,majorId);
-const voting=data?.advice.voting;
-for(var i=0;i<voting!.length;i++)
-{
-  if(voting![i].userId===userIdData&&voting![i].result===type)
-  {
-    setToastMessage("لا يمكنك التقييم أكثر من مرة");
-    setShowToast(true);
-    return;
-  }
-}
-const updateAdvice = async () => {
- 
-  try {
-    const result = await api.post(`/voting/${caseState!._id}`, {
-      tagName:data?.tagName,
-      majorId:data?.majorId,
-      advice:data?.advice,
-      vote:{userId:userIdData,result:type}
-    });
-    if (result.status === 200) {
-      setCaseState(result.data);
+  function handleVote(userId: string, majorId: string, type: number) {
+    const data = findAdviceVotingData(userId, majorId);
+    const voting = data?.advice.voting;
+    for (var i = 0; i < voting!.length; i++) {
+      if (voting![i].userId === userIdData && voting![i].result === type) {
+        setToastMessage("لا يمكنك التقييم أكثر من مرة");
+        setShowToast(true);
+        return;
+      }
     }
-  } catch (err) {
-    console.log(err.message);
+    const updateAdvice = async () => {
+      try {
+        const result = await api.post(`/voting/${caseState!._id}`, {
+          tagName: data?.tagName,
+          majorId: data?.majorId,
+          advice: data?.advice,
+          vote: { userId: userIdData, result: type },
+        });
+        if (result.status === 200) {
+          setCaseState(result.data);
+        }
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    updateAdvice();
   }
-};
-updateAdvice();
+  function findAdviceVotingData(userId: string, majorId: string) {
+    let author = null;
+    for (var i = 0; i < caseState!.tags.length; i++) {
+      const tag = caseState!.tags![i];
+      for (var j = 0; j < tag.majors.length; j++) {
+        const major = tag.majors[j];
+        if (major._id === majorId)
+          for (var k = 0; k < major.advices!.length; k++) {
+            const advice = major.advices![k];
 
-}
-function findAdviceVotingData(userId:string,majorId:string)
-{
-  let author=null;
-for(var i=0;i<caseState!.tags.length;i++)
-{
-const tag=caseState!.tags![i];
-for(var j=0;j<tag.majors.length;j++)
-{
-const major=tag.majors[j];
-if(major._id===majorId)
-for(var k=0;k<major.advices!.length;k++)
-{
-const advice=major.advices![k];
-
-if(advice.userId===userId)
-{ 
-  author={tagName:tag.tagName,majorId:major._id,advice:advice};
-  break;
-}
-
-}
-if(author)
-break;
-}
-if(author)
-break;
-}
-return author;
-}
+            if (advice.userId === userId) {
+              author = {
+                tagName: tag.tagName,
+                majorId: major._id,
+                advice: advice,
+              };
+              break;
+            }
+          }
+        if (author) break;
+      }
+      if (author) break;
+    }
+    return author;
+  }
   return (
     <>
       {component}

@@ -1,7 +1,6 @@
 import {  IonCol, IonRow } from "@ionic/react";
-import React, { useContext } from "react";
+import React from "react";
 import major from "../../../../../../Models/major";
-import { Context } from "../../../../../../pages/CaseShow/CaseShow";
 import classes from "./MajorElement.module.css"
 
 interface Props{
@@ -9,16 +8,7 @@ interface Props{
 }
 const MajorElement :React.FC<Props>=({major})=>
 {let element=null;
-    const context=useContext(Context);
- let pointsData=0;
-    if(context.majorChoices[0]!=="")
-{   for(var i=0;i<context.majorChoices.length;i++)
-    if(major?._id===context.majorChoices[i])
-    {pointsData+=5;
-    break;
-    }
-
-}
+    
 if(major)
 {
    element=(
