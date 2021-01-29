@@ -33,7 +33,7 @@ export const LOCAL_STORAGE_KEY_LOCATION="koliyati.prefrences.location";
 export const LOCAL_STORAGE_KEY_DESCRIPTION="koliyati.prefrences.description";
 export const LOCAL_STORAGE_KEY_CREATED="koliyati.created";
 
-export const BASE_URL="http://localhost:8080/api/v1/";
+export const BASE_URL="https://kolyati.herokuapp.com/api/v1/";
 const App: React.FC = () =>{    
   const [firstTime,setFirstTime]=useState<boolean>(true);
 
