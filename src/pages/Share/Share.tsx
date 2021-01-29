@@ -36,11 +36,13 @@ const SharePage: React.FC = () => {
   let canShare = null;
   let cassesElements = null;
 useEffect(() => {
+  let isMounted = true;
+
   async function fetchCasses(){
     try{
    const res=await api.get(`/user/${userId}`);
  if(res.status===200)
- {
+ {if(isMounted)
    setCasses(res.data);
  }
  }
@@ -49,6 +51,8 @@ useEffect(() => {
    }
   }
   fetchCasses();
+  return () => { isMounted = false };
+
 }, [api,userId]);
   if (casses.length > 0) { 
      

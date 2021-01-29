@@ -21,16 +21,18 @@ const Home: React.FC = () => {
   });
   const [casses, setCases] = useState<Array<CaseShortData>>([]);
   useEffect(() => {
+    let isMounted = true;
     const fetchData = async () => {
       try {
         const data = await api.get("/cases");
-
+        if (isMounted)
         setCases(data.data);
       } catch (err) {
         alert(err.message);
       }
     };
     fetchData();
+    return () => { isMounted = false };
   }, [api]);
   const fullHeight = { height: "100%" };
   return (

@@ -17,10 +17,12 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
   });
   const [shortCaseData, setShortCaseData] = useState<CaseShortData>();
   useEffect(() => {
+    let isMounted=true;
+
     const fetchShortCase = async () => {
       try {
         const result = await api.get(`/caseSearch/${caseInformation!._id}`);
-        if (result.status === 200) {
+        if (result.status === 200&&isMounted) {
           setShortCaseData(result.data[0]);
         }
       } catch (err) {
@@ -28,6 +30,8 @@ const CaseDisplay: React.FC<Props> = ({ caseInformation }) => {
       }
     };
     if (caseInformation !== undefined) fetchShortCase();
+    return () => { isMounted = false };
+
   }, [caseInformation,api]);
 
   let caseData = null;

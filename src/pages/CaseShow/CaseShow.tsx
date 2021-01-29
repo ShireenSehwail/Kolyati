@@ -43,21 +43,26 @@ const CaseShow: React.FC = () => {
   const [toastMessage, setToastMessage] = useState<string>("");
   const [caseState, setCaseState] = useState<Case>();
   useEffect(() => {
+    let isMounted=true;
+
     const fetchCase = async () => {
       try {
         const url = window.location.href;
         const caseId = url.substring(url.lastIndexOf("/"));
         const result = await api.get(`/case${caseId}`);
         if (result.status === 200) {
-          setCreated(caseId);
-          setCaseState(result.data);
+          if(isMounted)
+          {setCreated(caseId);
+          setCaseState(result.data);}
         }
       } catch (err) {
         console.log(err.message);
       }
     };
     fetchCase();
-  });
+    return () => { isMounted = false };
+
+  },[api]);
   useEffect(() => {
     if (caseState?.userId) {
       setMajorChoices(caseState.majorsChoice);

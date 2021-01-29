@@ -15,10 +15,12 @@ const CaseResults: React.FC = () => {
   const context = useContext(Context);
   const [topTwoMajors, setTopTwoMajors] = useState<major[]>();
   useEffect(() => {
+    let isMounted=true;
     const fetchTopTwoMajors = async () => {
       try {
         const result = await api.get(`/topMajors/${context.caseId}`);
         if (result.status === 200) {
+          if(isMounted)
           setTopTwoMajors(result.data);
         }
       } catch (err) {
@@ -26,6 +28,8 @@ const CaseResults: React.FC = () => {
       }
     };
     if (context.caseId !== "") fetchTopTwoMajors();
+    return () => { isMounted = false };
+
   }, [context,api]);
   return (
     <IonList className={classes.marginButtom}>
