@@ -1,8 +1,9 @@
 
 import classes from "./AdviceElement.module.css";
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle,  IonCol, IonGrid, IonInput, IonLabel, IonRow, IonSelect, IonSelectOption } from "@ionic/react";
-import React, { useContext, useRef }   from "react";
+import React, { useContext, useRef, useState }   from "react";
 import { Context } from "../../../../../../pages/CaseShow/CaseShow";
+import { fold } from "../../../../../../containers/App";
 
  const AdviceElement :React.FC<{majorId:string}>=({majorId})=>{
     const difficalityRef=useRef<HTMLIonSelectElement>(null);
@@ -15,6 +16,7 @@ import { Context } from "../../../../../../pages/CaseShow/CaseShow";
 function handleSend(){
 handleClick.handleClick(""+nameInputRef.current?.value,majorId,[difficalityRef.current?.value,staffRef.current?.value,jobRef.current?.value,transportationRef.current?.value],""+descriptionInputRef.current?.value);
 }
+
   return(
 <IonCard>
           <IonCardHeader>
@@ -112,6 +114,8 @@ ref={transportationRef}>
                   placeholder="إسمي"
                   className={classes.inputShow}
                   ref={nameInputRef}
+                  maxlength={15}
+
                   />
               </IonCol>
               </IonRow>
@@ -124,6 +128,8 @@ ref={transportationRef}>
                   placeholder="أعتقد أن.."
                   className={classes.inputShow}
                   ref={descriptionInputRef}
+                  type="text"
+                  maxlength={100}
                   />
               </IonCol>
             </IonRow> 

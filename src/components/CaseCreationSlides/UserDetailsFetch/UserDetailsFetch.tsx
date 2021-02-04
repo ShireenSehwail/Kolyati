@@ -49,6 +49,7 @@ type="text"
 value={name}
 ref={nameInputRef}
 onIonChange={handleNameChange}
+maxlength={15}
 ></IonInput>
 </IonItem>
 </IonCol>
@@ -92,6 +93,7 @@ type="text"
 value={description}
 ref={descriptionInputRef}
 onIonChange={handleDescriptionChange}
+maxlength={150}
 ></IonInput>
 </IonItem>
 </IonCol>

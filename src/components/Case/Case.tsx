@@ -8,6 +8,8 @@ import {
   IonCol,
   IonGrid,
   IonRow,
+  IonLabel,
+  IonText,
 } from "@ionic/react";
 import React from "react";
 import { useHistory } from "react-router";
@@ -16,6 +18,7 @@ import ar from "timeago.js/lib/lang/ar";
 import * as timeago from "timeago.js";
 import classes from "./Case.module.css";
 import { chatbubblesOutline, flameOutline } from "ionicons/icons";
+import { fold } from "../../containers/App";
 const Case: React.FC<{
   id: string;
   author: string;
@@ -69,7 +72,9 @@ const Case: React.FC<{
         </IonCardTitle>
       </IonCardHeader>
       <IonCardContent className={classes.description}>
-        {props.description}
+<div className={classes.Text}>
+{fold(props.description, 50,[]).join('\n')}
+</div>
       </IonCardContent>
     </IonCard>
   );

@@ -1,6 +1,7 @@
 .list{
     margin: 16px;
     background-color: rgb(236, 236, 236);
+    margin-bottom: 48px;
 }
 .list {
     /* Add shadows to create the "card" effect */
