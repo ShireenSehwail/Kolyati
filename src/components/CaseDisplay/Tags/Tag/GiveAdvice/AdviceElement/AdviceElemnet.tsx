@@ -1,9 +1,8 @@
 
 import classes from "./AdviceElement.module.css";
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle,  IonCol, IonGrid, IonInput, IonLabel, IonRow, IonSelect, IonSelectOption } from "@ionic/react";
-import React, { useContext, useRef, useState }   from "react";
+import React, { useContext, useRef }   from "react";
 import { Context } from "../../../../../../pages/CaseShow/CaseShow";
-import { fold } from "../../../../../../containers/App";
 
  const AdviceElement :React.FC<{majorId:string}>=({majorId})=>{
     const difficalityRef=useRef<HTMLIonSelectElement>(null);
